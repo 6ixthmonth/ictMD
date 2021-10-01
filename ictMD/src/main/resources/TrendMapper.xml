@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sesoc.ictmd.Interface.TrendDAO">
+	
+	<select id="allDataCount" resultType="int">
+		select
+			count(*)
+		from analysis
+	</select>
+	
+	<select id="BasicModelChart" resultType="BasicTrendData">
+	 <![CDATA[
+		select * from 
+			(select
+				model as dataName,
+				count(model) as dataNum,
+				round(count(model)/(select count(*) from analysis where model is not null)*100,2) as dataPercentage
+			from analysis
+	        where model is not null 
+			group by model
+			order by dataNum desc)
+        where rownum <= 10
+    ]]>
+        
+	</select>
+	
+	<select id="BasicMakeChart" resultType="BasicTrendData">
+	<![CDATA[
+		select * from 
+			(
+		select
+			make as dataName,
+			count(make) as dataNum,
+			round(count(make)/(select count(*) from analysis where make is not null)*100,2) as dataPercentage
+		from analysis
+		where make is not null
+		group by make
+		order by dataNum desc
+		)
+        where rownum <= 10
+    ]]>
+	</select>
+	
+	<select id="BasicTagChart" resultType="BasicTrendData">
+		<![CDATA[
+		select * from
+			(select
+		    	Upper(replace(tags,' ','')) as dataName,
+		    	count(tags) as dataNum
+		    from analysis
+		    where tags is not null
+		    group by tags
+		    order by dataNum desc)
+		    where rownum <= 30
+		]]>
+		<!-- and searchdate = to_char(sysdate,'YY/MM/DD') -->
+	</select>
+
+</mapper>
+

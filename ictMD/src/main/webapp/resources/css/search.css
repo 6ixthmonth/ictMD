@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+#dim {
+	background-color: white;
+	opacity: 0.8;
+	filter: alpha(opacity = 80);
+	/* IE7 & 8 */
+	
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+}
+
+#searchForm {
+	margin: 0 auto;
+}
+
+#modelInfo {
+	margin-top: 60px;
+	margin-bottom: 60px;
+}
+
+#modelTitle {
+	font-size: 300%;
+	font-style: italic;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 0px 1px #303030, 0px 0px 11px #337ab7;
+}
+
+.tags {
+	display: inline-block;
+	text-shadow: 3px 3px 5px rgba(32, 32, 32, 0.2);
+}
+
+#text {
+	width: 600px; 
+	border-color: skyblue;
+	border-width: 3px;
+}
+
+#searchButton {
+	width: 80px; 
+	border-color: skyblue; 
+	background-color: skyblue;
+	color: white;
+	font-weight: bold;
+	border-width: 3px;
+}
+
+#layer {
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	z-index: 100;
+	
+	width: 1024px;
+	margin-bottom: 30px;
+	margin-left: -512px;
+	
+	text-align: center;
+	background: #fff;
+	border: solid 1px #ccc;
+	box-shadow: 0px 10px 20px #333;
+}
+
+#close {
+	color: #303030;
+	font-weight: bold;
+	
+	position: absolute;
+	top: -25px;
+	right: 50%;
+	margin-right: -512px;
+	z-index: 100;
+}
+
+.detail {
+	color: #337ab7;
+	font-weight: bold;
+	text-align:left;
+	margin-left:20px;
+}
+
+#taginput {
+	color: #337ab7;
+	font-weight: bold;
+	text-align: left;
+	margin-bottom : 10px;
+	border-color: skyblue;
+	border-width: 2px;
+}
+
+#arrange {
+	padding-right: 30px;
+}
+
+#timeasc, #timedesc, #bigger, #smaller {
+	width: 25px;
+	height: 25px;
+	margin-right: 3px;
+}
+
+#timeasc:hover, #timedesc:hover, #bigger:hover, #smaller:hover {
+	opacity: 0.5;
+}
+
+#timeasc:active, #timedesc:active, #bigger:active, #smaller:active {
+	opacity: 0;
+}
+
+#list img {
+	box-shadow: 3px 3px 5px rgba(32, 32, 32, 0.2);
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+#exifCamera, #exifPicture {
+	box-shadow: 3px 3px 5px rgba(32, 32, 32, 0.2);
+}
+
+#exifCamera td, #exifPicture td {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border: 2px solid skyblue;
+}

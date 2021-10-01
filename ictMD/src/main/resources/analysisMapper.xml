@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sesoc.ictmd.Interface.AnalysisDAO">
+	<insert id="write" parameterType="BAD">
+		INSERT INTO
+			analysis
+		VALUES (
+			  anaSeq.nextVal
+			, #{tags}
+			, #{elements}
+			, SYSDATE
+			, #{make}
+			, #{model}
+		)
+	</insert>
+	
+	<select id="readAll" resultType="BAD">
+		SELECT
+			*
+		FROM
+			analysis
+	</select>
+	
+	<select id="check" parameterType="String" resultType="History">
+		SELECT
+			  id
+			, views
+			, favorites
+			, comments
+		FROM
+			history
+		WHERE
+			id = #{id}
+	</select>
+	
+	<insert id="view" parameterType="String">
+		INSERT INTO
+			history
+		VALUES (
+			  #{id}
+			, 1
+			, 0
+			, 0
+		)
+	</insert>
+	
+	<update id="renew" parameterType="String">
+		UPDATE
+			history
+		SET
+			views = views + 1
+		WHERE
+			id = #{id}
+	</update>
+	
+	<select id="selectModelByMake" parameterType="String" resultType="CAD">
+		SELECT
+			model AS "name", COUNT(model) AS "count"
+		FROM
+			analysis
+		GROUP BY
+			model, make
+		HAVING
+			make = #{word}
+		ORDER BY
+			2 DESC
+	</select>
+	
+	<select id="selectElementsByModel" parameterType="String" resultType="CAD">
+		SELECT
+			elements AS "name", COUNT(elements) AS "count"
+		FROM
+			analysis
+		GROUP BY
+			elements, model
+		HAVING
+			model = #{word}
+		ORDER BY
+			2 DESC
+	</select>
+	
+	<select id="selectModelByElements" parameterType="String" resultType="CAD">
+		SELECT
+			model AS "name", COUNT(model) AS "count"
+		FROM
+			analysis
+		GROUP BY
+			model, elements
+		HAVING
+			elements = #{word}
+		ORDER BY
+			2 DESC
+	</select>
+</mapper>
