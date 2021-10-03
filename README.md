@@ -1,5 +1,5 @@
 # 사진 검색 및 트렌드 분석 웹 애플리케이션 - ictMD
-<img src="https://user-images.githubusercontent.com/42332051/135750732-90e542cb-47af-453c-be04-8b4f65139834.gif">
+<img src="https://user-images.githubusercontent.com/42332051/135750932-4fb862ac-0f83-4053-b56b-6d3ece7151ca.gif">
 
 ## 개요
 키워드를 입력하여 **사진을 검색**할 수 있다. 이때 *화소 수, 셔터 속도, 오토 포커스 여부 등* 사진을 촬영할 때 적용된 **카메라 설정값 또한 확인**할 수 있다.
