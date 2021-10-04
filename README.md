@@ -27,6 +27,8 @@
    - Highcharts: 워드클라우드, 그래프 출력
    - OpenWeatherMap: 실시간 주요 도시 날씨 정보 확인
    - eBay API: 카메라 제품 검색
+5. Web App Server
+   - Apache Tomcat 9.0.50
 
 ## 주요 기능
 
