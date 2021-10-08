@@ -33,7 +33,7 @@
 ## 주요 기능
 
 1. **메인 화면**
-   - <img src="https://user-images.githubusercontent.com/42332051/135755683-e9b90ef2-11f6-46ef-bd58-f9db2b6b40a6.gif">
+   - <img src="https://user-images.githubusercontent.com/42332051/136549678-c70e9ccc-5608-435e-b373-1bda8bafb99e.gif">
    - *WebGL Earth 라이브러리*를 이용해서 지구본 이미지를 표시한다. 지구본에 세계 22곳의 랜드마크를 국기 이미지의 마커로 표시한다.
    - *Menucool jQuery Slider 라이브러리*를 이용해서 이미지 슬라이더를 표시한다. 슬라이더에 세계 22곳의 랜드마크를 샘플 이미지로 표시한다.
    - 지구본 마커와 슬라이더 이미지에 커서를 올리면 해당 랜드마크 이름을 이용해서 **실시간으로 이미지 한 장을 검색해서 표시**한다.
