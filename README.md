@@ -49,12 +49,12 @@
    - <strike>카메라 기종명을 이용해서 검색하면 해당 기기의 외관 사진과 상세 스펙을 추가로 표시한다.</strike>(기종명, 사진, 스펙 정보를 사전에 하드코딩으로 입력)
 
 3. **트렌드 분석 페이지**
-   - <img src="https://user-images.githubusercontent.com/42332051/135755692-ae8c073d-4009-4013-8792-564219ea3654.gif">
+   - <img src="https://user-images.githubusercontent.com/42332051/136640155-7134b702-6972-480c-b240-9dd040f70cc3.gif">
    - **최다 검색어 30개**를 워드클라우드 형태로 표시한다. 검색어를 클릭하면 검색 페이지로 이동하고 해당 *검색어를 이용해서 검색 기능을 실행*한다.
-   - <img src="https://user-images.githubusercontent.com/42332051/135755694-0ebe444a-fb01-4b46-a699-d3469004588c.gif">
+   - <img src="https://user-images.githubusercontent.com/42332051/136640156-d3f45490-ff0d-4e5d-a37f-e7e0497694d6.gif">
    - 데이터베이스에 누적된 정보를 이용해서, 사용자가 열람한 사진들 중 **가장 많이 사용된 카메라 브랜드 10개**를 원 그래프와 표의 형태로 표시한다.
    - *카메라 브랜드 원 그래프 중 한 조각을 클릭*하면, **해당 브랜드 중 가장 많이 사용된 모델 10개**를 순서대로 표시한다.
-   - <img src="https://user-images.githubusercontent.com/42332051/135755697-235efcd1-927b-41c7-91c7-f20fa4bc6825.gif">
+   - <img src="https://user-images.githubusercontent.com/42332051/136640157-248ab973-c9bc-4512-b8c7-d64528d531cd.gif">
    - 데이터베이스에 누적된 정보를 이용해서, 사용자가 열람한 사진들 중 **가장 많이 사용된 카메라 모델 10개**를 원 그래프와 표의 형태로 표시한다.
    - *카메라 모델 원 그래프 중 한 조각을 클릭*하면, **해당 모델 중 가장 많이 촬영된 대상 키워드 및 관련 단어 10개**를 순서대로 표시한다.
 
