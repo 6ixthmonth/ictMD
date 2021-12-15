@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +27,15 @@ import com.sesoc.ictmd.vo.ModelDetail;
  * Handles requests for the application home page.
  */
 @Controller
+@PropertySource("classpath:key.properties")
 public class SearchController {
+	
+	@Value("${FLICKR_API_KEY}")
+	private String apiKey;
+	
+	@Value("${FLICKR_SHARED_SECRET}")
+	private String sharedSecret;
+	
 	@Autowired
 	SqlSession session;
 	
@@ -57,7 +67,7 @@ public class SearchController {
 	// 메인 화면에서 최신 사진 하나를 찾아오는 메소드
 	@RequestMapping(value = "/brandnew", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> brandnew(String tag) {
-		api = new SearchAPI();
+		api = new SearchAPI(apiKey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		String[] tags = new String[1];
@@ -74,7 +84,7 @@ public class SearchController {
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> list(String[] tags, HttpSession ss) {
 		// 검색 API와 리턴 객체를 초기화
-		api = new SearchAPI();
+		api = new SearchAPI(apiKey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		// 검색 결과를 리턴 객체에 저장
@@ -108,7 +118,7 @@ public class SearchController {
 	@RequestMapping(value = "/detail", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> detail(String id, HttpServletRequest request, HttpSession ss) {
 		// 검색 API와 리턴 객체를 초기화
-		api = new SearchAPI();
+		api = new SearchAPI(apiKey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		// 상세 검색 결과를 요청
