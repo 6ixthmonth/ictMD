@@ -27,23 +27,21 @@ import com.sesoc.ictmd.api.ImageRecognition;
 
 /**
  * 
- * @author yoon seoyul 이미지 경로를 웹에서 받아 로컬에 저장한 후 google API를 이용해 분석하기 위한 로컬의 웹경로를
- *         담은 imageTmp 이용을 위해 get 매서드를 두었다. 객체 생성과 동시에 이미지를 만든다. imgResize()
- *         이미지를 리사이징한다. fileClear() 사용한 이미지를 삭제한다.
+ * @author yoon seoyul
+ * 이미지 경로를 웹에서 받아 로컬에 저장한 후 google API를 이용해 분석하기 위한 로컬의 웹경로를
+ * 담은 imageTmp 이용을 위해 get 매서드를 두었다. 객체 생성과 동시에 이미지를 만든다.
+ * imgResize() 이미지를 리사이징한다.
+ * fileClear() 사용한 이미지를 삭제한다.
  * 
  */
-
 public class CreateImg extends Thread {
-	// 우리의 도메인입니다.
-	// private static final String OUR_DOMAIN = "http://203.233.199.202:80/ictmd"; // 정병준 서버 주소
-	// private static final String OUR_DOMAIN = "http://203.233.199.203/ictmd"; // 윤서율 서버 주소
-	// private static final String OUR_DOMAIN = "http://203.233.199.204:8081/ictmd"; // 김재원 서버 주소
-	// private static final String OUR_DOMAIN = "http://203.233.199.205:80/ictmd"; // 김현우 서버 주소
-	// private static String OUR_DOMAIN = "https://ictmd.ml" ; // 배포서버용
-	private static final String OUR_DOMAIN = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+	
 	// 서버 설정할 때 방화벽 인바운드 규칙에 해당 포트를 추가해야 함
+	private static final String OUR_DOMAIN = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
+	
 	private HttpServletRequest request;
 	private UUID uuid = UUID.randomUUID();
+	
 	private String imageFile; // 사용자로부터 이미지 경로를 얻는다.
 	private String imageTmp; // 얻은 이미지가 저장된 서버의 웹에서의 임시 경로
 	private String imageTmpFile; // 로컬에서의 이미지 경로
@@ -52,6 +50,7 @@ public class CreateImg extends Thread {
 	private String[] tags; 
 	private String make;
 	private String model;
+	
 	private SqlSession session;
 	private InetAddress local;
 	
@@ -89,9 +88,6 @@ public class CreateImg extends Thread {
 		}
 		
 	}
-
-	
-
 	
 	@Override
 	public void run() {

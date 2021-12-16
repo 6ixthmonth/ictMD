@@ -6,8 +6,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.REST;
@@ -19,13 +17,13 @@ import com.flickr4java.flickr.photos.PhotoList;
 import com.flickr4java.flickr.photos.PhotosInterface;
 import com.flickr4java.flickr.photos.SearchParameters;
 import com.flickr4java.flickr.tags.Tag;
+
 import com.sesoc.ictmd.vo.BrandNewVO;
 import com.sesoc.ictmd.vo.ComplexPhoto;
 import com.sesoc.ictmd.vo.SimplePhoto;
 
 public class SearchAPI {
 	// API를 초기화하여 작동시키는데 필요한 데이터
-	private String apiKey;
 	private String sharedSecret;
 	
 	private static final Transport transport = new REST();
@@ -87,7 +85,6 @@ public class SearchAPI {
 	
 	// 검색 객체를 초기화하는 메소드
 	private void init(String apiKey, String sharedSecret) {
-		this.apiKey = apiKey;
 		this.sharedSecret = sharedSecret;
 		
 		f = new Flickr(apiKey, sharedSecret, transport);

@@ -22,23 +22,25 @@ import com.sesoc.ictmd.vo.BasicAnalysisData;
  * 
  * @author yoon seoyul
  * LABEL_DETECTION 사진속 요소찾기
- *  LANDMARK_DETECTION 사진속 랜드마크 (특정 건물이나 중요한 건물)
- *  WEB_DETECTION 사진을 바탕으로한 관련검색어
+ * LANDMARK_DETECTION 사진속 랜드마크 (특정 건물이나 중요한 건물)
+ * WEB_DETECTION 사진을 바탕으로한 관련검색어
  * 
  */
 public class ImageRecognition extends Thread {
+	
 	private static final String TARGET_URL = "https://vision.googleapis.com/v1p3beta1/images:annotate?"; // REST API TARGET URL
 	private static final String API_KEY = "key=AIzaSyCV2X6B5-Di_ubLyaMALNBSg4pBH3LkN2k"; // API사용을 위한키
 	private String imageTmp; // 얻은 이미지가 저장된 서버의 웹에서의 임시 경로
-	private String resultLabelDetection; //요소검색 결과
-	private String resultWebDetection; //관련검색어 결과
-	private String resultLandmarkDetection; //랜드마크검사 결과
-	private CreateImg creatimg; //분석할 이미지의 경로를 담은 객체
-	private String encode64;
+	private String resultLabelDetection; // 요소검색 결과
+	private String resultWebDetection; // 관련검색어 결과
+//	private String resultLandmarkDetection; // 랜드마크검사 결과
+	private CreateImg createImg; // 분석할 이미지의 경로를 담은 객체
+//	private String encode64;
+	
 	@Override
 	public void run() {
-		this.imageTmp = creatimg.getImageTmp();
-		this.encode64 = creatimg.getImageEncode64();
+		this.imageTmp = createImg.getImageTmp();
+//		this.encode64 = creatimg.getImageEncode64();
 		System.out.println("서버 경로 : " + imageTmp);
 		
 		resultLabelDetection = doLabelDetection();
@@ -112,14 +114,14 @@ public class ImageRecognition extends Thread {
 		// 이미지 인식 끝
 		
 		// 데이터 가공 후 DB 입력 작업 시작
-		SqlSession session = creatimg.getSession();
+		SqlSession session = createImg.getSession();
 		AnalysisDAO dao = session.getMapper(AnalysisDAO.class);
-		for (String tag : creatimg.getTags()) {
+		for (String tag : createImg.getTags()) {
 			BasicAnalysisData bad = new BasicAnalysisData();
 			bad.setTags(tag.replace(" ", "").toUpperCase());
 			bad.setElements(WDstr.toUpperCase());
-			bad.setMake(creatimg.getMake());
-			bad.setModel(creatimg.getModel());
+			bad.setMake(createImg.getMake());
+			bad.setModel(createImg.getModel());
 			System.out.println(bad);
 			dao.write(bad);
 		}
@@ -128,7 +130,7 @@ public class ImageRecognition extends Thread {
 	
 	public ImageRecognition(CreateImg creatimg) {
 		super();
-		this.creatimg = creatimg;
+		this.createImg = creatimg;
 	}
 	
 
