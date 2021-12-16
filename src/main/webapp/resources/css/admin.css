@@ -1,4 +1,12 @@
+#back {
+	align: center;
+	background-image: url("/resources/img/searchImg/camera_black_center.jpg");
+	background-size: 100%;
+	padding-bottom: 700px;
+	margin-left: 85px;
+	margin-right: 150px;
+}
 
 .hover {
-    background-color: #666666;
+	background-color: #666666;
 }
