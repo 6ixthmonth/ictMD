@@ -1,4 +1,4 @@
-package com.sesoc.ictmd;
+package com.sesoc.ictmd.controller;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;

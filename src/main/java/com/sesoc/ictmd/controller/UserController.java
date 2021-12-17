@@ -1,4 +1,4 @@
-package com.sesoc.ictmd;
+package com.sesoc.ictmd.controller;
 
 import javax.servlet.http.HttpSession;
 

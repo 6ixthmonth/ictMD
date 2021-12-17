@@ -29,7 +29,7 @@ import com.sesoc.ictmd.vo.BasicAnalysisData;
 public class ImageRecognition extends Thread {
 	
 	private static final String TARGET_URL = "https://vision.googleapis.com/v1p3beta1/images:annotate?"; // REST API TARGET URL
-	private static final String API_KEY = "key=AIzaSyCV2X6B5-Di_ubLyaMALNBSg4pBH3LkN2k"; // API사용을 위한키
+	private String apiKey; // API사용을 위한키
 	private String imageTmp; // 얻은 이미지가 저장된 서버의 웹에서의 임시 경로
 	private String resultLabelDetection; // 요소검색 결과
 	private String resultWebDetection; // 관련검색어 결과
@@ -131,6 +131,7 @@ public class ImageRecognition extends Thread {
 	public ImageRecognition(CreateImg creatimg) {
 		super();
 		this.createImg = creatimg;
+		this.apiKey = createImg.getVisionAPIkey();
 	}
 	
 
@@ -141,7 +142,7 @@ public class ImageRecognition extends Thread {
 	 */
 	public String doLabelDetection () {
 		try {
-			URL serverUrl = new URL(TARGET_URL + API_KEY);
+			URL serverUrl = new URL(TARGET_URL + "key=" + apiKey);
 			URLConnection urlConnection = serverUrl.openConnection();
 			HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
 			httpConnection.setRequestMethod("POST");
@@ -179,7 +180,7 @@ public class ImageRecognition extends Thread {
 
 	public String doLandmarkDetection() {
 		try {
-			URL serverUrl = new URL(TARGET_URL + API_KEY);
+			URL serverUrl = new URL(TARGET_URL + "key=" + apiKey);
 			URLConnection urlConnection = serverUrl.openConnection();
 			HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
 			httpConnection.setRequestMethod("POST");
@@ -214,7 +215,7 @@ public class ImageRecognition extends Thread {
 
 	public String doWebDetection() {
 		try {
-			URL serverUrl = new URL(TARGET_URL + API_KEY);
+			URL serverUrl = new URL(TARGET_URL + "key=" + apiKey);
 			URLConnection urlConnection = serverUrl.openConnection();
 			HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
 			httpConnection.setRequestMethod("POST");

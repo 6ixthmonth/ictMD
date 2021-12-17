@@ -1,4 +1,4 @@
-package com.sesoc.ictmd;
+package com.sesoc.ictmd.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,10 +31,13 @@ import com.sesoc.ictmd.vo.ModelDetail;
 public class SearchController {
 	
 	@Value("${FLICKR_API_KEY}")
-	private String apiKey;
+	private String flickrAPIkey;
 	
 	@Value("${FLICKR_SHARED_SECRET}")
 	private String sharedSecret;
+	
+	@Value("${VISION_API_KEY}")
+	private String visionAPIkey;
 	
 	@Autowired
 	SqlSession session;
@@ -67,7 +70,7 @@ public class SearchController {
 	// 메인 화면에서 최신 사진 하나를 찾아오는 메소드
 	@RequestMapping(value = "/brandnew", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> brandnew(String tag) {
-		api = new SearchAPI(apiKey, sharedSecret);
+		api = new SearchAPI(flickrAPIkey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		String[] tags = new String[1];
@@ -84,7 +87,7 @@ public class SearchController {
 	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> list(String[] tags, HttpSession ss) {
 		// 검색 API와 리턴 객체를 초기화
-		api = new SearchAPI(apiKey, sharedSecret);
+		api = new SearchAPI(flickrAPIkey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		// 검색 결과를 리턴 객체에 저장
@@ -118,7 +121,7 @@ public class SearchController {
 	@RequestMapping(value = "/detail", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> detail(String id, HttpServletRequest request, HttpSession ss) {
 		// 검색 API와 리턴 객체를 초기화
-		api = new SearchAPI(apiKey, sharedSecret);
+		api = new SearchAPI(flickrAPIkey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
 		
 		// 상세 검색 결과를 요청
@@ -150,7 +153,7 @@ public class SearchController {
 		if (e.containsKey("Model")) {
 			model = e.get("Model").toUpperCase();
 		}
-		createImg = new CreateImg(p.getUrl(), request, tags, make, model, session);
+		createImg = new CreateImg(p.getUrl(), request, tags, make, model, session, visionAPIkey);
 		createImg.start();
 		
 		return result;

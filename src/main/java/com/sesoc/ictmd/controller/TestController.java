@@ -1,4 +1,4 @@
-package com.sesoc.ictmd;
+package com.sesoc.ictmd.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

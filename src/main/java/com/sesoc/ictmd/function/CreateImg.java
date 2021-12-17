@@ -54,7 +54,9 @@ public class CreateImg extends Thread {
 	private SqlSession session;
 	private InetAddress local;
 	
-	public CreateImg(String imageFile, HttpServletRequest request, String[] tags, String make, String model, SqlSession session) {
+	private String visionAPIkey;
+	
+	public CreateImg(String imageFile, HttpServletRequest request, String[] tags, String make, String model, SqlSession session, String visionAPIkey) {
 		super();
 		this.request = request;
 		this.imageFile = imageFile;
@@ -64,6 +66,7 @@ public class CreateImg extends Thread {
 		this.make = make;
 		this.model = model;
 		this.session = session;
+		this.visionAPIkey = visionAPIkey;
 
 		System.out.println("기원 주소 : " + imageFile);
 		try {
@@ -129,6 +132,10 @@ public class CreateImg extends Thread {
 	
 	public SqlSession getSession() {
 		return session;
+	}
+	
+	public String getVisionAPIkey() {
+		return visionAPIkey;
 	}
 
 	// 파일 base64 변환
