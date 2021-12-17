@@ -26,7 +26,6 @@ public class UserController {
 
 	@RequestMapping(value = "loginCheck", method = RequestMethod.POST)
 	public @ResponseBody Integer loginCheck(UserBase ub, HttpSession hsession) {
-
 		UserDAO uDAO = session.getMapper(UserDAO.class);
 
 		UserBase result = uDAO.checkUser(ub);

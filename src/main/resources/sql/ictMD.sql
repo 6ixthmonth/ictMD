@@ -1,16 +1,3 @@
-create table userBase (
-    userid varchar2(100) primary key,
-    userpwd varchar2(100) not null,
-    username varchar2(100) not null
-);
-
-create table userDetail (
-    userid varchar2(100) references userBase,
-    birth varchar2(100),
-    model varchar2(100),
-    favorite varchar2(100)
-);
-
 create table modelBase (
     model varchar2(100) not null
 );

@@ -24,4 +24,5 @@ public class MVCInterceptor extends HandlerInterceptorAdapter{
 		} else
 			return true;
 	}
+	
 }

@@ -6,10 +6,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.sesoc.ictmd.Interface.UserDAO">
 	
 	<insert id="insertUserBase" parameterType="userBase">
-		insert into userbase (
-			userid,
-			userpwd,
-			username
+		insert into user_basic (
+			user_id,
+			user_pw,
+			user_nm
 		) values (
 			#{userId},
 			#{userPwd},
@@ -18,73 +18,84 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<insert id="insertUserDetail" parameterType="userDetail">
-		insert into userdetail(
-			userid
+		insert into user_detail(
+			user_id
 			<if test="birth != null">
-			, birth
+				, birth
 			</if>
 			<if test="model != null">
-			, model
+				, model
 			</if>
 			<if test="favorite != null">
-			, favorite
+				, favorite
 			</if>
 		) values (
 			#{userId}
 			<if test="birth != null">
-			, #{birth}
+				, #{birth}
 			</if>
 			<if test="model != null">
-			, #{model}
+				, #{model}
 			</if>
 			<if test="favorite != null">
-			, #{favorite}
+				, #{favorite}
 			</if>
 		)
 	</insert>
 	
 	<select id="checkUser" parameterType="userBase" resultType="userBase">
 		select
-			userId,
-			userName
-		from userBase
-		where userId=#{userId} and userPwd=#{userPwd}
+			user_id,
+			user_nm
+		from
+			user_basic
+		where
+			user_id like #{userId}
+			and
+			user_pw like #{userPwd}
 	</select>
 	
 	<select id="checkEmail" parameterType="userBase" resultType="userBase">
 		select
-			userId
-		from userBase
-		where userId=#{userId}
+			user_id
+		from
+			user_basic
+		where
+			user_id like #{userId}
 	</select>
 	
-	<delete id="secesionUser" parameterType="userBase">
-		delete from userBase where userId=#{userId}
-	</delete>
-	
 	<update id="fixUserBase" parameterType="userBase">
-			update userbase set userId = #{userId}
-			<if test="userPwd != null">
-				, userPwd=#{userPwd}
-			</if> 
-			<if test="userName != null">
-				, userName=#{userName}
-			</if>
-			where userId = #{userId}
+		update user_basic
+		set user_id = #{userId}
+		<if test="userPwd != null">
+			, user_pw = #{userPwd}
+		</if> 
+		<if test="userName != null">
+			, user_nm = #{userName}
+		</if>
+		where user_id like #{userId}
 	</update>
 	
 	<update id="fixUserDetail" parameterType="userDetail">
-		update userdetail set userId = #{userId}
-			<if test="birth != null">
-				, birth=#{birth}
-			</if> 
-			<if test="favorite != null">
-				, favorite=#{favorite}
-			</if>
-			<if test="model != null">
-				, model=#{model}
-			</if>
-			where userId = #{userId}
+		update user_detail
+		set user_id = #{userId}
+		<if test="birth != null">
+			, birth=#{birth}
+		</if> 
+		<if test="favorite != null">
+			, favorite=#{favorite}
+		</if>
+		<if test="model != null">
+			, model=#{model}
+		</if>
+		where user_id = #{userId}
 	</update>
+	
+	<delete id="secesionUser" parameterType="userBase">
+		delete from
+			user_basic
+		where
+			user_id like #{userId}
+	</delete>
 </mapper>
 

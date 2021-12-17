@@ -6,18 +6,18 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="com.sesoc.ictmd.vo.UserBase" alias="userBase"/>
 		<typeAlias type="com.sesoc.ictmd.vo.UserDetail" alias="userDetail"/>
-		<typeAlias alias="modelBase" type="com.sesoc.ictmd.vo.ModelBase"/>
-		<typeAlias alias="modelDetail" type="com.sesoc.ictmd.vo.ModelDetail"/>
+		<typeAlias type="com.sesoc.ictmd.vo.ModelBase" alias="modelBase"/>
+		<typeAlias type="com.sesoc.ictmd.vo.ModelDetail" alias="modelDetail"/>
 		<typeAlias type="com.sesoc.ictmd.vo.BasicAnalysisData" alias="BAD"/>
 		<typeAlias type="com.sesoc.ictmd.vo.BasicTrendData" alias="BasicTrendData"/>
 		<typeAlias type="com.sesoc.ictmd.vo.HistoryVO" alias="History"/>
 		<typeAlias type="com.sesoc.ictmd.vo.ComplexAnalysisData" alias="CAD"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="UserMapper.xml"/>
-		<mapper resource="ModelBaseMapper.xml"/>
-		<mapper resource="ModelDetailMapper.xml"/>
-		<mapper resource="analysisMapper.xml"/>
-		<mapper resource="TrendMapper.xml"/>
+		<mapper resource="classpath:/mappers/UserMapper.xml"/>
+		<mapper resource="classpath:/mappers/ModelBaseMapper.xml"/>
+		<mapper resource="classpath:/mappers/ModelDetailMapper.xml"/>
+		<mapper resource="classpath:/mappers/analysisMapper.xml"/>
+		<mapper resource="classpath:/mappers/TrendMapper.xml"/>
 	</mappers>
 </configuration>
