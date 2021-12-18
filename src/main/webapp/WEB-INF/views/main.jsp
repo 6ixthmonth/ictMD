@@ -4,29 +4,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ICT More Detail</title>
-
-<link rel="shortcut icon" href="./resources/templete/assets/ico/favicon.png">
-<!-- Bootstrap core CSS -->
-<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
-<link rel="stylesheet" type="text/css" href="./resources/templete/dist/css/jasny-bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="./resources/templete/css/bootstrap.min.css" />
-<!-- Custom styles for this template -->
-<link rel="stylesheet" type="text/css" href="./resources/templete/css/style.css" />
-<link rel="stylesheet" type="text/css" href="./resources/templete/css/navmenu-reveal.css" />
-
-<link rel="stylesheet" type="text/css" href="./resources/css/thumbs2.css" />
-<link rel="stylesheet" type="text/css" href="./resources/css/thumbnail-slider.css" />
-
-<script type="text/javascript" src="./resources/templete/js/jquery.js"></script>
-<script type="text/javascript" src="./resources/js/thumbnail-slider.js"></script>
-<script type="text/javascript" src="http://www.webglearth.com/v2/api.js"></script>
-
+	<title>ICT More Detail</title>
+	<link rel="shortcut icon" href="./resources/templete/assets/ico/favicon.png">
+	
+	<!-- Bootstrap core CSS -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="/resources/templete/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="/resources/templete/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="/resources/templete/css/navmenu-reveal.css" rel="stylesheet">
+	<link href="/resources/templete/css/style.css" rel="stylesheet">
+	<link href="/resources/css/thumbs2.css" rel="stylesheet">
+	<link href="/resources/css/thumbnail-slider.css" rel="stylesheet">
+	
+	<!-- CSS not related to template -->
+	<link href="/resources/css/admin.css" rel="stylesheet">
+	
+	<script type="text/javascript" src="/resources/templete/js/jquery.js"></script>
+	<script type="text/javascript" src="/resources/js/thumbnail-slider.js"></script>
+	<script type="text/javascript" src="http://www.webglearth.com/v2/api.js"></script>
+	<script type="text/javascript" src="/resources/js/admin.js"></script>
+	
 <style type="text/css">
 img {
 	float: center;
