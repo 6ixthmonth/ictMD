@@ -4,12 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link href="/resources/templete/assets/ico/favicon.png" rel="shortcut icon">
+	<link rel="shortcut icon" href="/resources/templete/assets/ico/favicon.png">
 	<!-- Bootstrap core CSS -->
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link href="/resources/templete/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/resources/templete/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="/resources/templete/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/resources/templete/dist/css/jasny-bootstrap.min.css">
 	<!-- Custom styles for this template -->
 	<link href="/resources/templete/css/navmenu-reveal.css" rel="stylesheet">
 	<link href="/resources/templete/css/style.css" rel="stylesheet">

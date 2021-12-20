@@ -12,54 +12,55 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.sesoc.ictmd.Interface.ModelDetailDAO;
 import com.sesoc.ictmd.vo.ModelDetail;
 
-@Controller 
+@Controller
 public class HomeController {
 	
 	@Autowired
-	SqlSession sqlsession;
-	
+	SqlSession sqlSession;
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String init() {
+	public String redirectMain() {
 		return "redirect:/main";
 	}
-	
+
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public String gomain() {
+	public String main() {
 		return "main";
 	}
-	
-	// 사진 검색 화면으로 이동하는 메소드
+
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search() {
 		return "search";
 	}
-	
-	// 트렌드 분석 화면으로 이동하는 메소드
+
 	@RequestMapping(value = "/analysis", method = RequestMethod.GET)
 	public String analysis() {
 		return "analysis";
 	}
-	
-	// 날씨 및 가격 정보 화면으로 이동하는 메소드
+
 	@RequestMapping(value = "/weatherNshopping", method = RequestMethod.GET)
 	public String goWeather() {
 		return "weatherNshopping";
 	}
-	
-	// search 이동
+
 	@RequestMapping(value = "/goClickSearch", method = RequestMethod.POST)
-	public String goClickSearch(Model model,String tags) {
+	public String goClickSearch(Model model, String tags) {
 		model.addAttribute("mtotag", tags);
 		return "search";
 	}
-	
+
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model) {
-		ModelDetailDAO dao = sqlsession.getMapper(ModelDetailDAO.class);
+		ModelDetailDAO dao = sqlSession.getMapper(ModelDetailDAO.class);
 		List<ModelDetail> modelList = dao.allModelDetail();
 		System.out.println(modelList);
 		model.addAttribute("modelList", modelList);
-		
+
 		return "admin";
+	}
+	
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test() {
+		return "commons/testPage";
 	}
 }
