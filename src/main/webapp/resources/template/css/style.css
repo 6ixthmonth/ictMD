@@ -341,7 +341,7 @@ textarea#message {
 @media (min-width: 100px){
   button.navbar-toggle {
     width: 40px;
-    background:url(./resources/img/navicon2.jpg);
+    background:url(/resources/img/navicon2.jpg);
     z-index: 9;
     color: #337ab7;
     position: fixed;

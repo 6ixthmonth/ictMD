@@ -9,22 +9,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" href="./resources/templete/assets/ico/favicon.png">
+	<link rel="shortcut icon" href="./resources/template/assets/ico/favicon.png">
 	
 	<title>사진 검색</title>
 	
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="/ /maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link href="./resources/templete/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
+	<link href="./resources/template/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-	<link href="./resources/templete/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./resources/template/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
-	<link href="./resources/templete/css/navmenu-reveal.css" rel="stylesheet">
-	<link href="./resources/templete/css/style.css" rel="stylesheet">
-	<link href="./resources/templete/css/full-slider.css" rel="stylesheet">
-	<link href="./resources/templete/css/Icomoon/style.css" rel="stylesheet" type="text/css" />
-	<link href="./resources/templete/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
-	<link href="./resources/templete/css/lightbox.css" rel="stylesheet" type="text/css" />
+	<link href="./resources/template/css/navmenu-reveal.css" rel="stylesheet">
+	<link href="./resources/template/css/style.css" rel="stylesheet">
+	<link href="./resources/template/css/full-slider.css" rel="stylesheet">
+	<link href="./resources/template/css/Icomoon/style.css" rel="stylesheet" type="text/css" />
+	<link href="./resources/template/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
+	<link href="./resources/template/css/lightbox.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -32,7 +32,7 @@
 	      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
 	
-	<script type="text/javascript" src="./resources/templete/js/jquery.js"></script>
+	<script type="text/javascript" src="./resources/template/js/jquery.js"></script>
 	<script type="text/javascript" src="./resources/js/admin.js"></script>
 	<style>
     #back {
@@ -75,7 +75,7 @@
 				</c:if>	
 			</c:if>
 		</ul>
-		<a class="navmenu-brand" href="#"><img src="./resources/templete/img/logo.png" width="160"></a>
+		<a class="navmenu-brand" href="#"><img src="./resources/template/img/logo.png" width="160"></a>
 		<div class="social">
 			<a href="#"><i class="fa fa-twitter"></i></a>
 			<a href="#"><i class="fa fa-facebook"></i></a>
@@ -211,13 +211,13 @@
 	   ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	
-	<script type="text/javascript" src="./resources/templete/js/jquery-ui-1.10.4.min.js"></script>
+	<script type="text/javascript" src="./resources/template/js/jquery-ui-1.10.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./resources/templete/js/isotope.js"></script>
-	<script type="text/javascript" src="./resources/templete/js/animated-masonry-gallery.js"></script>
-	<script src="./resources/templete/dist/js/jasny-bootstrap.min.js"></script>
+	<script type="text/javascript" src="./resources/template/js/isotope.js"></script>
+	<script type="text/javascript" src="./resources/template/js/animated-masonry-gallery.js"></script>
+	<script src="./resources/template/dist/js/jasny-bootstrap.min.js"></script>
 	<!-- <script src="./resources/js/main.js"></script> -->
-	<script src="./resources/templete/js/lightbox.js"></script>
+	<script src="./resources/template/js/lightbox.js"></script>
 	
 </body>
 </html>

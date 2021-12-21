@@ -8,19 +8,24 @@
 
 <!-- Default bootstrap settings -->
 <link rel="stylesheet"  type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 <!-- Template settings -->
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet"  type="text/css" href="/resources/template/dist/css/jasny-bootstrap.min.css">
 <link rel="stylesheet"  type="text/css" href="/resources/template/css/navmenu-reveal.css">
 <link rel="stylesheet"  type="text/css" href="/resources/template/css/style.css">
-<script src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
 
 </head>
 <body>
 	<div class="bar">
-		<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas"></button>
+		<button type="button" class="navbar-toggle" data-toggle="offcanvas" data-recalc="false" data-target=".navmenu" data-canvas=".canvas">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
 	</div>
 	<div class="navmenu navmenu-default navmenu-fixed-left">
 		<ul class="nav navmenu-nav">

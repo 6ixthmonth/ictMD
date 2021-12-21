@@ -5,23 +5,25 @@
 <html>
 <head>
 	<title>ICT More Detail</title>
-	<link rel="shortcut icon" href="./resources/templete/assets/ico/favicon.png">
+	<link rel="shortcut icon" href="./resources/template/assets/ico/favicon.png">
 	
 	<!-- Bootstrap core CSS -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="/resources/templete/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/template/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-	<link href="/resources/templete/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/resources/template/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Custom styles for this template -->
-	<link href="/resources/templete/css/navmenu-reveal.css" rel="stylesheet">
-	<link href="/resources/templete/css/style.css" rel="stylesheet">
+	<link href="/resources/template/css/navmenu-reveal.css" rel="stylesheet">
+	<link href="/resources/template/css/style.css" rel="stylesheet">
+	
+	
 	<link href="/resources/css/thumbs2.css" rel="stylesheet">
 	<link href="/resources/css/thumbnail-slider.css" rel="stylesheet">
 	
 	<!-- CSS not related to template -->
 	<link href="/resources/css/admin.css" rel="stylesheet">
 	
-	<script type="text/javascript" src="/resources/templete/js/jquery.js"></script>
+	<script type="text/javascript" src="/resources/template/js/jquery.js"></script>
 	<script type="text/javascript" src="/resources/js/thumbnail-slider.js"></script>
 	<script type="text/javascript" src="http://www.webglearth.com/v2/api.js"></script>
 	<script type="text/javascript" src="/resources/js/admin.js"></script>
@@ -182,7 +184,7 @@ button.navbar-toggle {
 		}, function() {
 			$(this).css("background-color", "#e0f0ff");
 		});
-		/* $(".navmenu-brand > img").css("src", "./resources/templete/assets/ico/favicon2.png"); */
+		/* $(".navmenu-brand > img").css("src", "./resources/template/assets/ico/favicon2.png"); */
 		$("#memberMenu a, memberMenu, span").css("color", "#ffffff");
 		$(".copyright-text").css("color", "#ffffff");
 
@@ -409,7 +411,7 @@ button.navbar-toggle {
 			<li><a href="weatherNshopping">天気＆値段</a></li>
 		</ul>
 		<a class="navmenu-brand" href="main">
-			<img src="./resources/templete/assets/ico/favicon.png" width="186px">
+			<img src="./resources/template/assets/ico/favicon.png" width="186px">
 		</a>
 		<div id="memberMenu">
 			<c:if test="${userId == null}">
@@ -587,10 +589,10 @@ button.navbar-toggle {
 	<!-- Bootstrap core JavaScript
 	================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript" src="./resources/templete/js/jquery-ui-1.10.4.min.js"></script>
+	<script type="text/javascript" src="./resources/template/js/jquery-ui-1.10.4.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./resources/templete/js/isotope.js"></script>
-	<script src="./resources/templete/dist/js/jasny-bootstrap.min.js"></script>
+	<script type="text/javascript" src="./resources/template/js/isotope.js"></script>
+	<script src="./resources/template/dist/js/jasny-bootstrap.min.js"></script>
 	<script>
 		$('#myCarousel').carousel({
 			interval : 6000

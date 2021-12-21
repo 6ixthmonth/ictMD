@@ -21,11 +21,11 @@ public class AdminController {
 	@RequestMapping(value = "/adminDetail", method = RequestMethod.GET)
 	public String adminDetail(String modelName, Model model) {
 		System.out.println(modelName);
-		ModelDetailDAO dao = sqlsession.getMapper(ModelDetailDAO.class);
-		ModelDetail detail = dao.selectInfo(modelName);
-		System.out.println(detail);
-		model.addAttribute("detail", detail);
-		model.addAttribute("insert", "false");
+		//ModelDetailDAO dao = sqlsession.getMapper(ModelDetailDAO.class);
+		//ModelDetail detail = dao.selectInfo(modelName);
+		//System.out.println(detail);
+		//model.addAttribute("detail", detail);
+		//model.addAttribute("insert", "false");
 		return "adminDetail";
 	}
 	
