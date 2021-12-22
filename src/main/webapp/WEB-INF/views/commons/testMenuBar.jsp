@@ -5,17 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ICT More Detail</title>
 
 <!-- Default bootstrap settings -->
-<link rel="stylesheet"  type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 <!-- Template settings -->
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-<link rel="stylesheet"  type="text/css" href="/resources/template/dist/css/jasny-bootstrap.min.css">
-<link rel="stylesheet"  type="text/css" href="/resources/template/css/navmenu-reveal.css">
-<link rel="stylesheet"  type="text/css" href="/resources/template/css/style.css">
+<link rel="stylesheet" type="text/css" href="/resources/template/dist/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/template/css/navmenu-reveal.css">
+<link rel="stylesheet" type="text/css" href="/resources/template/css/style.css">
 <script type="text/javascript" src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
 
 </head>
@@ -30,31 +32,28 @@
 	<div class="navmenu navmenu-default navmenu-fixed-left">
 		<ul class="nav navmenu-nav">
 			<li><a href="${pageContext.request.contextPath}/main">メイン</a></li>
-			<li><a href="${pageContext.request.contextPath}/search">イメージ検索</a></li>
+			<li><a href="${pageContext.request.contextPath}/search">写真検索</a></li>
 			<li><a href="${pageContext.request.contextPath}/analysis">トレンド分析</a></li>
-			<li><a href="${pageContext.request.contextPath}/weatherNshopping">天気＆値段</a></li>
+			<li><a href="${pageContext.request.contextPath}/weatherNshopping">天気＆ショッピング</a></li>
 		</ul>
-		<a class="navmenu-brand" href="main">
-			<img src="${pageContext.request.contextPath}/resources/template/assets/ico/favicon.png" width="186px">
+		<a class="navmenu-brand" href="${pageContext.request.contextPath}/main">
+			<img src="${pageContext.request.contextPath}/resources/custom/assets/icon/favicon.png" width="186px">
 		</a>
-		<div id="memberMenu">
-			<c:if test="${userId == null}">
-				<a href="loginPage">Login</a>
-				<span> / </span>
-				<a href="registerPage">Sign in</a>
-				<br>
-			</c:if>
-			<c:if test="${userId != null}">
-				<a href="logout">Logout</a>
-				<br>
-				<a href="fixPage">Edit</a>
-				<span> / </span>
-				<a href="secesionPage">Withdrawal</a>
-				<c:if test="${userId == 'admin'}">
-					<span> / </span>
-					<a href="admin">Admin</a>
-				</c:if>	
-			</c:if>
+		<div class="social">
+			<c:choose>
+				<c:when test="${empty userId }">
+					<a href="#"><i class="fa fa-twitter">Sign in</i></a>
+					<a href="#"><i class="fa fa-facebook">Sign Up</i></a>
+				</c:when>
+				<c:otherwise>
+					<a href="#"><i class="fa fa-instagram">Sign Out</i></a>
+					<a href="#"><i class="fa fa-pinterest-p">Edit</i></a>
+					<a href="#"><i class="fa fa-google-plus">Withdrawal</i></a>
+					<c:if test="${userId == 'admin'}">
+						<a href="#"><i class="fa fa-skype">Admin</i></a>
+					</c:if>	
+				</c:otherwise>
+			</c:choose>
 		</div>
 		<br>
 		<div class="copyright-text">©Copyright #ハンサム 2018</div>
