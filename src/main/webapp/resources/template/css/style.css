@@ -13,6 +13,7 @@
 body{
   font-family: 'Raleway', sans-serif;
 }
+
 .bar {
   background-color: #337ab7;
   height: 200%;
@@ -26,14 +27,16 @@ body{
 .canvas.canvas-slid {
   left: 245px;
 }
+
 .social {
   /* margin: -25px 55px 21px; */
-  border-bottom: 1px solid;
-  border-top: 1px solid;
+  border-bottom: 1px solid rgb(224, 240, 255);
+  border-top: 1px solid rgb(224, 240, 255);
   padding: 6px 10px;
   margin: -23px auto 23px;
   text-align: center;
 }
+
 .canvas{
    background: white;
    color: black;
@@ -42,34 +45,43 @@ body{
 a.navmenu-brand {
   margin: 60px 0 120px;
 }
+
 .canvas {
   position: relative;
   left: 30px;
 
 }
+
 .navmenu.navmenu-default.navmenu-fixed-left {
   margin-left: 30px;
   padding-top: 35px;
   position: absolute;
   /* z-index: 99; */
 }
+
 .navbar.navbar-default button {
   position: absolute !important;
   top: 50%;
 }
 
-
-
 html{
   overflow-x: hidden;
 }
+
+.social>a {
+	text-decoration: none;
+}
+
 .social i.fa {
   padding: 8px;
   cursor: pointer;
+  font-size: 110%;
+  font-weight: bold;
 }
 
 .social i.fa:hover {
   color: white;
+  text-shadow: 1px 1px 4px #303030;
   transition:.3s;
 }
 
@@ -103,10 +115,12 @@ h2.sub-title-home {
   font-size: 15px;
 }
 
-
 .copyright-text {
+  color: #ffffff;
+  font-size: 110%;
+  font-weight: bold;
   text-align: center;
-  color: #000000;
+  text-shadow: 1px 1px 4px #303030;
 }
 /* li.category-item a {
     color: #111111;

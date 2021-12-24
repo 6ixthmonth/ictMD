@@ -255,7 +255,7 @@
 	<!-- <script type="text/javascript" src="./resources/templete/js/animated-masonry-gallery.js"></script> -->
 	<script src="./resources/templete/dist/js/jasny-bootstrap.min.js"></script>
 	<!-- <script src="./resources/templete/js/lightbox.js"></script> -->
-	<script src="./resources/js/search.js"></script>
+	<script src="/resources/js/search.js"></script>
 	<script>
 		var x = function initialize(){
 		 	var mtotag = '${mtotag}';

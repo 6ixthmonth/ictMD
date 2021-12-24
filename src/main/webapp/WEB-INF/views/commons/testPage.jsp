@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/template/assets/ico/favicon.png">
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/custom/assets/icon/favicon.png">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/commons/testMenuBar.jsp" %>

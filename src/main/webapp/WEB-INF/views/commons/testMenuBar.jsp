@@ -14,12 +14,14 @@
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 <!-- Template settings -->
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" type="text/css" href="/resources/template/dist/css/jasny-bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/template/css/navmenu-reveal.css">
 <link rel="stylesheet" type="text/css" href="/resources/template/css/style.css">
 <script type="text/javascript" src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
 
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="/resources/custom/css/menuBar.css">
 </head>
 <body>
 	<div class="bar">
@@ -31,10 +33,10 @@
 	</div>
 	<div class="navmenu navmenu-default navmenu-fixed-left">
 		<ul class="nav navmenu-nav">
-			<li><a href="${pageContext.request.contextPath}/main">メイン</a></li>
-			<li><a href="${pageContext.request.contextPath}/search">写真検索</a></li>
-			<li><a href="${pageContext.request.contextPath}/analysis">トレンド分析</a></li>
-			<li><a href="${pageContext.request.contextPath}/weatherNshopping">天気＆ショッピング</a></li>
+			<li><a href="${pageContext.request.contextPath}/main">HOME</a></li>
+			<li><a href="${pageContext.request.contextPath}/search">Image Search</a></li>
+			<li><a href="${pageContext.request.contextPath}/analysis">Trend Analysis</a></li>
+			<li><a href="${pageContext.request.contextPath}/weatherNshopping">Weather &amp; Shopping</a></li>
 		</ul>
 		<a class="navmenu-brand" href="${pageContext.request.contextPath}/main">
 			<img src="${pageContext.request.contextPath}/resources/custom/assets/icon/favicon.png" width="186px">
