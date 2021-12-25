@@ -15,13 +15,13 @@
 
 <!-- Template settings -->
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" type="text/css" href="/resources/template/dist/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/testTemplate/css/jasny-bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/resources/template/css/navmenu-reveal.css">
 <link rel="stylesheet" type="text/css" href="/resources/template/css/style.css">
 <script type="text/javascript" src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
 
 <!-- Custom CSS -->
-<link rel="stylesheet" type="text/css" href="/resources/custom/css/menuBar.css">
+<link rel="stylesheet" type="text/css" href="/resources/testTemplate/js/jasny-bootstrap.min.js">
 </head>
 <body>
 	<div class="bar">

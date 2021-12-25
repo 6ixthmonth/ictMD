@@ -13,75 +13,60 @@
 body{
   font-family: 'Raleway', sans-serif;
 }
-
 .bar {
-  background-color: #337ab7;
+  background-color: black;
   height: 200%;
-  position: fixed;
-  float:left;
-  left:0;
   width: 30px;
-  height: 200%;
+  position: fixed;
 }
 
 .canvas.canvas-slid {
   left: 245px;
 }
-
 .social {
   /* margin: -25px 55px 21px; */
-  border-bottom: 1px solid rgb(224, 240, 255);
-  border-top: 1px solid rgb(224, 240, 255);
+  border-bottom: 1px solid;
+  border-top: 1px solid;
   padding: 6px 10px;
   margin: -23px auto 23px;
   text-align: center;
 }
-
 .canvas{
-   background: white;
-   color: black;
+   background: rgb(15, 14, 14);
+   color: rgb(136, 136, 136);
 }
 
 a.navmenu-brand {
-  margin: 60px 0 120px;
+  margin: 51px 0 80px;
 }
-
 .canvas {
   position: relative;
   left: 30px;
 
 }
-
 .navmenu.navmenu-default.navmenu-fixed-left {
   margin-left: 30px;
   padding-top: 35px;
   position: absolute;
   /* z-index: 99; */
 }
-
 .navbar.navbar-default button {
   position: absolute !important;
   top: 50%;
 }
 
+
+
 html{
   overflow-x: hidden;
 }
-
-.social>a {
-	text-decoration: none;
-}
-
 .social i.fa {
   padding: 8px;
   cursor: pointer;
-  font-size: 110%;
-  font-weight: bold;
 }
 
 .social i.fa:hover {
   color: white;
-  text-shadow: 1px 1px 4px #303030;
   transition:.3s;
 }
 
@@ -115,19 +100,27 @@ h2.sub-title-home {
   font-size: 15px;
 }
 
+
 .copyright-text {
-  color: #ffffff;
-  font-size: 110%;
-  font-weight: bold;
   text-align: center;
-  text-shadow: 1px 1px 4px #303030;
+  color: rgba(255, 228, 196, 0.21);
 }
-/* li.category-item a {
-    color: #111111;
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+=======
+=======
+>>>>>>> master
+li.category-item a {
+    color: #888888;
 }
 li.category-item a:hover {
    color: #337ab7;
-} */
+}
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> master
 /* ----------------------------------------------------
   Gallery
 ------------------------------------------------------- */
@@ -187,15 +180,12 @@ p.blog-post-sub-title.text-center {
 .title-divider {
   border-top: 2px solid;
   display: block;
-  max-width: 120px;
+  max-width: 60px;
   margin: 0 auto 15px;
-  color: rgba(248, 222, 126, 1); /* ｳ�ｷｩﾀﾌｷﾎ ｹﾙｲ翊ﾇ */
+  color: rgba(184, 177, 168, 1);
 }
 h3.blog-post-title {
   margin-top: 0px;
-}
-h1.blog-post-title {
-  color: rgba(16, 52, 166, 1);
 }
 
 
@@ -298,17 +288,14 @@ textarea#message {
 
 .carousel-indicators li {
   border-radius: 0px;
-  width: 30px;
-  height: 10px;
-  border-color:black;
+  width: 20px;
+  height: 5px;
 }
 
 .carousel-indicators .active {
-  width: 30px;
-  height: 10px;
-  margin: 2px;
-  border-color:black;
-  background-color:gray;
+  width: 20px;
+  height: 5px;
+  margin: 1px;
 }
 
 .carousel-inner>.item>img {
@@ -335,15 +322,14 @@ textarea#message {
 }
 @media (min-width: 1200px){
 .canvas.gallery {
-  /* margin-top: -20px; */
-  background: rgb(255, 255, 255);
+  margin-top: -20px;
   padding: 10px;
   /* margin-bottom: 28px; */
 }
 }
 @media (max-width: 1090){
   div.canvas {
-    /* margin-top: -50px !important; */
+    margin-top: -50px !important;
     height: 110% !important;
   }
   .carousel, .item, .active {
@@ -355,9 +341,9 @@ textarea#message {
 @media (min-width: 100px){
   button.navbar-toggle {
     width: 40px;
-    background:url(/resources/img/navicon2.jpg);
+    background:url(../img/navicon.jpg);
     z-index: 9;
-    color: #337ab7;
+    color: black;
     position: fixed;
     top: 50%;
     left: -15px;

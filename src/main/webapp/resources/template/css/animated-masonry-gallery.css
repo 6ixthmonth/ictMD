@@ -175,13 +175,13 @@
 }
 
 #gallery-content-center img {
-	width: 300px;
-	margin-bottom: 10px;
+	width: 100%;
+	margin-bottom: 30px;
 	/*-webkit-transition: all 0.5s;
 	-moz-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;*/
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 }
 .gallery-content-center-full {
 	/* float: left; */
