@@ -12,13 +12,12 @@
 
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link href="/resources/template/dist/css/jasny-bootstrap.min.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-	<link href="/resources/template/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="/resources/template/dist/css/jasny-bootstrap.min.css">
+	<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway'>
+	<link rel="stylesheet" href="/resources/template/css/bootstrap.min.css">
 	<!-- Custom styles for this template -->
-	<link href="/resources/template/css/navmenu-reveal.css" rel="stylesheet">
-	<link href="/resources/template/css/style.css" rel="stylesheet">
-	<link href="/resources/template/css/full-slider.css" rel="stylesheet">
+	<link rel="stylesheet" href="/resources/template/css/navmenu-reveal.css">
+	<link rel="stylesheet" href="/resources/template/css/style.css">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -36,12 +35,12 @@
 	</div>
 	<div class="navmenu navmenu-default navmenu-fixed-left">
 		<ul class="nav navmenu-nav">
-			<li><a href="">Home</a></li>
+			<li><a href="/main">Home</a></li>
 			<li><a href="">Image Search</a></li>
 			<li><a href="">Trend Analysis</a></li>
 			<li><a href="">Weather &amp; Shopping</a></li>
 		</ul>
-		<a class="navmenu-brand" href="#"><img src="/resources/template/img/logo.png" width="160"></a>
+		<a class="navmenu-brand" href="#"><img src="/resources/custom/img/logo.png" width="160"></a>
 		<div class="social">
 			<a href="#"><i class="fa fa-twitter"></i></a>
 			<a href="#"><i class="fa fa-facebook"></i></a>
@@ -56,11 +55,11 @@
 	<div class="canvas">
 	</div>
 
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<script src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
+	 <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/resources/template/js/bootstrap.min.js"></script>
 </body>
 </html>
