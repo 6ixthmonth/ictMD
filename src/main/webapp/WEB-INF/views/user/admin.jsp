@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="/resources/js/admin.js"></script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/commons/menuBar.jsp" %>
+	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	<input type="hidden" id="mtotag" value="${mtotag}">
 	
 
