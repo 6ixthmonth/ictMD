@@ -12,6 +12,6 @@
 		hello
 	</div>
 	
-	<script type="text/javascript">navmenuInit();</script>
+	<!-- <script type="text/javascript">navmenuInit();</script> -->
 </body>
 </html>
