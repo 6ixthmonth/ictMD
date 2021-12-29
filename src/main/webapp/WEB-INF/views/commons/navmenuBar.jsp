@@ -48,4 +48,4 @@
 <script type="text/javascript" src="/resources/template/js/bootstrap.min.js"></script>
 
 <!-- Custom script to init css -->
-<script type="text/javascript" src="/resources/custom/js/navmenuInit.js"></script>
+<script type="text/javascript" src="/resources/custom/js/navmenu.js"></script>
