@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.sesoc.ictmd.vo.LandmarkInfo" alias="landmark"/>
 		<typeAlias type="com.sesoc.ictmd.vo.UserBase" alias="userBase"/>
 		<typeAlias type="com.sesoc.ictmd.vo.UserDetail" alias="userDetail"/>
 		<typeAlias type="com.sesoc.ictmd.vo.ModelBase" alias="modelBase"/>

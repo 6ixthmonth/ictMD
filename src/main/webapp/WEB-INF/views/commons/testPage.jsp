@@ -7,10 +7,10 @@
 	
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
-		function initialize() {
+		function initEarth() {
 			// Init map object
 			var earth = new WE.map("earth_div", {
-				center: [ 37.511981, 127.058544 ],
+				center: [ 37.511981, 127.058544 ], // COEX
 				zoom: 0,
 				zooming: false,
 			});
@@ -35,16 +35,19 @@
 			markerFR.bindPopup(
 				"<h2>Eiffel Tower</h2>"
 				+ "<a href='javascript: $.clicksearch(\"Eiffel Tower\")' role='button'>"
-				+ "  <img src='https://www.listchallenges.com/f/items/4e76ea71-f275-44df-a98f-0f75f9771a65.jpg' class='img-circle img-responsive'>"
+				+ "	<img src='https://www.listchallenges.com/f/items/4e76ea71-f275-44df-a98f-0f75f9771a65.jpg' class='img-circle img-responsive'>"
 				+ "</a>"
 			);
 			
-			/* markerUK = "/resources/img/marker/Big_Ben.png";
-			markerUK = WE.marker([ 51.5007292, -0.1246254 ], markerimg, 24, 24, 0.0).addTo(earth);
-			markerUK.bindPopup('<h2>Big Ben</h2>'+
-			'<a href="javascript: $.clicksearch(\'Big Ben\')" role="button"><img src="https://www.listchallenges.com/f/items/2c6fce4f-e410-4d50-80b6-870bc945b17b.jpg" alt="..." class="img-circle img-responsive"></a>');
+			var markerGB = WE.marker([ 51.510357, -0.116773 ], "/resources/custom/img/marker/GB.png", 24, 24, 0.0).addTo(earth);
+			markerGB.bindPopup(
+				"<h2>Big Ben</h2>"
+				+ "<a href='javascript: $.clicksearch(\"Big Ben\")' role='button'>"
+				+ "	<img src='https://www.listchallenges.com/f/items/2c6fce4f-e410-4d50-80b6-870bc945b17b.jpg' class='img-circle img-responsive'>"
+				+ "</a>"
+			);
 
-			markerimg = "./resources/img/marker/Leaning_Tower_of_Pisa.png";
+			/* markerimg = "./resources/img/marker/Leaning_Tower_of_Pisa.png";
 			marker = WE.marker([ 43.722952, 10.396597 ], markerimg, 24, 24, 0.0).addTo(earth);
 			marker.bindPopup('<h2>Leaning Tower of Pisa, Pisa</h2>'+
 			'<a href="javascript: $.clicksearch(\'Pisa\')" role="button"><img src="https://www.listchallenges.com/f/items/bb1fa37e-fd85-43ef-87a6-02387af5dc25.jpg" alt="..." class="img-circle img-responsive"></a>');
@@ -185,7 +188,7 @@
 		}
 	</style>
 </head>
-<body onload="initialize()">
+<body onload="initEarth()">
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
