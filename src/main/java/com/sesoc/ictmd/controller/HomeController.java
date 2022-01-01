@@ -1,5 +1,6 @@
 package com.sesoc.ictmd.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,15 +9,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sesoc.ictmd.Interface.MiscDAO;
 import com.sesoc.ictmd.Interface.ModelDetailDAO;
+import com.sesoc.ictmd.vo.LandmarkInfo;
 import com.sesoc.ictmd.vo.ModelDetail;
 
 @Controller
 public class HomeController {
-	
+
 	@Autowired
-	SqlSession sqlSession;
+	SqlSession session;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String redirectMain() {
@@ -51,16 +55,25 @@ public class HomeController {
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin(Model model) {
-		ModelDetailDAO dao = sqlSession.getMapper(ModelDetailDAO.class);
+		ModelDetailDAO dao = session.getMapper(ModelDetailDAO.class);
 		List<ModelDetail> modelList = dao.allModelDetail();
-		System.out.println(modelList);
 		model.addAttribute("modelList", modelList);
 
 		return "admin";
 	}
-	
+
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test() {
+	public String test(Model model) {
 		return "commons/testPage";
 	}
+
+	@ResponseBody
+	@RequestMapping(value = "/getMarkerList", method = RequestMethod.GET)
+	public ArrayList<LandmarkInfo> getMarkerList() {
+		MiscDAO dao = session.getMapper(MiscDAO.class);
+		ArrayList<LandmarkInfo> markerList = dao.getMarkerList();
+		
+		return markerList;
+	}
+
 }

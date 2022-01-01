@@ -20,5 +20,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mappers/ModelDetailMapper.xml"/>
 		<mapper resource="mappers/analysisMapper.xml"/>
 		<mapper resource="mappers/TrendMapper.xml"/>
+		<mapper resource="mappers/miscMapper.xml"/>
 	</mappers>
 </configuration>
