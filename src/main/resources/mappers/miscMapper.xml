@@ -15,7 +15,7 @@
 		from
 			earth_marker_tb
 		order by
-			country desc
+			country asc
 	</select>
 
 </mapper>
