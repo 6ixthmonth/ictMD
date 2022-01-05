@@ -1,6 +1,6 @@
 package com.sesoc.ictmd.vo;
 
-public class LandmarkInfo {
+public class MarkerVO {
 
 	private String country;
 	private String landmark;
@@ -8,9 +8,9 @@ public class LandmarkInfo {
 	private double longitude;
 	private String imgUrl;
 
-	public LandmarkInfo() {}
+	public MarkerVO() {}
 
-	public LandmarkInfo(String country, String landmark, double latitude, double longitude, String imgUrl) {
+	public MarkerVO(String country, String landmark, double latitude, double longitude, String imgUrl) {
 		super();
 		this.country = country;
 		this.landmark = landmark;

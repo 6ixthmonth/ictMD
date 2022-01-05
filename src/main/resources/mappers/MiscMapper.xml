@@ -5,7 +5,7 @@
 
 <mapper namespace="com.sesoc.ictmd.Interface.MiscDAO">
 
-	<select id="getMarkerList" resultType="landmark">
+	<select id="getMarkerList" resultType="Marker">
 		select
 			country,
 			landmark,

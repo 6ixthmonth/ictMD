@@ -2,11 +2,11 @@ package com.sesoc.ictmd.Interface;
 
 import java.util.ArrayList;
 
-import com.sesoc.ictmd.vo.LandmarkInfo;
+import com.sesoc.ictmd.vo.MarkerVO;
 
 public interface MiscDAO {
 
-	ArrayList<LandmarkInfo> getMarkerList();
+	ArrayList<MarkerVO> getMarkerList();
 	
 
 }

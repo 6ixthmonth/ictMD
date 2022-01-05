@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.ictmd.Interface.MiscDAO;
 import com.sesoc.ictmd.Interface.ModelDetailDAO;
-import com.sesoc.ictmd.vo.LandmarkInfo;
+import com.sesoc.ictmd.vo.MarkerVO;
 import com.sesoc.ictmd.vo.ModelDetail;
 
 @Controller
@@ -69,9 +69,9 @@ public class HomeController {
 
 	@ResponseBody
 	@RequestMapping(value = "/getMarkerList", method = RequestMethod.GET)
-	public ArrayList<LandmarkInfo> getMarkerList() {
+	public ArrayList<MarkerVO> getMarkerList() {
 		MiscDAO dao = session.getMapper(MiscDAO.class);
-		ArrayList<LandmarkInfo> markerList = dao.getMarkerList();
+		ArrayList<MarkerVO> markerList = dao.getMarkerList();
 		
 		return markerList;
 	}
