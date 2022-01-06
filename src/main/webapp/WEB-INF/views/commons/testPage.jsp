@@ -5,9 +5,13 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
-	
+
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
+		function init() {
+			getMarkerList();	
+		}
+
 		function getMarkerList() {
 			$.ajax("/getMarkerList")
 			.done(initEarth);
@@ -42,21 +46,34 @@
 				var marker = WE.marker([ item.latitude, item.longitude ], "/resources/custom/img/marker/" + item.country + ".png", 24, 24).addTo(earth);
 				marker.bindPopup(
 					"<h2>" + item.landmark + "</h2>"
-					+ "<a href='javascript: $.clicksearch(\"" + item.landmark  + "\")' role='button'>"
+					+ "<a href='javascript: searchImg(\"" + item.landmark  + "\")' role='button'>"
 					+ "	<img src='" + item.imgUrl + "' class='img-circle' style='width:180px;height:180px;'>"
 					+ "</a>"
 				);
 				
 				str += "<div class='item'>";
-				str += "	<img src='" + item.imgUrl + "' onclick='$.clicksearch(\"" + item.landmark  + "\")'>";
+				str += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\")'>";
 				str += "	<div class='carousel-caption'>";
 				str += "		<h4 style='text-shadow: 1px 1px 1px black;'>" + item.landmark + "</h4>";
 				str += "	</div>";
 				str += "</div>";
 			});
-			
+
 			$(".carousel-inner").html(str);
 			$(".item:first").addClass("active");
+		}
+		
+		function searchImg() {
+			// move to search page and search image automatically
+		}
+		
+		function popupImg() {
+			// get img url by ajax
+			var imgUrl = getImg();
+		}
+		
+		function getImg() {
+			// get img url by ajax
 		}
 	</script>
 	<style>
@@ -64,7 +81,7 @@
 			padding: 0;
 			margin: 0;
 		}
-		
+
 		#earth_div {
 			top: 0;
 			right: 0;
@@ -72,11 +89,11 @@
 			left: 0;
 			position: absolute !important;
 		}
-		
+
 		.we-pp-wrapper {
 			text-align: center;
 		}
-		
+
 		.carousel.slide {
 			width: 20%;
 			height: 20%;
@@ -84,7 +101,7 @@
 		}
 	</style>
 </head>
-<body onload="getMarkerList()">
+<body onload="init()">
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
