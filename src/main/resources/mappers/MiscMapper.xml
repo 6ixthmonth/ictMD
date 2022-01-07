@@ -7,15 +7,18 @@
 
 	<select id="getMarkerList" resultType="Marker">
 		select
-			country,
-			landmark,
-			latitude,
-			longitude,
-			img_url as imgUrl
+			ct.alpha_two_code as "alphaTwoCode",
+			ct.country_name as "countryName",
+			mt.landmark,
+			mt.latitude,
+			mt.longitude,
+			mt.img_url as "imgUrl"
 		from
-			earth_marker_tb
+			country_code_tb ct, earth_marker_tb mt
+		where
+			ct.alpha_two_code = mt.alpha_two_code
 		order by
-			country asc
+			ct.country_name asc
 	</select>
 
 </mapper>

@@ -1,5 +1,55 @@
+drop table country_code;
+create table country_code (
+    alpha_two_code varchar2(2) primary key,
+    country_name varchar2(56)
+);
+
+insert into country_code values ('AD', 'Andorra');
+insert into country_code values ('AE', 'United Arab Emirates');
+insert into country_code values ('AF', 'Afghanistan');
+insert into country_code values ('AG', 'Antigua and Barbuda');
+insert into country_code values ('AI', 'Anguilla');
+insert into country_code values ('AL', 'Albania');
+insert into country_code values ('AM', 'Armenia');
+insert into country_code values ('AO', 'Angola');
+insert into country_code values ('AQ', 'Antarctica');
+insert into country_code values ('AR', 'Argentina');
+insert into country_code values ('AR', 'American Samoa');
+insert into country_code values ('AT', 'Austria');
+insert into country_code values ('AU', 'Australia');
+insert into country_code values ('AW', 'Aruba');
+insert into country_code values ('AX', 'Åland Islands');
+insert into country_code values ('AZ', 'Azerbaijan');
+insert into country_code values ('B', '');
+insert into country_code values ('C', '');
+insert into country_code values ('D', '');
+insert into country_code values ('E', '');
+insert into country_code values ('F', '');
+insert into country_code values ('G', '');
+insert into country_code values ('H', '');
+insert into country_code values ('I', '');
+insert into country_code values ('J', '');
+insert into country_code values ('K', '');
+insert into country_code values ('L', '');
+insert into country_code values ('M', '');
+insert into country_code values ('N', '');
+insert into country_code values ('O', '');
+insert into country_code values ('P', '');
+insert into country_code values ('Q', '');
+insert into country_code values ('R', '');
+insert into country_code values ('S', '');
+insert into country_code values ('T', '');
+insert into country_code values ('U', '');
+insert into country_code values ('V', '');
+insert into country_code values ('W', '');
+insert into country_code values ('X', '');
+insert into country_code values ('Y', '');
+insert into country_code values ('Z', '');
+commit;
+
+drop table earth_marker_tb;
 create table earth_marker_tb (
-    country varchar2(2),
+    alpha_two_code varchar2(2) references country_code,
     landmark varchar2(64),
     latitude number,
     longitude number,

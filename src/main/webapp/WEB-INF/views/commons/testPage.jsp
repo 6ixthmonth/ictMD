@@ -6,8 +6,59 @@
 <head>
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
 
+	<style>
+		html, body {
+			padding: 0;
+			margin: 0;
+		}
+
+		#earth_div {
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			position: absolute !important;
+		}
+
+		.we-pp-wrapper {
+			text-align: center;
+		}
+
+		.carousel.slide {
+			width: 20%;
+			height: 20%;
+			transform: translate(20%, 80%);
+		}
+	</style>
+</head>
+<body>
+	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
+	
+	<div class="canvas">
+		<div id="earth_div"></div>
+		
+		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner" role="listbox">
+			</div>
+			
+			<!-- Controls -->
+			<a class="left carousel-control" href="#landmark-carousel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="right carousel-control" href="#landmark-carousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+	</div>
+
+	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
+		$(init);
+		
 		function init() {
 			getMarkerList();	
 		}
@@ -43,7 +94,7 @@
 			var str = "";
 			// Set markers
 			$.each(markerList, function(index, item) {
-				var marker = WE.marker([ item.latitude, item.longitude ], "/resources/custom/img/marker/" + item.country + ".png", 24, 24).addTo(earth);
+				var marker = WE.marker([ item.latitude, item.longitude ], "/resources/custom/img/marker/" + item.alphaTwoCode + ".png", 24, 24).addTo(earth);
 				marker.bindPopup(
 					"<h2>" + item.landmark + "</h2>"
 					+ "<a href='javascript: searchImg(\"" + item.landmark  + "\")' role='button'>"
@@ -55,6 +106,7 @@
 				str += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\")'>";
 				str += "	<div class='carousel-caption'>";
 				str += "		<h4 style='text-shadow: 1px 1px 1px black;'>" + item.landmark + "</h4>";
+				str += "		<h4 style='text-shadow: 1px 1px 1px black;'>" + item.countryName + "</h4>";
 				str += "	</div>";
 				str += "</div>";
 			});
@@ -76,54 +128,5 @@
 			// get img url by ajax
 		}
 	</script>
-	<style>
-		html, body {
-			padding: 0;
-			margin: 0;
-		}
-
-		#earth_div {
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			position: absolute !important;
-		}
-
-		.we-pp-wrapper {
-			text-align: center;
-		}
-
-		.carousel.slide {
-			width: 20%;
-			height: 20%;
-			transform: translate(20%, 80%);
-		}
-	</style>
-</head>
-<body onload="init()">
-	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
-	
-	<div class="canvas">
-		<div id="earth_div"></div>
-		
-		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
-			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-			</div>
-			
-			<!-- Controls -->
-			<a class="left carousel-control" href="#landmark-carousel" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
-			</a>
-			<a class="right carousel-control" href="#landmark-carousel" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
-			</a>
-		</div>
-	</div>
-
-	<!-- <script type="text/javascript">navmenuInit();</script> -->
 </body>
 </html>
