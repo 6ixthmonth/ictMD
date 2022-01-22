@@ -246,10 +246,13 @@ insert into country_code values ('VG', 'Virgin Islands (British)');
 insert into country_code values ('VI', 'Virgin Islands (U.S.)');
 insert into country_code values ('VN', 'Viet Nam');
 insert into country_code values ('VU', 'Vanuatu');
-insert into country_code values ('W', '');
-insert into country_code values ('X', '');
-insert into country_code values ('Y', '');
-insert into country_code values ('Z', '');
+insert into country_code values ('WF', 'Wallis and Futuna');
+insert into country_code values ('WS', 'Samoa');
+insert into country_code values ('YE', 'Yemen');
+insert into country_code values ('YT', 'Mayotte');
+insert into country_code values ('ZA', 'South Africa');
+insert into country_code values ('ZM', 'Zambia');
+insert into country_code values ('ZW', 'Zimbabwe');
 commit;
 
 drop table earth_marker_tb;
