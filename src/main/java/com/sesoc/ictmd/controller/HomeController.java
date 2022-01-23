@@ -1,6 +1,7 @@
 package com.sesoc.ictmd.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -74,6 +75,15 @@ public class HomeController {
 		ArrayList<MarkerVO> markerList = dao.getMarkerList();
 		
 		return markerList;
+	}
+	
+	@RequestMapping(value = "/flagImgTest", method = RequestMethod.GET)
+	public String flagImgTest(Model model) {
+		MiscDAO dao = session.getMapper(MiscDAO.class);
+		ArrayList<HashMap<String, Object>> flagImgUrlList = dao.getFlagImgUrlList();
+		model.addAttribute("flagImgUrlList", flagImgUrlList);
+		
+		return "commons/flagImgTest";
 	}
 
 }
