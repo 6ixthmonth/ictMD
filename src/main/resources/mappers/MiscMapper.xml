@@ -23,7 +23,7 @@
 	
 	<select id="getFlagImgUrlList" resultType="HashMap">
 		SELECT
-			alpha_two_code AS "alphaTwoCode",
+			lower(alpha_two_code) AS "alphaTwoCode",
 			country_name AS "countryName"
 		FROM country_code
 		ORDER BY alpha_two_code
