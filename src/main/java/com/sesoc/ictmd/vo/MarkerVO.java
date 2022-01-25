@@ -2,7 +2,7 @@ package com.sesoc.ictmd.vo;
 
 public class MarkerVO {
 
-	private String alplhaTwoCode;
+	private String alphaTwoCode;
 	private String countryName;
 	private String landmark;
 	private double latitude;
@@ -11,18 +11,22 @@ public class MarkerVO {
 
 	public MarkerVO() {}
 
-	@Override
-	public String toString() {
-		return "MarkerVO [alplhaTwoCode=" + alplhaTwoCode + ", countryName=" + countryName + ", landmark=" + landmark
-				+ ", latitude=" + latitude + ", longitude=" + longitude + ", imgUrl=" + imgUrl + "]";
+	public MarkerVO(String alphaTwoCode, String countryName, String landmark, double latitude, double longitude, String imgUrl) {
+		super();
+		this.alphaTwoCode = alphaTwoCode;
+		this.countryName = countryName;
+		this.landmark = landmark;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.imgUrl = imgUrl;
 	}
 
-	public String getAlplhaTwoCode() {
-		return alplhaTwoCode;
+	public String getAlphaTwoCode() {
+		return alphaTwoCode;
 	}
 
-	public void setAlplhaTwoCode(String alplhaTwoCode) {
-		this.alplhaTwoCode = alplhaTwoCode;
+	public void setAlphaTwoCode(String alphaTwoCode) {
+		this.alphaTwoCode = alphaTwoCode;
 	}
 
 	public String getCountryName() {
@@ -65,15 +69,10 @@ public class MarkerVO {
 		this.imgUrl = imgUrl;
 	}
 
-	public MarkerVO(String alplhaTwoCode, String countryName, String landmark, double latitude, double longitude,
-			String imgUrl) {
-		super();
-		this.alplhaTwoCode = alplhaTwoCode;
-		this.countryName = countryName;
-		this.landmark = landmark;
-		this.latitude = latitude;
-		this.longitude = longitude;
-		this.imgUrl = imgUrl;
+	@Override
+	public String toString() {
+		return "MarkerVO [alphaTwoCode=" + alphaTwoCode + ", countryName=" + countryName + ", landmark=" + landmark
+				+ ", latitude=" + latitude + ", longitude=" + longitude + ", imgUrl=" + imgUrl + "]";
 	}
 
 }

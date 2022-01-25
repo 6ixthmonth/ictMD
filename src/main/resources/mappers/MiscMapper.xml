@@ -6,19 +6,16 @@
 <mapper namespace="com.sesoc.ictmd.Interface.MiscDAO">
 
 	<select id="getMarkerList" resultType="Marker">
-		select
-			ct.alpha_two_code as "alphaTwoCode",
-			ct.country_name as "countryName",
-			mt.landmark,
-			mt.latitude,
-			mt.longitude,
-			mt.img_url as "imgUrl"
-		from
-			country_code_tb ct, earth_marker_tb mt
-		where
-			ct.alpha_two_code = mt.alpha_two_code
-		order by
-			ct.country_name asc
+		SELECT
+			lower(ct.alpha_two_code) AS "alphaTwoCode",
+			ct.country_name AS "countryName",
+			mt.landmark AS "landmark",
+			mt.latitude AS "latitude",
+			mt.longitude AS "longitude",
+			mt.img_url AS "imgUrl"
+		FROM country_code_tb ct, earth_marker_tb mt
+		WHERE ct.alpha_two_code = mt.alpha_two_code
+		ORDER BY ct.country_name asc
 	</select>
 	
 	<select id="getFlagImgUrlList" resultType="HashMap">

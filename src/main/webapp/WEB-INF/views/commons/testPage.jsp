@@ -29,6 +29,12 @@
 			height: 20%;
 			transform: translate(20%, 80%);
 		}
+		
+		.we-pm-icon {
+			width: 12px !important;
+			height: 12px !important;
+			border-radius: 50%;
+		}
 	</style>
 </head>
 <body>
@@ -94,7 +100,8 @@
 			var str = "";
 			// Set markers
 			$.each(markerList, function(index, item) {
-				var marker = WE.marker([ item.latitude, item.longitude ], "/resources/custom/img/marker/" + item.alphaTwoCode + ".png", 24, 24).addTo(earth);
+				console.log(item);
+				var marker = WE.marker([ item.latitude, item.longitude ], "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg", 24, 24).addTo(earth);
 				marker.bindPopup(
 					"<h2>" + item.landmark + "</h2>"
 					+ "<a href='javascript: searchImg(\"" + item.landmark  + "\")' role='button'>"
