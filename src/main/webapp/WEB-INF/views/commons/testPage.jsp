@@ -19,8 +19,14 @@
 			left: 0;
 			position: absolute !important;
 		}
+		
+		.we-pm-icon {
+			width: 24px !important;
+			height: 24px !important;
+			border-radius: 50%;
+		}
 
-		.we-pp-wrapper {
+		div.we-pp>div.we-pp-wrapper {
 			text-align: center;
 		}
 
@@ -28,12 +34,6 @@
 			width: 20%;
 			height: 20%;
 			transform: translate(20%, 80%);
-		}
-		
-		.we-pm-icon {
-			width: 12px !important;
-			height: 12px !important;
-			border-radius: 50%;
 		}
 	</style>
 </head>
