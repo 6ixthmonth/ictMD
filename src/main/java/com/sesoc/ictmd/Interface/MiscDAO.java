@@ -9,7 +9,4 @@ public interface MiscDAO {
 
 	ArrayList<MarkerVO> getMarkerList();
 
-	ArrayList<HashMap<String, Object>> getFlagImgUrlList();
-	
-
 }

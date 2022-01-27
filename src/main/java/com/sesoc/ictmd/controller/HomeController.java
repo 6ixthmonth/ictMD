@@ -77,14 +77,4 @@ public class HomeController {
 		return markerList;
 	}
 	
-	@RequestMapping(value = "/flagImgTest", method = RequestMethod.GET)
-	public String flagImgTest(Model model) {
-		MiscDAO dao = session.getMapper(MiscDAO.class);
-		ArrayList<HashMap<String, Object>> flagImgUrlList = dao.getFlagImgUrlList();
-		System.out.println(flagImgUrlList);
-		model.addAttribute("flagImgUrlList", flagImgUrlList);
-		
-		return "commons/flagImgTest";
-	}
-
 }

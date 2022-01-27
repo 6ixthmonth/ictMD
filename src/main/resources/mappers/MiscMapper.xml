@@ -18,12 +18,4 @@
 		ORDER BY ct.country_name asc
 	</select>
 	
-	<select id="getFlagImgUrlList" resultType="HashMap">
-		SELECT
-			lower(alpha_two_code) AS "alphaTwoCode",
-			country_name AS "countryName"
-		FROM country_code
-		ORDER BY alpha_two_code
-	</select>
-
 </mapper>

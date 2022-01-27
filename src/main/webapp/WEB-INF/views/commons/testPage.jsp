@@ -26,14 +26,16 @@
 			border-radius: 50%;
 		}
 
-		div.we-pp>div.we-pp-wrapper {
+		div.we-pp-wrapper {
 			text-align: center;
 		}
-
+		
 		.carousel.slide {
 			width: 20%;
-			height: 20%;
-			transform: translate(20%, 80%);
+			position: absolute;
+			top: 50%;
+			left: 15%;
+			transform: translate(-50%,-50%);
 		}
 	</style>
 </head>
@@ -100,7 +102,6 @@
 			var str = "";
 			// Set markers
 			$.each(markerList, function(index, item) {
-				console.log(item);
 				var marker = WE.marker([ item.latitude, item.longitude ], "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg", 24, 24).addTo(earth);
 				marker.bindPopup(
 					"<h2>" + item.landmark + "</h2>"
