@@ -31,11 +31,14 @@
 		}
 		
 		.carousel.slide {
-			width: 20%;
 			position: absolute;
 			top: 50%;
 			left: 15%;
-			transform: translate(-50%,-50%);
+			transform: translate(-50%,-150px);
+		}
+
+		.carousel-inner>.item>img {
+			height: 300px;
 		}
 	</style>
 </head>
@@ -47,16 +50,17 @@
 		
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
-			</div>
+			<div class="carousel-inner" role="listbox"></div>
 			
 			<!-- Controls -->
 			<a class="left carousel-control" href="#landmark-carousel" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+				<span class="icon-prev" aria-hidden="true"></span>
 				<span class="sr-only">Previous</span>
 			</a>
 			<a class="right carousel-control" href="#landmark-carousel" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+				<span class="icon-next" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
