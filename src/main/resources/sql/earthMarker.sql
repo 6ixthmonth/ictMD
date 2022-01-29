@@ -1,10 +1,10 @@
-drop table country_code_tb;
-create table country_code_tb (
-    alpha_two_code varchar2(2) primary key,
-    country_name varchar2(56)
+DROP TABLE country_code_tb;
+CREATE TABLE country_code_tb (
+    alpha_two_code VARCHAR2(2) PRIMARY KEY,
+    country_name VARCHAR2(56)
 );
 
-insert into country_code_tb values ('AD', 'Andorra');
+INSERT INTO country_code_tb (alpha_two_code, country_name) VALUES ('AD', 'Andorra');
 insert into country_code_tb values ('AE', 'United Arab Emirates');
 insert into country_code_tb values ('AF', 'Afghanistan');
 insert into country_code_tb values ('AG', 'Antigua and Barbuda');

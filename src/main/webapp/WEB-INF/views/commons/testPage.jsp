@@ -29,7 +29,7 @@
 		div.we-pp-wrapper {
 			text-align: center;
 		}
-		
+
 		.carousel.slide {
 			position: absolute;
 			top: 50%;
