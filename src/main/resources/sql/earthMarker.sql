@@ -253,7 +253,7 @@ INSERT INTO country_code_tb (alpha_two_code, country_name) VALUES ('YT', 'Mayott
 INSERT INTO country_code_tb (alpha_two_code, country_name) VALUES ('ZA', 'South Africa');
 INSERT INTO country_code_tb (alpha_two_code, country_name) VALUES ('ZM', 'Zambia');
 INSERT INTO country_code_tb (alpha_two_code, country_name) VALUES ('ZW', 'Zimbabwe');
-commit;
+COMMIT;
 
 DROP TABLE earth_marker_tb;
 CREATE TABLE earth_marker_tb (
@@ -287,4 +287,4 @@ INSERT INTO earth_marker_tb VALUES ('TZ', 'Mount Kilimanjaro', -3.06742684569269
 INSERT INTO earth_marker_tb VALUES ('US', 'Golden Gate Bridge', 37.8199116294378, -122.47825510205308, 'https://www.listchallenges.com/f/items/6b26ad11-44d1-497c-897b-65ae86f67273.jpg');
 INSERT INTO earth_marker_tb VALUES ('US', 'Hollywood', 26.011513680538773, -80.14304728416546, 'https://www.listchallenges.com/f/items/db282a05-f160-40b3-8129-035bcd322ccb.jpg');
 INSERT INTO earth_marker_tb VALUES ('US', 'Statue of Liberty', 40.68924788775158, -74.04450128301255, 'https://www.listchallenges.com/f/items/a45acde9-68c5-4871-b49c-0a630890076b.jpg');
-commit;
+COMMIT;
