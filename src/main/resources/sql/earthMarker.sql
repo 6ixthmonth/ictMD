@@ -257,7 +257,7 @@ COMMIT;
 
 DROP TABLE earth_marker_tb;
 CREATE TABLE earth_marker_tb (
-    alpha_two_code VARCHAR2(2) REFERENCES country_code_tb,
+    alpha_two_code VARCHAR2(2) REFERENCES country_code_tb ON DELETE CASCADE,
     landmark VARCHAR2(64),
     latitude NUMBER,
     longitude NUMBER,
