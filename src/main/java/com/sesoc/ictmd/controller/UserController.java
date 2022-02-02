@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.ictmd.Interface.UserDAO;
+import com.sesoc.ictmd.dao.UserDAO;
 import com.sesoc.ictmd.vo.UserBase;
 import com.sesoc.ictmd.vo.UserDetail;
 

@@ -1,4 +1,4 @@
-package com.sesoc.ictmd.Interface;
+package com.sesoc.ictmd.dao;
 
 import java.util.ArrayList;
 

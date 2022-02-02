@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.ictmd.Interface.AnalysisDAO;
-import com.sesoc.ictmd.Interface.TrendDAO;
+import com.sesoc.ictmd.dao.AnalysisDAO;
+import com.sesoc.ictmd.dao.TrendDAO;
 import com.sesoc.ictmd.vo.BasicTrendData;
 import com.sesoc.ictmd.vo.ComplexAnalysisData;
 

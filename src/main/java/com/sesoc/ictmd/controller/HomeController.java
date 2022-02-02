@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.ictmd.Interface.MiscDAO;
-import com.sesoc.ictmd.Interface.ModelDetailDAO;
+import com.sesoc.ictmd.dao.MiscMapper;
+import com.sesoc.ictmd.dao.ModelDetailDAO;
 import com.sesoc.ictmd.vo.MarkerVO;
 import com.sesoc.ictmd.vo.ModelDetail;
 
@@ -71,7 +71,7 @@ public class HomeController {
 	@ResponseBody
 	@RequestMapping(value = "/getMarkerList", method = RequestMethod.GET)
 	public ArrayList<MarkerVO> getMarkerList() {
-		MiscDAO dao = session.getMapper(MiscDAO.class);
+		MiscMapper dao = session.getMapper(MiscMapper.class);
 		ArrayList<MarkerVO> markerList = dao.getMarkerList();
 		
 		return markerList;
