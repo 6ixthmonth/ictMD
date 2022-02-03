@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sesoc.ictmd.dao.ModelDetailDAO;
+import com.sesoc.ictmd.mapper.ModelDetailDAO;
 import com.sesoc.ictmd.vo.ModelDetail;
 
 /**

@@ -1,4 +1,4 @@
-package com.sesoc.ictmd.dao;
+package com.sesoc.ictmd.mapper;
 
 import java.util.List;
 

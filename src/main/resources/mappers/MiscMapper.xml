@@ -3,19 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sesoc.ictmd.Interface.MiscMapper">
+<mapper namespace="com.sesoc.ictmd.mapper.MiscMapper">
 
-	<select id="getMarkerList" resultType="Marker">
+	<select id="getMarkers" resultType="Marker">
 		SELECT
-			LOWER(ct.alpha_two_code) AS "alphaTwoCode",
-			ct.country_name AS "countryName",
-			mt.landmark AS "landmark",
-			mt.latitude AS "latitude",
-			mt.longitude AS "longitude",
-			mt.img_url AS "imgUrl"
-		FROM country_code_tb ct, earth_marker_tb mt
-		WHERE ct.alpha_two_code = mt.alpha_two_code
-		ORDER BY ct.country_name ASC
+		       LOWER(ct.alpha_two_code) AS "alphaTwoCode",
+		       ct.country_name AS "countryName",
+		       mt.landmark AS "landmark",
+		       mt.latitude AS "latitude",
+		       mt.longitude AS "longitude",
+		       mt.img_url AS "imgUrl"
+		  FROM country_code_tb ct, earth_marker_tb mt
+		 WHERE ct.alpha_two_code = mt.alpha_two_code
+		 ORDER BY ct.country_name ASC
 	</select>
-	
+
 </mapper>

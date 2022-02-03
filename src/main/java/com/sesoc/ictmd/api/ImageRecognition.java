@@ -14,8 +14,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.sesoc.ictmd.dao.AnalysisDAO;
 import com.sesoc.ictmd.function.CreateImg;
+import com.sesoc.ictmd.mapper.AnalysisDAO;
 import com.sesoc.ictmd.vo.BasicAnalysisData;
 
 /**

@@ -1,12 +1,11 @@
-package com.sesoc.ictmd.dao;
+package com.sesoc.ictmd.mapper;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import com.sesoc.ictmd.vo.MarkerVO;
 
 public interface MiscMapper {
 
-	ArrayList<MarkerVO> getMarkerList();
+	ArrayList<MarkerVO> getMarkers();
 
 }

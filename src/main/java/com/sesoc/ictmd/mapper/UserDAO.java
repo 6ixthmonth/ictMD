@@ -1,4 +1,4 @@
-package com.sesoc.ictmd.dao;
+package com.sesoc.ictmd.mapper;
 
 import com.sesoc.ictmd.vo.UserBase;
 import com.sesoc.ictmd.vo.UserDetail;

@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.ictmd.api.SearchAPI;
-import com.sesoc.ictmd.dao.ModelDetailDAO;
 import com.sesoc.ictmd.function.CreateImg;
+import com.sesoc.ictmd.mapper.ModelDetailDAO;
 import com.sesoc.ictmd.vo.BrandNewVO;
 import com.sesoc.ictmd.vo.ComplexPhoto;
 import com.sesoc.ictmd.vo.ModelDetail;

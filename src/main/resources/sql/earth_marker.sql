@@ -1,7 +1,7 @@
 DROP TABLE country_code_tb;
 CREATE TABLE country_code_tb(
-    alpha_two_code VARCHAR2(2) PRIMARY KEY,
-    country_name VARCHAR2(56)
+    alpha_two_code  VARCHAR2(2)  PRIMARY KEY,
+    country_name    VARCHAR2(56)
 );
 
 INSERT INTO country_code_tb (alpha_two_code, country_name) VALUES ('AD', 'Andorra');
@@ -257,11 +257,11 @@ COMMIT;
 
 DROP TABLE earth_marker_tb;
 CREATE TABLE earth_marker_tb (
-    alpha_two_code VARCHAR2(2) REFERENCES country_code_tb ON DELETE CASCADE,
-    landmark VARCHAR2(64),
-    latitude NUMBER,
-    longitude NUMBER,
-    img_url VARCHAR2(2048)
+    alpha_two_code  VARCHAR2(2) REFERENCES country_code_tb ON DELETE CASCADE,
+    landmark        VARCHAR2(64),
+    latitude        NUMBER,
+    longitude       NUMBER,
+    img_url         VARCHAR2(2048)
 );
 
 INSERT INTO earth_marker_tb VALUES ('AU', 'Sydney Opera House', -33.85678581090873, 151.21529563018993, 'https://www.listchallenges.com/f/items/baccf057-63ee-4aa5-aab6-f0f1212d8fb7.jpg');

@@ -6,10 +6,17 @@
 <head>
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
 
-	<style>
+	<style type="text/css">
 		html, body {
 			padding: 0;
 			margin: 0;
+		}
+		
+		.canvas {
+			max-height: 100%;
+			overflow: hidden;
+			
+			background-image: url(/resources/custom/img/firstCamera2.jpg);
 		}
 
 		#earth_div {
@@ -34,11 +41,26 @@
 			position: absolute;
 			top: 50%;
 			left: 15%;
-			transform: translate(-50%,-150px);
+			transform: translate(-150px, -50%);
 		}
 
 		.carousel-inner>.item>img {
 			height: 300px;
+		}
+		
+		#search-result {
+			width: 300px;
+			height: 300px;
+			
+			position: absolute;
+			top: 50%;
+			right: 15%;
+			transform: translate(150px, -50%);
+			
+			background-color: gray;
+			opacity: 0.9;
+			
+			display: none;
 		}
 	</style>
 </head>
@@ -46,7 +68,7 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
-		<div id="earth_div"></div>
+		<div id="earth-div"></div>
 		
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
 			<!-- Wrapper for slides -->
@@ -54,35 +76,35 @@
 			
 			<!-- Controls -->
 			<a class="left carousel-control" href="#landmark-carousel" role="button" data-slide="prev">
-				<!-- <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> -->
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 				<span class="icon-prev" aria-hidden="true"></span>
 				<span class="sr-only">Previous</span>
 			</a>
 			<a class="right carousel-control" href="#landmark-carousel" role="button" data-slide="next">
-				<!-- <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> -->
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 				<span class="icon-next" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
+		
+		<div id="search-result"></div>
 	</div>
 
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
-		$(init);
+		let earth;
 		
+		$(init);
+
 		function init() {
-			getMarkerList();	
+			initEarth();
+			getMarkers();
 		}
-
-		function getMarkerList() {
-			$.ajax("/getMarkerList")
-			.done(initEarth);
-		}
-
-		function initEarth(markerList) {
+		
+		function initEarth() {
 			// Init map object
-			var earth = new WE.map("earth_div", {
+			earth = new WE.map("earth-div", {
 				center: [ 37.511981, 127.058544 ], // COEX
 				zoom: 0,
 				zooming: false,
@@ -102,42 +124,66 @@
 				earth.setCenter([ c[0], c[1] + 0.1 * (elapsed / 30) ]);
 				requestAnimationFrame(animate);
 			});
+		}
 
-			var str = "";
+		function getMarkers() {
+			$.ajax("/getMarkers").done(setMarkers);
+		}
+
+		function setMarkers(markers) {
+			var sliderHtml = "";
 			// Set markers
-			$.each(markerList, function(index, item) {
-				var marker = WE.marker([ item.latitude, item.longitude ], "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg", 24, 24).addTo(earth);
-				marker.bindPopup(
-					"<h2>" + item.landmark + "</h2>"
-					+ "<a href='javascript: searchImg(\"" + item.landmark  + "\")' role='button'>"
-					+ "	<img src='" + item.imgUrl + "' class='img-circle' style='width:180px;height:180px;'>"
-					+ "</a>"
-				);
-				
-				str += "<div class='item'>";
-				str += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\")'>";
-				str += "	<div class='carousel-caption'>";
-				str += "		<h4 style='text-shadow: 1px 1px 1px black;'>" + item.landmark + "</h4>";
-				str += "		<h4 style='text-shadow: 1px 1px 1px black;'>" + item.countryName + "</h4>";
-				str += "	</div>";
-				str += "</div>";
+			$.each(markers, function(index, item) {
+				// Add marker to earth
+				var markerImgUrl = "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg";
+				var marker = WE.marker([ item.latitude, item.longitude ], markerImgUrl, 24, 24).addTo(earth);
+
+				// Bind popup to marker
+				var popupHtml = "";
+				popupHtml += "<a href='javascript: searchImg(\"" + item.landmark  + "\");' role='button'>";
+				popupHtml += "	<h2>" + item.landmark + "</h2>";
+				popupHtml += "	<h4>" + item.countryName + "</h4>";
+				popupHtml += "</a>";
+				popupHtml += "<a href='javascript: searchImg(\"" + item.landmark  + "\");' role='button'>";
+				popupHtml += "	<img src='" + item.imgUrl + "' style='width:180px;height:180px;'>";
+				popupHtml += "</a>";
+				marker.bindPopup(popupHtml);
+
+				sliderHtml += "<div class='item'>";
+				sliderHtml += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\")'>";
+				sliderHtml += "	<div class='carousel-caption'>";
+				sliderHtml += "		<h4 style='text-shadow: 0px 0px 2px black;'>" + item.landmark + "</h4>";
+				sliderHtml += "		<h5 style='text-shadow: 0px 0px 2px black;'>" + item.countryName + "</h4>";
+				sliderHtml += "	</div>";
+				sliderHtml += "</div>";
 			});
 
-			$(".carousel-inner").html(str);
+			$(".carousel-inner").html(sliderHtml);
 			$(".item:first").addClass("active");
 		}
 		
-		function searchImg() {
+		function searchImg(landmark) {
 			// move to search page and search image automatically
+			
 		}
 		
-		function popupImg() {
+		function popupImg(landmark) {
 			// get img url by ajax
-			var imgUrl = getImg();
-		}
-		
-		function getImg() {
-			// get img url by ajax
+			$.ajax({
+				url: "/brandnew",
+				type: "post",
+				data: {
+					tag: landmark
+				}
+			}).done(function(res) {
+				console.log(res);
+				
+				var popupHtml = "";
+				popupHtml += "<img src='" + res.url + "'>"
+				
+				$("#search-result").html(popupHtml);
+				$("#search-result").show();
+			});
 		}
 	</script>
 </body>

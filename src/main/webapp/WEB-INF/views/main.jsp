@@ -21,7 +21,7 @@
 	<div class="flash"></div>
 	<div id="myCarousel" class="canvas" data-ride="carousel">
 		<div id="title">Click!</div>
-		<img id="firstShowed" src="./resources/img/firstCamera.jpg">
+		<img id="firstShowed" src="/resources/img/firstCamera.jpg">
 		<div id="earth_div">
 			<!--start-->
 			<div id="imgsl">

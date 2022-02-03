@@ -1,7 +1,6 @@
 package com.sesoc.ictmd.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sesoc.ictmd.dao.MiscMapper;
-import com.sesoc.ictmd.dao.ModelDetailDAO;
+import com.sesoc.ictmd.mapper.MiscMapper;
+import com.sesoc.ictmd.mapper.ModelDetailDAO;
 import com.sesoc.ictmd.vo.MarkerVO;
 import com.sesoc.ictmd.vo.ModelDetail;
 
@@ -69,12 +68,12 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/getMarkerList", method = RequestMethod.GET)
-	public ArrayList<MarkerVO> getMarkerList() {
-		MiscMapper dao = session.getMapper(MiscMapper.class);
-		ArrayList<MarkerVO> markerList = dao.getMarkerList();
-		
-		return markerList;
+	@RequestMapping(value = "/getMarkers", method = RequestMethod.GET)
+	public ArrayList<MarkerVO> getMarkers() {
+		MiscMapper mapper = session.getMapper(MiscMapper.class);
+		ArrayList<MarkerVO> markers = mapper.getMarkers();
+
+		return markers;
 	}
-	
+
 }
