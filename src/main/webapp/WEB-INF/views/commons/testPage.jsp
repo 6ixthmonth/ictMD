@@ -7,18 +7,20 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
 
 	<style type="text/css">
+		/* CSS for whole page */
 		html, body {
 			padding: 0;
 			margin: 0;
 		}
-		
+
 		.canvas {
 			max-height: 100%;
 			overflow: hidden;
 			
-			background-image: url(/resources/custom/img/firstCamera2.jpg);
+			background-image: url(/resources/custom/img/main.jpg);
 		}
 
+		/* CSS for WebGL earth and markers */
 		#earth_div {
 			top: 0;
 			right: 0;
@@ -26,17 +28,18 @@
 			left: 0;
 			position: absolute !important;
 		}
-		
+
 		.we-pm-icon {
 			width: 24px !important;
 			height: 24px !important;
 			border-radius: 50%;
 		}
 
-		div.we-pp-wrapper {
-			text-align: center;
+		.we-pp-wrapper {
+			text-align: center !important;
 		}
 
+		/* CSS for Bootstrap carousel */
 		.carousel.slide {
 			position: absolute;
 			top: 50%;
@@ -47,7 +50,12 @@
 		.carousel-inner>.item>img {
 			height: 300px;
 		}
-		
+
+		.carousel-caption {
+			text-shadow: 0px 0px 2px black;
+		}
+
+		/* CSS for custom window */
 		#search-result {
 			width: 300px;
 			height: 300px;
@@ -57,7 +65,7 @@
 			right: 15%;
 			transform: translate(150px, -50%);
 			
-			background-color: gray;
+			background-color: white;
 			opacity: 0.9;
 			
 			display: none;
@@ -93,7 +101,7 @@
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
-		let earth;
+		var earth;
 		
 		$(init);
 
@@ -140,20 +148,18 @@
 
 				// Bind popup to marker
 				var popupHtml = "";
-				popupHtml += "<a href='javascript: searchImg(\"" + item.landmark  + "\");' role='button'>";
+				popupHtml += "<div onclick='searchImg(\"" + item.landmark  + "\");'>";
 				popupHtml += "	<h2>" + item.landmark + "</h2>";
 				popupHtml += "	<h4>" + item.countryName + "</h4>";
-				popupHtml += "</a>";
-				popupHtml += "<a href='javascript: searchImg(\"" + item.landmark  + "\");' role='button'>";
 				popupHtml += "	<img src='" + item.imgUrl + "' style='width:180px;height:180px;'>";
-				popupHtml += "</a>";
+				popupHtml += "</div>";
 				marker.bindPopup(popupHtml);
 
 				sliderHtml += "<div class='item'>";
-				sliderHtml += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\")'>";
+				sliderHtml += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\", \"" + item.countryName + "\")'>";
 				sliderHtml += "	<div class='carousel-caption'>";
-				sliderHtml += "		<h4 style='text-shadow: 0px 0px 2px black;'>" + item.landmark + "</h4>";
-				sliderHtml += "		<h5 style='text-shadow: 0px 0px 2px black;'>" + item.countryName + "</h4>";
+				sliderHtml += "		<h4>" + item.landmark + "</h4>";
+				sliderHtml += "		<h5>" + item.countryName + "</h4>";
 				sliderHtml += "	</div>";
 				sliderHtml += "</div>";
 			});
@@ -164,10 +170,10 @@
 		
 		function searchImg(landmark) {
 			// move to search page and search image automatically
-			
+			console.log(landmark);
 		}
 		
-		function popupImg(landmark) {
+		function popupImg(landmark, countryName) {
 			// get img url by ajax
 			$.ajax({
 				url: "/brandnew",
@@ -176,10 +182,12 @@
 					tag: landmark
 				}
 			}).done(function(res) {
-				console.log(res);
-				
 				var popupHtml = "";
-				popupHtml += "<img src='" + res.url + "'>"
+				popupHtml += "<div onclick='searchImg(\"" + landmark + "\")'>";
+				popupHtml += "	<img src='" + res.url + "'>";
+				popupHtml += "	<h4>" + landmark + "</h4>";
+				popupHtml += "	<h5>" + countryName + "</h5>";
+				popupHtml += "</div>";
 				
 				$("#search-result").html(popupHtml);
 				$("#search-result").show();
