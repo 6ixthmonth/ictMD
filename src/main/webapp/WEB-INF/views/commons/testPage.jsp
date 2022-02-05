@@ -70,6 +70,23 @@
 			
 			display: none;
 		}
+		
+		#search-result>div>img {
+			width: 300px;
+			height: 300px;
+		}
+		
+		#search-result-title {
+			color: white;
+			text-shadow: 0px 0px 2px black;
+
+			width: 300px;
+			text-align: center;
+
+			position: absolute;
+			bottom: 20px;
+			padding-bottom: 30px;
+		}
 	</style>
 </head>
 <body>
@@ -185,8 +202,10 @@
 				var popupHtml = "";
 				popupHtml += "<div onclick='searchImg(\"" + landmark + "\")'>";
 				popupHtml += "	<img src='" + res.url + "'>";
-				popupHtml += "	<h4>" + landmark + "</h4>";
-				popupHtml += "	<h5>" + countryName + "</h5>";
+				popupHtml += "	<div id='search-result-title'>";
+				popupHtml += "		<h4>" + landmark + "</h4>";
+				popupHtml += "		<h5>" + countryName + "</h5>";
+				popupHtml += "	</div>";
 				popupHtml += "</div>";
 				
 				$("#search-result").html(popupHtml);
