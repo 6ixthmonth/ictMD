@@ -8,15 +8,9 @@
 
 	<style type="text/css">
 		/* CSS for whole page */
-		html, body {
-			padding: 0;
-			margin: 0;
-		}
-
 		.canvas {
 			max-height: 100%;
 			overflow: hidden;
-			
 			background-image: url(/resources/custom/img/main.jpg);
 		}
 
@@ -30,13 +24,16 @@
 		}
 
 		.we-pm-icon {
-			width: 24px !important;
-			height: 24px !important;
 			border-radius: 50%;
 		}
 
 		.we-pp-wrapper {
 			text-align: center !important;
+		}
+
+		.popup>img {
+			width: 180px;
+			height: 180px;
 		}
 
 		/* CSS for Bootstrap carousel */
@@ -49,6 +46,12 @@
 
 		.carousel-inner>.item>img {
 			height: 300px;
+			min-height: 300px;
+			max-height: 300px;
+			
+			width: 300px;
+			min-width: 300px;
+			max-width: 300px;
 		}
 
 		.carousel-caption {
@@ -59,23 +62,23 @@
 		#search-result {
 			width: 300px;
 			height: 300px;
-			
+
 			position: absolute;
 			top: 50%;
 			right: 15%;
 			transform: translate(150px, -50%);
-			
+
 			background-color: white;
 			opacity: 0.9;
-			
+
 			display: none;
 		}
-		
+
 		#search-result>div>img {
 			width: 300px;
 			height: 300px;
 		}
-		
+
 		#search-result-title {
 			color: white;
 			text-shadow: 0px 0px 2px black;
@@ -93,7 +96,8 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
-		<div id="earth-div"></div>
+		<div>Title</div>
+		<div id="earth_div"></div>
 		
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
 			<!-- Wrapper for slides -->
@@ -119,7 +123,6 @@
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
 		var earth;
-		
 		$(init);
 
 		function init() {
@@ -129,7 +132,7 @@
 		
 		function initEarth() {
 			// Init map object
-			earth = new WE.map("earth-div", {
+			earth = new WE.map("earth_div", {
 				center: [ 37.511981, 127.058544 ], // COEX
 				zoom: 0,
 				zooming: false,
@@ -152,11 +155,13 @@
 		}
 
 		function getMarkers() {
-			$.ajax("/getMarkers").done(setMarkers);
+			$.ajax("/getMarkers").done(function(markers) {
+				initMarkers(markers);
+				initCarousel(markers);
+			});
 		}
 
-		function setMarkers(markers) {
-			var sliderHtml = "";
+		function initMarkers(markers) {
 			// Set markers
 			$.each(markers, function(index, item) {
 				// Add marker to earth
@@ -165,25 +170,29 @@
 
 				// Bind popup to marker
 				var popupHtml = "";
-				popupHtml += "<div onclick='searchImg(\"" + item.landmark  + "\");'>";
+				popupHtml += "<div class='popup' onclick='searchImg(\"" + item.landmark  + "\");'>";
 				popupHtml += "	<h2>" + item.landmark + "</h2>";
 				popupHtml += "	<h4>" + item.countryName + "</h4>";
-				popupHtml += "	<img src='" + item.imgUrl + "' style='width:180px;height:180px;'>";
+				popupHtml += "	<img src='" + item.imgUrl + "'>";
 				popupHtml += "</div>";
 				marker.bindPopup(popupHtml);
-
-				sliderHtml += "<div class='item'>";
-				sliderHtml += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\", \"" + item.countryName + "\")'>";
-				sliderHtml += "	<div class='carousel-caption'>";
-				sliderHtml += "		<h4>" + item.landmark + "</h4>";
-				sliderHtml += "		<h5>" + item.countryName + "</h4>";
-				sliderHtml += "	</div>";
-				sliderHtml += "</div>";
 			});
-
-			$(".carousel-inner").html(sliderHtml);
-			$(".item:first").addClass("active");
 		}
+		
+		function initCarousel(markers) {
+			var carouselHtml = "";
+			$.each(markers, function(index, item) {
+				carouselHtml += "<div class='item'>";
+				carouselHtml += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\", \"" + item.countryName + "\")'>";
+				carouselHtml += "	<div class='carousel-caption'>";
+				carouselHtml += "		<h4>" + item.landmark + "</h4>";
+				carouselHtml += "		<h5>" + item.countryName + "</h4>";
+				carouselHtml += "	</div>";
+				carouselHtml += "</div>";
+			});
+			$(".carousel-inner").html(carouselHtml);
+			$(".item:first").addClass("active");
+		};
 		
 		function searchImg(landmark) {
 			// move to search page and search image automatically
