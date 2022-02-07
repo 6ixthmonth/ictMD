@@ -123,6 +123,7 @@
 	<script src="http://www.webglearth.com/v2/api.js"></script>
 	<script>
 		var earth;
+		var markers = [];
 		$(init);
 
 		function init() {
@@ -131,19 +132,19 @@
 		}
 		
 		function initEarth() {
-			// Init map object
+			// Init map object.
 			earth = new WE.map("earth_div", {
 				center: [ 37.511981, 127.058544 ], // COEX
 				zoom: 0,
 				zooming: false,
 			});
 
-			// Set tile layer
+			// Set tile layer.
 			WE.tileLayer("https://webglearth.github.io/webglearth2-offline/{z}/{x}/{y}.jpg", {
 				tms : true
 			}).addTo(earth);
 
-			// Start a simple rotation animation
+			// Start a simple rotation animation.
 			var before = null;
 			requestAnimationFrame(function animate(now) {
 				var c = earth.getPosition();
@@ -152,25 +153,36 @@
 				earth.setCenter([ c[0], c[1] + 0.1 * (elapsed / 30) ]);
 				requestAnimationFrame(animate);
 			});
+			
+			// Add click event.
+			earth.on("click", closeAllPopup);
+		}
+		
+		function closeAllPopup() {
+			for (var i = 0; i < markers.length; i++) {
+				markers[i].closePopup();
+			}
 		}
 
 		function getMarkers() {
-			$.ajax("/getMarkers").done(function(markers) {
-				initMarkers(markers);
-				initCarousel(markers);
+			// Get markers info from DB
+			$.ajax("/getMarkers").done(function(res) {
+				setMarkers(res);
+				initCarousel(res);
 			});
 		}
 
-		function initMarkers(markers) {
-			// Set markers
-			$.each(markers, function(index, item) {
-				// Add marker to earth
+		function setMarkers(res) {
+			// Init markers
+			$.each(res, function(index, item) {
+				// Make marker and add to earth
 				var markerImgUrl = "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg";
 				var marker = WE.marker([ item.latitude, item.longitude ], markerImgUrl, 24, 24).addTo(earth);
+				markers.push(marker);
 
-				// Bind popup to marker
+				// Make popup and bind to marker
 				var popupHtml = "";
-				popupHtml += "<div class='popup' onclick='searchImg(\"" + item.landmark  + "\");'>";
+				popupHtml += "<div class='popup'>";
 				popupHtml += "	<h2>" + item.landmark + "</h2>";
 				popupHtml += "	<h4>" + item.countryName + "</h4>";
 				popupHtml += "	<img src='" + item.imgUrl + "'>";
@@ -179,11 +191,11 @@
 			});
 		}
 		
-		function initCarousel(markers) {
+		function initCarousel(res) {
 			var carouselHtml = "";
-			$.each(markers, function(index, item) {
+			$.each(res, function(index, item) {
 				carouselHtml += "<div class='item'>";
-				carouselHtml += "	<img src='" + item.imgUrl + "' onclick='searchImg(\"" + item.landmark  + "\")' onmouseenter='popupImg(\"" + item.landmark + "\", \"" + item.countryName + "\")'>";
+				carouselHtml += "	<img src='" + item.imgUrl + "' onclick='setEarth(" + index + ", " + item.latitude + ", " + item.longitude + ", \"" + item.landmark + "\", \"" + item.countryName + "\")'>";
 				carouselHtml += "	<div class='carousel-caption'>";
 				carouselHtml += "		<h4>" + item.landmark + "</h4>";
 				carouselHtml += "		<h5>" + item.countryName + "</h4>";
@@ -194,9 +206,13 @@
 			$(".item:first").addClass("active");
 		};
 		
-		function searchImg(landmark) {
-			// move to search page and search image automatically
-			console.log(landmark);
+		function setEarth(index, latitude, longitude, landmark, countryName) {
+			earth.setView([latitude, longitude]);
+			for (var i = 0; i < markerList.length; i++) {
+				markerList[i].closePopup();
+			}
+			markerList[index].openPopup();
+			popupImg(landmark, countryName);
 		}
 		
 		function popupImg(landmark, countryName) {
