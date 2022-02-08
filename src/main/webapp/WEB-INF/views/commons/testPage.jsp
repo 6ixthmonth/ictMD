@@ -15,7 +15,7 @@
 		}
 
 		/* CSS for WebGL earth and markers */
-		#earth_div {
+		#earth {
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -31,13 +31,13 @@
 			text-align: center !important;
 		}
 
-		.popup>img {
+		.we-pp-content>img {
 			width: 180px;
 			height: 180px;
 		}
 
 		/* CSS for Bootstrap carousel */
-		.carousel.slide {
+		.carousel {
 			position: absolute;
 			top: 50%;
 			left: 15%;
@@ -48,7 +48,7 @@
 			height: 300px;
 			min-height: 300px;
 			max-height: 300px;
-			
+
 			width: 300px;
 			min-width: 300px;
 			max-width: 300px;
@@ -74,12 +74,17 @@
 			display: none;
 		}
 
-		#search-result>div>img {
-			width: 300px;
+		.result-inner>div>img {
 			height: 300px;
+			min-height: 300px;
+			max-height: 300px;
+
+			width: 300px;
+			min-width: 300px;
+			max-width: 300px;
 		}
 
-		#search-result-title {
+		.search-result-caption {
 			color: white;
 			text-shadow: 0px 0px 2px black;
 
@@ -97,26 +102,30 @@
 	
 	<div class="canvas">
 		<div>Title</div>
-		<div id="earth_div"></div>
+		<div id="earth"></div>
 		
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
+			<h1 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, -69.6px);">click to search</h1>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox"></div>
 			
 			<!-- Controls -->
 			<a class="left carousel-control" href="#landmark-carousel" role="button" data-slide="prev">
 				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<span class="icon-prev" aria-hidden="true"></span>
+				<!-- <span class="icon-prev" aria-hidden="true"></span> -->
 				<span class="sr-only">Previous</span>
 			</a>
 			<a class="right carousel-control" href="#landmark-carousel" role="button" data-slide="next">
 				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<span class="icon-next" aria-hidden="true"></span>
+				<!-- <span class="icon-next" aria-hidden="true"></span> -->
 				<span class="sr-only">Next</span>
 			</a>
 		</div>
 		
-		<div id="search-result"></div>
+		<div id="search-result">
+			<h1 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, -69.6px);">click to search</h1>
+			<div class="result-inner"></div>
+		</div>
 	</div>
 
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
@@ -133,7 +142,7 @@
 		
 		function initEarth() {
 			// Init map object.
-			earth = new WE.map("earth_div", {
+			earth = new WE.map("earth", {
 				center: [ 37.511981, 127.058544 ], // COEX
 				zoom: 0,
 				zooming: false,
@@ -182,11 +191,9 @@
 
 				// Make popup and bind to marker
 				var popupHtml = "";
-				popupHtml += "<div class='popup'>";
-				popupHtml += "	<h2>" + item.landmark + "</h2>";
-				popupHtml += "	<h4>" + item.countryName + "</h4>";
-				popupHtml += "	<img src='" + item.imgUrl + "'>";
-				popupHtml += "</div>";
+				popupHtml += "<h2>" + item.landmark + "</h2>";
+				popupHtml += "<h4>" + item.countryName + "</h4>";
+				popupHtml += "<img src='" + item.imgUrl + "'>";
 				marker.bindPopup(popupHtml);
 			});
 		}
@@ -208,10 +215,8 @@
 		
 		function setEarth(index, latitude, longitude, landmark, countryName) {
 			earth.setView([latitude, longitude]);
-			for (var i = 0; i < markerList.length; i++) {
-				markerList[i].closePopup();
-			}
-			markerList[index].openPopup();
+			closeAllPopup();
+			markers[index].openPopup();
 			popupImg(landmark, countryName);
 		}
 		
@@ -227,13 +232,13 @@
 				var popupHtml = "";
 				popupHtml += "<div onclick='searchImg(\"" + landmark + "\")'>";
 				popupHtml += "	<img src='" + res.url + "'>";
-				popupHtml += "	<div id='search-result-title'>";
+				popupHtml += "	<div class='search-result-caption'>";
 				popupHtml += "		<h4>" + landmark + "</h4>";
 				popupHtml += "		<h5>" + countryName + "</h5>";
 				popupHtml += "	</div>";
 				popupHtml += "</div>";
 				
-				$("#search-result").html(popupHtml);
+				$(".result-inner").html(popupHtml);
 				$("#search-result").show();
 			});
 		}
