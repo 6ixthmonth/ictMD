@@ -16,11 +16,11 @@
 
 		/* CSS for WebGL earth and markers */
 		#earth {
+			position: absolute !important;
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			position: absolute !important;
 		}
 
 		.we-pm-icon {
@@ -45,17 +45,13 @@
 		}
 
 		.carousel-inner>.item>img {
-			height: 300px;
-			min-height: 300px;
-			max-height: 300px;
-
 			width: 300px;
 			min-width: 300px;
 			max-width: 300px;
-		}
 
-		.carousel-caption {
-			text-shadow: 0px 0px 2px black;
+			height: 300px;
+			min-height: 300px;
+			max-height: 300px;
 		}
 
 		/* CSS for custom window */
@@ -75,25 +71,34 @@
 		}
 
 		.result-inner>div>img {
-			height: 300px;
-			min-height: 300px;
-			max-height: 300px;
-
 			width: 300px;
 			min-width: 300px;
 			max-width: 300px;
+
+			height: 300px;
+			min-height: 300px;
+			max-height: 300px;
 		}
 
-		.search-result-caption {
-			color: white;
-			text-shadow: 0px 0px 2px black;
-
-			width: 300px;
-			text-align: center;
-
+		.result-caption {
 			position: absolute;
+			right: 15%;
 			bottom: 20px;
-			padding-bottom: 30px;
+			left: 15%;
+			z-index: 10;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			color: #fff;
+			text-align: center;
+			text-shadow: 0 1px 2px rgb(0 0 0 / 60%);
+		}
+
+		@media screen and (min-width: 768px) {
+			.result-caption {
+				right: 20%;
+				left: 20%;
+				padding-bottom: 30px;
+			}
 		}
 	</style>
 </head>
@@ -101,11 +106,11 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
-		<div>Title</div>
+		<h1 class="text-center">Title</h1>
 		<div id="earth"></div>
 		
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
-			<h1 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, -69.6px);">click to search</h1>
+			<h3 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, 0);">Click to Search One</h3>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox"></div>
 			
@@ -123,7 +128,7 @@
 		</div>
 		
 		<div id="search-result">
-			<h1 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, -69.6px);">click to search</h1>
+			<h3 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, 0);">Click to See More</h3>
 			<div class="result-inner"></div>
 		</div>
 	</div>
@@ -139,7 +144,7 @@
 			initEarth();
 			getMarkers();
 		}
-		
+
 		function initEarth() {
 			// Init map object.
 			earth = new WE.map("earth", {
@@ -162,11 +167,11 @@
 				earth.setCenter([ c[0], c[1] + 0.1 * (elapsed / 30) ]);
 				requestAnimationFrame(animate);
 			});
-			
+
 			// Add click event.
 			earth.on("click", closeAllPopup);
 		}
-		
+
 		function closeAllPopup() {
 			for (var i = 0; i < markers.length; i++) {
 				markers[i].closePopup();
@@ -197,7 +202,7 @@
 				marker.bindPopup(popupHtml);
 			});
 		}
-		
+
 		function initCarousel(res) {
 			var carouselHtml = "";
 			$.each(res, function(index, item) {
@@ -205,21 +210,26 @@
 				carouselHtml += "	<img src='" + item.imgUrl + "' onclick='setEarth(" + index + ", " + item.latitude + ", " + item.longitude + ", \"" + item.landmark + "\", \"" + item.countryName + "\")'>";
 				carouselHtml += "	<div class='carousel-caption'>";
 				carouselHtml += "		<h4>" + item.landmark + "</h4>";
-				carouselHtml += "		<h5>" + item.countryName + "</h4>";
+				carouselHtml += "		<h5>" + item.countryName + "</h5>";
 				carouselHtml += "	</div>";
 				carouselHtml += "</div>";
 			});
+
 			$(".carousel-inner").html(carouselHtml);
 			$(".item:first").addClass("active");
+			
+			$("#landmark-carousel").carousel({
+				interval: 6000
+			});
 		};
-		
+
 		function setEarth(index, latitude, longitude, landmark, countryName) {
 			earth.setView([latitude, longitude]);
 			closeAllPopup();
 			markers[index].openPopup();
 			popupImg(landmark, countryName);
 		}
-		
+
 		function popupImg(landmark, countryName) {
 			// get img url by ajax
 			$.ajax({
@@ -232,12 +242,12 @@
 				var popupHtml = "";
 				popupHtml += "<div onclick='searchImg(\"" + landmark + "\")'>";
 				popupHtml += "	<img src='" + res.url + "'>";
-				popupHtml += "	<div class='search-result-caption'>";
+				popupHtml += "	<div class='result-caption'>";
 				popupHtml += "		<h4>" + landmark + "</h4>";
 				popupHtml += "		<h5>" + countryName + "</h5>";
 				popupHtml += "	</div>";
 				popupHtml += "</div>";
-				
+
 				$(".result-inner").html(popupHtml);
 				$("#search-result").show();
 			});
