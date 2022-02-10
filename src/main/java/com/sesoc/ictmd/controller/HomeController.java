@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.ictmd.mapper.MiscMapper;
 import com.sesoc.ictmd.mapper.ModelDetailDAO;
-import com.sesoc.ictmd.vo.MarkerVO;
+import com.sesoc.ictmd.vo.LandmarkVO;
 import com.sesoc.ictmd.vo.ModelDetail;
 
 @Controller
@@ -68,12 +68,12 @@ public class HomeController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/getMarkers", method = RequestMethod.GET)
-	public ArrayList<MarkerVO> getMarkers() {
+	@RequestMapping(value = "/getLandmarks", method = RequestMethod.GET)
+	public ArrayList<LandmarkVO> getLandmarks() {
 		MiscMapper mapper = session.getMapper(MiscMapper.class);
-		ArrayList<MarkerVO> markers = mapper.getMarkers();
+		ArrayList<LandmarkVO> landmarks = mapper.getLandmarks();
 
-		return markers;
+		return landmarks;
 	}
 
 }

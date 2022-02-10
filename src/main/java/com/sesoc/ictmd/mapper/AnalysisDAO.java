@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import com.sesoc.ictmd.vo.BasicAnalysisData;
 import com.sesoc.ictmd.vo.ComplexAnalysisData;
 import com.sesoc.ictmd.vo.HistoryVO;
-import com.sesoc.ictmd.vo.MarkerVO;
+import com.sesoc.ictmd.vo.LandmarkVO;
 
 public interface AnalysisDAO {
 
-	public ArrayList<MarkerVO> get();
+	public ArrayList<LandmarkVO> get();
 
 	public int write(BasicAnalysisData bad);
 

@@ -2,10 +2,10 @@ package com.sesoc.ictmd.mapper;
 
 import java.util.ArrayList;
 
-import com.sesoc.ictmd.vo.MarkerVO;
+import com.sesoc.ictmd.vo.LandmarkVO;
 
 public interface MiscMapper {
 
-	ArrayList<MarkerVO> getMarkers();
+	ArrayList<LandmarkVO> getLandmarks();
 
 }
