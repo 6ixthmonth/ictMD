@@ -9,12 +9,12 @@
 		SELECT
 		       LOWER(ct.alpha_two_code) AS "alphaTwoCode",
 		       ct.country_name AS "countryName",
-		       mt.landmark AS "landmark",
-		       mt.latitude AS "latitude",
-		       mt.longitude AS "longitude",
-		       mt.img_url AS "imgUrl"
-		  FROM country_code_tb ct, earth_marker_tb mt
-		 WHERE ct.alpha_two_code = mt.alpha_two_code
+		       lt.landmark AS "landmark",
+		       lt.latitude AS "latitude",
+		       lt.longitude AS "longitude",
+		       lt.img_url AS "imgUrl"
+		  FROM country_code_tb ct, landmark_tb lt
+		 WHERE ct.alpha_two_code = lt.alpha_two_code
 		 ORDER BY ct.country_name ASC
 	</select>
 
