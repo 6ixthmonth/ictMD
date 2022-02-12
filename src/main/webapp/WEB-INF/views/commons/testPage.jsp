@@ -106,11 +106,13 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
-		<h1 class="text-center">Title</h1>
+		<div class="text-center">
+			<input type="text" placeholder="Search Images">
+		</div>
 		<div id="earth"></div>
 		
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
-			<h3 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, 0);">Click to Search One</h3>
+			<h3 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, 0); z-index:100;">Click to Search One</h3>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox"></div>
 			
@@ -128,7 +130,7 @@
 		</div>
 		
 		<div id="search-result">
-			<h3 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, 0);">Click to See More</h3>
+			<h3 style="position: absolute; top:0; text-align: center; width: 100%; transform: translate(0, 0); z-index:100;">Click to See More</h3>
 			<div class="result-inner"></div>
 		</div>
 	</div>
