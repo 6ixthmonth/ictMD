@@ -106,8 +106,11 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
-		<div class="text-center">
-			<input type="text" placeholder="Search Images">
+		<div class="input-group text-center">
+			<input type="text" class="form-control" placeholder="Search Images">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="button">Search</button>
+			</span>
 		</div>
 		<div id="earth"></div>
 		
