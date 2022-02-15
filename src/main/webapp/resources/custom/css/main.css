@@ -4,6 +4,8 @@
 	max-height: 100%;
 	overflow: hidden;
 	background-image: url(/resources/custom/img/main.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 /* CSS for WebGL earth and markers */
