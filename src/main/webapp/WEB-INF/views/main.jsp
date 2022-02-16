@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
-	
+
 	<div class="canvas">
 		<!-- Search window -->
 		<div class="input-group text-center">
@@ -19,7 +19,7 @@
 			</span>
 		</div>
 
-		<!-- WebGL earth object -->
+		<!-- WebGL Earth object -->
 		<div id="earth"></div>
 
 		<!-- Landmark image carousel -->

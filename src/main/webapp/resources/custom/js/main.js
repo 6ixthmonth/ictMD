@@ -1,9 +1,9 @@
-var earth;
-var markers = [];
+let earth;
+let markers = [];
+
 $(init);
 
 function init() {
-	console.log("!");
 	initEarth();
 	getLandmarks();
 }
@@ -22,10 +22,10 @@ function initEarth() {
 	}).addTo(earth);
 
 	// Start a simple rotation animation.
-	var before = null;
+	let before = null;
 	requestAnimationFrame(function animate(now) {
-		var c = earth.getPosition();
-		var elapsed = before ? now - before : 0;
+		let c = earth.getPosition();
+		let elapsed = before ? now - before : 0;
 		before = now;
 		earth.setCenter([ c[0], c[1] + 0.1 * (elapsed / 30) ]);
 		requestAnimationFrame(animate);
@@ -37,7 +37,7 @@ function initEarth() {
 
 function closeAllPopups() {
 	// Close each popup.
-	for (var marker of markers) {
+	for (const marker of markers) {
 		marker.closePopup();
 	}
 }
@@ -54,12 +54,12 @@ function initMarkers(landmarks) {
 	// Init markers.
 	$.each(landmarks, function(index, item) {
 		// Make marker and add to earth.
-		var markerImgUrl = "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg";
-		var marker = WE.marker([ item.latitude, item.longitude ], markerImgUrl, 24, 24).addTo(earth);
+		let markerImgUrl = "https://flagicons.lipis.dev/flags/1x1/" + item.alphaTwoCode + ".svg";
+		let marker = WE.marker([ item.latitude, item.longitude ], markerImgUrl, 24, 24).addTo(earth);
 		markers.push(marker);
 
 		// Make popup and bind to marker.
-		var popupHtml = "";
+		let popupHtml = "";
 		popupHtml += "<h2>" + item.landmark + "</h2>";
 		popupHtml += "<h4>" + item.countryName + "</h4>";
 		popupHtml += "<img src='" + item.imgUrl + "'>";
@@ -69,10 +69,10 @@ function initMarkers(landmarks) {
 
 function initCarousel(landmarks) {
 	// Init carousel.
-	var carouselHtml = "";
+	let carouselHtml = "";
 	$.each(landmarks, function(index, item) {
-		carouselHtml += "<div class='item'>";
-		carouselHtml += "	<img src='" + item.imgUrl + "' onclick='setEarth(" + index + ", " + item.latitude + ", " + item.longitude + ", \"" + item.landmark + "\", \"" + item.countryName + "\")'>";
+		carouselHtml += "<div class='item' onclick='setEarth(" + index + ", " + item.latitude + ", " + item.longitude + ", \"" + item.landmark + "\", \"" + item.countryName + "\")'>";
+		carouselHtml += "	<img src='" + item.imgUrl + "'>";
 		carouselHtml += "	<div class='carousel-caption'>";
 		carouselHtml += "		<h4>" + item.landmark + "</h4>";
 		carouselHtml += "		<h5>" + item.countryName + "</h5>";
@@ -104,7 +104,7 @@ function popupImg(landmark, countryName) {
 			tag: landmark
 		}
 	}).done(function(res) {
-		var popupHtml = "";
+		let popupHtml = "";
 		// popupHtml += "<div onclick='searchImg(\"" + landmark + "\")'>";
 		popupHtml += "<div>";
 		popupHtml += "	<img src='" + res.url + "'>";
