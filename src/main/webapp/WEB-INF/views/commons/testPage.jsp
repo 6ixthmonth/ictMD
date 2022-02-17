@@ -14,7 +14,15 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
 	
 	<div class="canvas">
-		
+		<div class="page-header">
+			<h1>Example page header <small>Subtext for header</small></h1>
+		</div>
+		<form class="navbar-form navbar-left" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
 	</div>
 
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
