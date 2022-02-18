@@ -44,8 +44,8 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript" src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
-<script type="text/javascript" src="/resources/template/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/template/dist/js/jasny-bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/template/js/bootstrap.min.js"></script>
 
 <!-- Custom script to init css -->
-<script type="text/javascript" src="/resources/custom/js/navmenu.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/resources/custom/js/navmenu.js"></script>

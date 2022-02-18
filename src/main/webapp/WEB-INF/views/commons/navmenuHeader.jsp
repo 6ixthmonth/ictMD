@@ -9,13 +9,13 @@
 
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/resources/template/dist/css/jasny-bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/template/dist/css/jasny-bootstrap.min.css">
 <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Raleway'>
-<link rel="stylesheet" href="/resources/template/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/template/css/bootstrap.min.css">
 <!-- Custom styles for this template -->
-<link rel="stylesheet" href="/resources/template/css/navmenu-reveal.css">
-<link rel="stylesheet" href="/resources/template/css/style.css">
-<link rel="stylesheet" href="/resources/custom/css/navmenu.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/template/css/navmenu-reveal.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/template/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/custom/css/navmenu.css">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
