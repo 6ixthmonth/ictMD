@@ -15,7 +15,7 @@
 		<li><a href="">Trend Analysis</a></li>
 		<li><a href="">Weather &amp; Shopping</a></li>
 	</ul>
-	<a class="navmenu-brand" href="#"><img src="/resources/custom/img/logo.png" width="160"></a>
+	<a class="navmenu-brand" href="#"><img src="${pageContext.request.contextPath}/resources/custom/img/logo.png" width="160"></a>
 	<div class="social">
 		<c:choose>
 			<c:when test="${empty userid }">

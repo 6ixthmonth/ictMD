@@ -5,7 +5,7 @@
 <html>
 <head>
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
-	<link rel="stylesheet" href="/resources/custom/css/main.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/custom/css/main.css">
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
@@ -50,6 +50,6 @@
 
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script src="http://www.webglearth.com/v2/api.js"></script>
-	<script type="text/javascript" src="/resources/custom/js/main.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/custom/js/main.js"></script>
 </body>
 </html>
