@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="shortcut icon" href="/resources/custom/assets/ico/favicon.png">
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/custom/assets/ico/favicon.png">
 	
 	<title>イメージ検索</title>
 	
@@ -20,20 +20,20 @@
 	<!-- Bootstrap core CSS -->
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
-	<link href="/resources/template/dist/css/jasny-bootstrap.min.css" rel="stylesheet" />
+	<link href="${pageContext.request.contextPath}/resources/template/dist/css/jasny-bootstrap.min.css" rel="stylesheet" />
 	<!-- <link href="./resources/templete/css/bootstrap.min.css" rel="stylesheet" /> -->
 	<!-- Custom styles for this template -->
-	<link href="/resources/template/css/navmenu-reveal.css" rel="stylesheet" type="text/css" />
-	<link href="/resources/template/css/style.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/template/css/navmenu-reveal.css" rel="stylesheet" type="text/css" />
+	<link href="${pageContext.request.contextPath}/resources/template/css/style.css" rel="stylesheet" type="text/css" />
 	<!-- <link href="./resources/templete/css/Icomoon/style.css" rel="stylesheet" type="text/css" />
 	<link href="./resources/templete/css/animated-masonry-gallery.css" rel="stylesheet" type="text/css" />
 	<link href="./resources/templete/css/lightbox.css" rel="stylesheet" type="text/css" /> -->
 	
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	
-	<script type="text/javascript" src="/resources/template/js/jquery.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/template/js/jquery.js"></script>
 	
-	<link rel="stylesheet" type="text/css" href="/resources/custom/css/search.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/custom/css/search.css">
 	<style>
 		.bar {
 			background-color: #337ab7;
@@ -162,7 +162,7 @@
 			<li><a href="weatherNshopping">天気＆値段</a></li>
 		</ul>
 		<a class="navmenu-brand" href="main">
-			<img src="./resources/templete/assets/ico/favicon.png" width="186px">
+			<img src="${pageContext.request.contextPath}/resources/templete/assets/ico/favicon.png" width="186px">
 		</a>
 		<div id="memberMenu">
 			<c:if test="${userId == null}">
@@ -253,9 +253,9 @@
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
 	<!-- <script type="text/javascript" src="./resources/templete/js/isotope.js"></script> -->
 	<!-- <script type="text/javascript" src="./resources/templete/js/animated-masonry-gallery.js"></script> -->
-	<script src="/resources/template/dist/js/jasny-bootstrap.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/template/dist/js/jasny-bootstrap.min.js"></script>
 	<!-- <script src="./resources/templete/js/lightbox.js"></script> -->
-	<script src="/resources/custom/js/search.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/custom/js/search.js"></script>
 	<script>
 		var x = function initialize(){
 		 	var mtotag = '${mtotag}';
