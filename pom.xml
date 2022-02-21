@@ -158,18 +158,18 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 
-		<!-- flickr search API 1 -->
-		<dependency>
-			<groupId>com.github.scribejava</groupId>
-			<artifactId>scribejava-apis</artifactId>
-			<version>5.4.0</version>
-		</dependency>
-
-		<!-- flickr search API 2 -->
+		<!-- Flickr main API -->
 		<dependency>
 			<groupId>com.flickr4java</groupId>
 			<artifactId>flickr4java</artifactId>
-			<version>2.18</version>
+			<version>3.0.6</version>
+		</dependency>
+		
+		<!-- Flickr required API -->
+		<dependency>
+			<groupId>com.github.scribejava</groupId>
+			<artifactId>scribejava-apis</artifactId>
+			<version>8.3.1</version>
 		</dependency>
 		
 		<!-- file upload -->
