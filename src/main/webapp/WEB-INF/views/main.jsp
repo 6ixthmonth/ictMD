@@ -24,7 +24,7 @@
 
 		<!-- Landmark image carousel -->
 		<div id="landmark-carousel" class="carousel slide" data-ride="carousel">
-			<div style="position:absolute; top:0; text-align:center; width:100%; transform:translate(0, 0); z-index:1;">Click to Search Latest Image</div>
+			<div style="position:absolute; top:0; text-align:center; width:100%; transform:translate(0, 0); z-index:1;">Click to Search Latest Photo</div>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox"></div>
 
@@ -43,7 +43,7 @@
 
 		<!-- Custom window for showing search result -->
 		<div id="search-result">
-			<div style="position:absolute; top:0; text-align:center; width:100%; transform:translate(0, 0); z-index:1;">Click to Search More Images</div>
+			<div style="position:absolute; top:0; text-align:center; width:100%; transform:translate(0, 0); z-index:1;">Click to Search More Photo</div>
 			<div class="result-inner"></div>
 		</div>
 	</div>
