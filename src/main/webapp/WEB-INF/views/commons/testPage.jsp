@@ -7,7 +7,7 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
 
 	<style type="text/css">
-		
+		/* custom css for this page */
 	</style>
 </head>
 <body>
@@ -26,8 +26,8 @@
 	</div>
 
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
-	<script>
-		
+	<script type="text/javascript">
+		// custom script for this page
 	</script>
 </body>
 </html>
