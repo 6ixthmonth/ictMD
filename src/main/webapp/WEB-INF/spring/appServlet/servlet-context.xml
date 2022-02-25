@@ -23,14 +23,4 @@
 	
 	<context:component-scan base-package="com.sesoc.ictmd" />
 
-	<!-- <beans:bean id="MVCInterceptor" class="com.sesoc.ictmd.interceptor.MVCInterceptor"></beans:bean>
-
-	<interceptors>
-		<interceptor>
-			<mapping path="/search" />
-			<mapping path="/analysis" />
-			<beans:ref bean="MVCInterceptor" />
-		</interceptor>
-	</interceptors> -->
-	
 </beans:beans>

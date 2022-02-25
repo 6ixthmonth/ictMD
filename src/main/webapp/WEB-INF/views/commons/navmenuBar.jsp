@@ -13,7 +13,7 @@
 		<li><a href="/main">Home</a></li>
 		<li><a href="">Image Search</a></li>
 		<li><a href="">Trend Analysis</a></li>
-		<li><a href="">Weather &amp; Shopping</a></li>
+		<!-- <li><a href="">Weather &amp; Shopping</a></li> -->
 	</ul>
 	<a class="navmenu-brand" href="#"><img src="${pageContext.request.contextPath}/resources/custom/img/logo.png" width="160"></a>
 	<div class="social">
