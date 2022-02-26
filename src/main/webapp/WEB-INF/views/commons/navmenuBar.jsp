@@ -11,13 +11,13 @@
 <div class="navmenu navmenu-default navmenu-fixed-left">
 	<ul class="nav navmenu-nav">
 		<li><a href="/main">Home</a></li>
-		<li><a href="">Image Search</a></li>
-		<li><a href="">Trend Analysis</a></li>
+		<li><a href="/search">Image Search</a></li>
+		<li><a href="/analysis">Trend Analysis</a></li>
 		<!-- <li><a href="">Weather &amp; Shopping</a></li> -->
 	</ul>
 	<a class="navmenu-brand" href="#"><img src="${pageContext.request.contextPath}/resources/custom/img/logo.png" width="160"></a>
 	<div class="social">
-		<c:choose>
+		<%-- <c:choose>
 			<c:when test="${empty userid }">
 				<a href="#"><i class="fa">Sign in</i></a>
 				<a href="#"><i class="fa">Sign up</i></a>
@@ -27,7 +27,7 @@
 				<a href="#"><i class="fa">Edit</i></a>
 				<a href="#"><i class="fa">Withdrawal</i></a>
 			</c:otherwise>
-		</c:choose>
+		</c:choose> --%>
 	</div>
 	<!-- <div class="social">
 		<a href="#"><i class="fa fa-twitter"></i></a>

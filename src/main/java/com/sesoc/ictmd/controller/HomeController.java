@@ -42,24 +42,10 @@ public class HomeController {
 		return "analysis";
 	}
 
-	@RequestMapping(value = "/weatherNshopping", method = RequestMethod.GET)
-	public String goWeather() {
-		return "weatherNshopping";
-	}
-
 	@RequestMapping(value = "/goClickSearch", method = RequestMethod.POST)
 	public String goClickSearch(Model model, String tags) {
 		model.addAttribute("mtotag", tags);
 		return "search";
-	}
-
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
-	public String admin(Model model) {
-		ModelDetailDAO dao = session.getMapper(ModelDetailDAO.class);
-		List<ModelDetail> modelList = dao.allModelDetail();
-		model.addAttribute("modelList", modelList);
-
-		return "admin";
 	}
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
