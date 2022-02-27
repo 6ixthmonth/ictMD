@@ -5,8 +5,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.sesoc.ictmd.vo.LandmarkVO" alias="Landmark"/>
-		<typeAlias type="com.sesoc.ictmd.vo.UserBase" alias="userBase"/>
-		<typeAlias type="com.sesoc.ictmd.vo.UserDetail" alias="userDetail"/>
 		<typeAlias type="com.sesoc.ictmd.vo.ModelBase" alias="modelBase"/>
 		<typeAlias type="com.sesoc.ictmd.vo.ModelDetail" alias="modelDetail"/>
 		<typeAlias type="com.sesoc.ictmd.vo.BasicAnalysisData" alias="BAD"/>
@@ -15,7 +13,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="com.sesoc.ictmd.vo.ComplexAnalysisData" alias="CAD"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappers/UserMapper.xml"/>
 		<mapper resource="mappers/ModelBaseMapper.xml"/>
 		<mapper resource="mappers/ModelDetailMapper.xml"/>
 		<mapper resource="mappers/analysisMapper.xml"/>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.sesoc.ictmd.api.SearchExample;
 import com.sesoc.ictmd.mapper.MiscMapper;
 import com.sesoc.ictmd.mapper.ModelDetailDAO;
 import com.sesoc.ictmd.vo.LandmarkVO;
@@ -50,6 +51,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test(Model model) {
+		new SearchExample();
 		return "commons/testPage";
 	}
 
