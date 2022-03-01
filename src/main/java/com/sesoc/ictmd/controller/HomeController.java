@@ -1,7 +1,6 @@
 package com.sesoc.ictmd.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.ictmd.api.SearchExample;
 import com.sesoc.ictmd.mapper.MiscMapper;
-import com.sesoc.ictmd.mapper.ModelDetailDAO;
 import com.sesoc.ictmd.vo.LandmarkVO;
-import com.sesoc.ictmd.vo.ModelDetail;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	SqlSession session;
+
+	@Autowired
+	SearchExample example;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String redirectMain() {
@@ -51,7 +51,7 @@ public class HomeController {
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test(Model model) {
-		new SearchExample();
+		System.out.println("flickr api key at method: " + example.getApiKey());
 		return "commons/testPage";
 	}
 
