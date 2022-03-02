@@ -52,6 +52,8 @@ public class HomeController {
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test(Model model) {
 		System.out.println("flickr api key at method: " + example.getApiKey());
+		System.out.println("flickr shared secret at method: " + example.getSharedSecret());
+		
 		return "commons/testPage";
 	}
 

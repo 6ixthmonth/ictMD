@@ -12,10 +12,10 @@ import com.flickr4java.flickr.REST;
 public class SearchExample {
 
 	@Value("${FLICKR_API_KEY}")
-	static String apiKey;
+	String apiKey;
 
 	@Value("${FLICKR_SHARED_SECRET}")
-	static String sharedSecret;
+	String sharedSecret;
 
 	Flickr f;
 
@@ -23,10 +23,15 @@ public class SearchExample {
 
 	public SearchExample() {
 		System.out.println("flickr api key at constructor: " + apiKey);
+		System.out.println("flickr shared secret at constructor: " + sharedSecret);
 	}
 	
 	public String getApiKey() {
 		return apiKey;
+	}
+	
+	public String getSharedSecret() {
+		return sharedSecret;
 	}
 
 }
