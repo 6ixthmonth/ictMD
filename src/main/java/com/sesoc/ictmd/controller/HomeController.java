@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.flickr4java.flickr.FlickrException;
 import com.sesoc.ictmd.api.SearchExample;
 import com.sesoc.ictmd.mapper.MiscMapper;
 import com.sesoc.ictmd.vo.LandmarkVO;
@@ -51,9 +52,13 @@ public class HomeController {
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public String test(Model model) {
-		System.out.println("flickr api key at method: " + example.getApiKey());
-		System.out.println("flickr shared secret at method: " + example.getSharedSecret());
-		
+		try {
+			example.initFlickr();
+			example.search("London");
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
+
 		return "commons/testPage";
 	}
 

@@ -33,10 +33,10 @@ public class SearchExample {
 		f = new Flickr(this.apiKey, this.sharedSecret, new REST());
 	}
 
-	private void search(String text) throws FlickrException {
+	public void search(String text) throws FlickrException {
 		PhotosInterface photos = f.getPhotosInterface();
 		SearchParameters params = new SearchParameters();
-		params.setMedia("videos"); // One of "photos", "videos" or "all"
+		params.setMedia("photos");
 		params.setExtras(Stream.of("media").collect(Collectors.toSet()));
 		params.setText(text);
 		PhotoList<Photo> results = photos.search(params, 5, 0);
