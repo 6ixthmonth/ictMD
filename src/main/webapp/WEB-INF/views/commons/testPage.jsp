@@ -17,7 +17,7 @@
 		<div class="page-header">
 			<h1>Example page header <small>Subtext for header</small></h1>
 		</div>
-		<form class="navbar-form navbar-left" role="search">
+		<form class="navbar-form navbar-left" role="search" action="/list" method="post">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
