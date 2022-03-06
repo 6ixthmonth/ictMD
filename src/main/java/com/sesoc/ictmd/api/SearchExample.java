@@ -33,7 +33,7 @@ public class SearchExample {
 		f = new Flickr(this.apiKey, this.sharedSecret, new REST());
 	}
 
-	public void search(String text) throws FlickrException {
+	public PhotoList<Photo> search(String text) throws FlickrException {
 		PhotosInterface photos = f.getPhotosInterface();
 		SearchParameters params = new SearchParameters();
 		params.setMedia("photos");
@@ -47,6 +47,7 @@ public class SearchExample {
 			System.out.println(String.format("Original Video URL: %s", p.getVideoOriginalUrl()));
 		});
 
+		return results;
 	}
 
 }

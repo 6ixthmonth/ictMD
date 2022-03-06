@@ -25,6 +25,7 @@
 		</form>
 	</div>
 
+	${photoList }
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
 		// custom script for this page
