@@ -23,9 +23,9 @@
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
+		
+		${photoList }
 	</div>
-
-	${photoList }
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
 		// custom script for this page
