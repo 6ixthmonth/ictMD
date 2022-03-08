@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.flickr4java.flickr.Flickr;
 import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.photos.Photo;
 import com.flickr4java.flickr.photos.PhotoList;
@@ -18,17 +19,21 @@ public class TestController {
 	@Autowired
 	private SearchExample se;
 
+	@Autowired
+	private Flickr fk;
+	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String testSearch(String searchWord, Model model) {
-		PhotoList<Photo> results = null;
-		se.initFlickr();
-
-		try {
-			results = se.search(searchWord);
-		} catch (FlickrException e) {
-			e.printStackTrace();
-		}
-		model.addAttribute("photoList", results);
+//		PhotoList<Photo> results = null;
+//		se.initFlickr();
+//
+//		try {
+//			results = se.search(searchWord);
+//		} catch (FlickrException e) {
+//			e.printStackTrace();
+//		}
+		System.out.println("api key: " + fk.getApiKey());
+//		model.addAttribute("photoList", results);
 
 		return "commons/testPage";
 	}
