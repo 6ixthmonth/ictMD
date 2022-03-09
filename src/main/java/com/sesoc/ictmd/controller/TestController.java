@@ -17,23 +17,11 @@ import com.sesoc.ictmd.api.SearchExample;
 public class TestController {
 
 	@Autowired
-	private SearchExample se;
+	private Flickr flickr;
 
-	@Autowired
-	private Flickr fk;
-	
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String testSearch(String searchWord, Model model) {
-//		PhotoList<Photo> results = null;
-//		se.initFlickr();
-//
-//		try {
-//			results = se.search(searchWord);
-//		} catch (FlickrException e) {
-//			e.printStackTrace();
-//		}
-		System.out.println("api key: " + fk.getApiKey());
-//		model.addAttribute("photoList", results);
+		System.out.println("api key: " + flickr.getApiKey());
 
 		return "commons/testPage";
 	}

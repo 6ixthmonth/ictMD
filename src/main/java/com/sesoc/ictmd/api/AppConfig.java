@@ -17,9 +17,8 @@ public class AppConfig {
 	Environment env;
 
 	@Bean
-	public Flickr fk() {
-		Flickr fk = new Flickr(env.getProperty("FLICKR_API_KEY"), env.getProperty("FLICKR_SHARED_SECRET"), new REST());
-		return fk;
+	public Flickr flickr() {
+		return new Flickr(env.getProperty("FLICKR_API_KEY"), env.getProperty("FLICKR_SHARED_SECRET"), new REST());
 	}
 
 }
