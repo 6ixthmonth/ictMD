@@ -3,8 +3,6 @@ package com.sesoc.ictmd.api;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import com.flickr4java.flickr.Flickr;
@@ -16,21 +14,14 @@ import com.flickr4java.flickr.photos.PhotosInterface;
 import com.flickr4java.flickr.photos.SearchParameters;
 
 @Component
-@PropertySource("classpath:key.properties")
 public class SearchExample {
-
-	@Value("${FLICKR_API_KEY}")
-	private String apiKey;
-
-	@Value("${FLICKR_SHARED_SECRET}")
-	private String sharedSecret;
 
 	Flickr f;
 
 	REST rest;
 
-	public void initFlickr() {
-		f = new Flickr(this.apiKey, this.sharedSecret, new REST());
+	public SearchExample(String apiKey, String secret) {
+		f = new Flickr(apiKey, secret, new REST());
 	}
 
 	public PhotoList<Photo> search(String text) throws FlickrException {
@@ -44,7 +35,7 @@ public class SearchExample {
 		results.forEach(p -> {
 			System.out.println(String.format("Title: %s", p.getTitle()));
 			System.out.println(String.format("Media: %s", p.getMedia()));
-			System.out.println(String.format("Original Video URL: %s", p.getVideoOriginalUrl()));
+			System.out.println(String.format("Original Photo URL: %s", p.getPhotoUrl()));
 		});
 
 		return results;

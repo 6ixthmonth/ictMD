@@ -6,9 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 
-import com.flickr4java.flickr.Flickr;
-import com.flickr4java.flickr.REST;
-
 @Configuration
 @PropertySource("classpath:key.properties")
 public class AppConfig {
@@ -17,8 +14,12 @@ public class AppConfig {
 	Environment env;
 
 	@Bean
-	public Flickr flickr() {
-		return new Flickr(env.getProperty("FLICKR_API_KEY"), env.getProperty("FLICKR_SHARED_SECRET"), new REST());
+	public SearchExample searchExample() {
+		String apiKey = env.getProperty("FLICKR_API_KEY");
+		String secret = env.getProperty("FLICKR_SHARED_SECRET");
+		SearchExample searchExample = new SearchExample(apiKey, secret);
+
+		return searchExample;
 	}
 
 }
