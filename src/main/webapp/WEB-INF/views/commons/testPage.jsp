@@ -24,7 +24,7 @@
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 		
-		${photoList }
+		${searchResult }
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
