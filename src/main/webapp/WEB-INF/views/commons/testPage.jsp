@@ -17,14 +17,16 @@
 		<div class="page-header">
 			<h1>Example page header <small>Subtext for header</small></h1>
 		</div>
-		<form class="navbar-form navbar-left" role="search" action="/list" method="post">
+		<form class="navbar-form navbar-left" role="search" action="/search" method="post">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 		
-		${searchResult }
+		<c:forEach items="${photoList }" var="photo">
+			<div>${photo }</div>
+		</c:forEach>
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
