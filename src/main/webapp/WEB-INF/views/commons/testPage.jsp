@@ -12,18 +12,18 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/commons/navmenuBar.jsp" %>
-	
+
 	<div class="canvas">
 		<div class="page-header">
 			<h1>Example page header <small>Subtext for header</small></h1>
 		</div>
-		<form class="navbar-form navbar-left" role="search" action="/search" method="post">
+		<form class="navbar-form navbar-left" role="search" action="/test/search" method="get">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
+				<input type="text" class="form-control" placeholder="Search" name="searchWord">
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
-		
+
 		<c:forEach items="${photoList }" var="photo">
 			<div>${photo }</div>
 		</c:forEach>

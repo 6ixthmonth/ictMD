@@ -20,13 +20,16 @@ public class TestController {
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String testSearch(String searchWord, Model model) {
-		PhotoList<Photo> photoList = null;
-		try {
-			photoList = searchExample.search(searchWord);
-		} catch (FlickrException e) {
-			e.printStackTrace();
+		System.out.println("검색어: " + searchWord);
+		if (searchWord != null) {
+			PhotoList<Photo> photoList = null;
+			try {
+				photoList = searchExample.search(searchWord);
+			} catch (FlickrException e) {
+				e.printStackTrace();
+			}
+			model.addAttribute("photoList", photoList);
 		}
-		model.addAttribute("photoList", photoList);
 
 		return "commons/testPage";
 	}
