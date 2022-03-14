@@ -25,7 +25,8 @@
 		</form>
 
 		<c:forEach items="${photoList }" var="photo">
-			<div>${photo }</div>
+			<div>${photo.getSquareLargeUrl() }</div>
+			<div>${photo.squareLargeUrl }</div>
 		</c:forEach>
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
