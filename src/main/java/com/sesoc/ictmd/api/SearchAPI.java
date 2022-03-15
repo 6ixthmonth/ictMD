@@ -97,7 +97,7 @@ public class SearchAPI {
 		p.setExtras(e);
 		// p.setHasGeo(true);
 		p.setPrivacyFilter(1);
-		p.setSafeSearch("2");
+		p.setSafeSearch("1");
 		p.setTags(tags);
 	}
 	
