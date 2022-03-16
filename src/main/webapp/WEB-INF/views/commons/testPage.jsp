@@ -24,9 +24,18 @@
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
 
-		<c:forEach items="${photoList }" var="photo">
-			<div>${photo.getSquareLargeUrl() }</div>
-			<div>${photo.squareLargeUrl }</div>
+		<c:forEach items="${photoList }" var="temp" varStatus="status">
+			<c:if test="${status.index / 4 == 0 }">
+				<div class="row">
+					<c:forEach begin="${status.index }" end="${status.index + 3 }" var="i">
+						<div class="col-xs-6 col-md-3">
+							<a href="#" class="thumbnail">
+								<img src="${photoList[i].getSquareLargeUrl() }" alt="i">
+							</a>
+						</div>
+					</c:forEach>
+				</div>
+			</c:if>
 		</c:forEach>
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->

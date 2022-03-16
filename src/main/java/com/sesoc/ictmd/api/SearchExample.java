@@ -80,7 +80,7 @@ public class SearchExample {
 		params.setMedia("photos");
 		params.setExtras(Stream.of("media").collect(Collectors.toSet()));
 		params.setText(text);
-		PhotoList<Photo> results = photos.search(params, 5, 0);
+		PhotoList<Photo> results = photos.search(params, 15, 0);
 
 		results.forEach(p -> {
 			System.out.println(String.format("Title: %s", p.getTitle()));
