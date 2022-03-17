@@ -67,6 +67,7 @@ public class SearchExample {
 	public SearchExample(String apiKey, String secret) {
 		f = new Flickr(apiKey, secret, new REST());
 		i = f.getPhotosInterface();
+		p = new SearchParameters();
 		p.setExtras(e);
 		// p.setHasGeo(true);
 		p.setPrivacyFilter(1);
@@ -75,16 +76,14 @@ public class SearchExample {
 	}
 
 	public PhotoList<Photo> search(String text) throws FlickrException {
-		PhotosInterface photos = f.getPhotosInterface();
-		SearchParameters params = new SearchParameters();
-		params.setMedia("photos");
-		params.setExtras(Stream.of("media").collect(Collectors.toSet()));
-		params.setText(text);
-		PhotoList<Photo> results = photos.search(params, 15, 0);
+//		p.setMedia("photos");
+//		p.setExtras(Stream.of("media").collect(Collectors.toSet()));
+		p.setText(text);
+		System.out.println("설정된 검색어: " + p.getText());
+		PhotoList<Photo> results = i.search(p, 15, 0);
 
 		results.forEach(p -> {
 			System.out.println(String.format("Title: %s", p.getTitle()));
-			System.out.println(String.format("Media: %s", p.getMedia()));
 			System.out.println(String.format("Original Photo URL: %s", p.getPhotoUrl()));
 		});
 

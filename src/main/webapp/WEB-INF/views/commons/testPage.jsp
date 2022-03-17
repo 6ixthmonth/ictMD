@@ -15,7 +15,7 @@
 
 	<div class="canvas">
 		<div class="page-header">
-			<h1>Example page header <small>Subtext for header</small></h1>
+			<h1>Search page header <small>Subtext for header</small></h1>
 		</div>
 		<form class="navbar-form navbar-left" role="search" action="/test/search" method="get">
 			<div class="form-group">
@@ -23,20 +23,34 @@
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 		</form>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 
-		<c:forEach items="${photoList }" var="temp" varStatus="status">
-			<c:if test="${status.index / 4 == 0 }">
-				<div class="row">
-					<c:forEach begin="${status.index }" end="${status.index + 3 }" var="i">
+		<c:choose>
+			<c:when test="${empty photoList }">
+				Search result not found
+			</c:when>
+			<c:otherwise>
+				<c:forEach items="${photoList }" var="photo" varStatus="status">
+					<c:if test="${status.index % 4 == 0 }">
+						<div class="row">
+					</c:if>
 						<div class="col-xs-6 col-md-3">
-							<a href="#" class="thumbnail">
-								<img src="${photoList[i].getSquareLargeUrl() }" alt="i">
-							</a>
+							<c:if test="${not status.last }">
+								<a href="#" class="thumbnail">
+									<img src="${photo.getSquareLargeUrl() }" alt="i">
+								</a>
+							</c:if>
 						</div>
-					</c:forEach>
-				</div>
-			</c:if>
-		</c:forEach>
+					<c:if test="${status.index % 4 == 0 }">
+						</div>
+					</c:if>
+				</c:forEach>
+			</c:otherwise>
+		</c:choose>
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
