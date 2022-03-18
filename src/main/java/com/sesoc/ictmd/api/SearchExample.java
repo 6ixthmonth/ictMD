@@ -3,8 +3,6 @@ package com.sesoc.ictmd.api;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.stereotype.Component;
 
@@ -69,23 +67,16 @@ public class SearchExample {
 		i = f.getPhotosInterface();
 		p = new SearchParameters();
 		p.setExtras(e);
-		// p.setHasGeo(true);
+//		p.setHasGeo(true);
 		p.setPrivacyFilter(1);
 		p.setSafeSearch("1");
 //		p.setTags(tags);
 	}
 
 	public PhotoList<Photo> search(String text) throws FlickrException {
-//		p.setMedia("photos");
-//		p.setExtras(Stream.of("media").collect(Collectors.toSet()));
 		p.setText(text);
 		System.out.println("설정된 검색어: " + p.getText());
-		PhotoList<Photo> results = i.search(p, 15, 0);
-
-		results.forEach(p -> {
-			System.out.println(String.format("Title: %s", p.getTitle()));
-			System.out.println(String.format("Original Photo URL: %s", p.getPhotoUrl()));
-		});
+		PhotoList<Photo> results = i.search(p, 50, 0);
 
 		return results;
 	}

@@ -29,6 +29,7 @@
 		<br>
 		<br>
 
+		<!-- Thumbnail list for showing search result -->
 		<c:choose>
 			<c:when test="${empty photoList }">
 				Search result not found
@@ -37,10 +38,12 @@
 				<c:forEach var="i" begin="0" end="${photoList.size() - 1 }" step="4">
 					<div class="row">
 						<c:forEach var="j" begin="${i }" end="${i + 3 }">
-							<div class="col-xs-6 col-md-3">
-								<a href="#" class="thumbnail">
-									<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
-								</a>
+							<div class="col-xs-3 col-md-3">
+								<c:if test="${j < photoList.size() }">
+									<a href="#" class="thumbnail">
+										<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
+									</a>
+								</c:if>
 							</div>
 						</c:forEach>
 					</div>
