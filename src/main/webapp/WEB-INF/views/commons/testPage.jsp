@@ -34,20 +34,16 @@
 				Search result not found
 			</c:when>
 			<c:otherwise>
-				<c:forEach items="${photoList }" var="photo" varStatus="status">
-					<c:if test="${status.index % 4 == 0 }">
-						<div class="row">
-					</c:if>
-						<div class="col-xs-6 col-md-3">
-							<c:if test="${not status.last }">
+				<c:forEach var="i" begin="0" end="${photoList.size() - 1 }" step="4">
+					<div class="row">
+						<c:forEach var="j" begin="${i }" end="${i + 3 }">
+							<div class="col-xs-6 col-md-3">
 								<a href="#" class="thumbnail">
-									<img src="${photo.getSquareLargeUrl() }" alt="i">
+									<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
 								</a>
-							</c:if>
-						</div>
-					<c:if test="${status.index % 4 == 0 }">
-						</div>
-					</c:if>
+							</div>
+						</c:forEach>
+					</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
