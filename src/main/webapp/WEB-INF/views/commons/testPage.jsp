@@ -41,7 +41,10 @@
 							<div class="col-xs-3 col-md-3">
 								<c:if test="${j < photoList.size() }">
 									<a href="#" class="thumbnail">
-										<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
+										<%-- <img src="${photoList[j].getSquareLargeUrl() }" alt="img"> --%>
+										<img src="${photoList[j].getThumbnailUrl() }" alt="img">
+										<div>${photoList[j].getThumbnailSize() }</div>
+										<div>${photoList[j].getPhotoUrl() }</div>
 									</a>
 								</c:if>
 							</div>
