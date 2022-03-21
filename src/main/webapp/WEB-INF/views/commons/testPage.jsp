@@ -40,11 +40,9 @@
 						<c:forEach var="j" begin="${i }" end="${i + 3 }">
 							<div class="col-xs-3 col-md-3">
 								<c:if test="${j < photoList.size() }">
-									<a href="#" class="thumbnail">
-										<%-- <img src="${photoList[j].getSquareLargeUrl() }" alt="img"> --%>
-										<img src="${photoList[j].getThumbnailUrl() }" alt="img">
-										<div>${photoList[j].getThumbnailSize() }</div>
-										<div>${photoList[j].getPhotoUrl() }</div>
+									<a href="javascript:detail(${photoList[j].getId() })" class="thumbnail">
+										<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
+										<%-- <img src="${photoList[j].getThumbnailUrl() }" alt="img"> --%>
 									</a>
 								</c:if>
 							</div>
@@ -56,7 +54,9 @@
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
-		// custom script for this page
+		function detail(photoId) {
+			console.log(photoId);
+		}
 	</script>
 </body>
 </html>
