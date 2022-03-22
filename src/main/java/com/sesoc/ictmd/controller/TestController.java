@@ -20,7 +20,7 @@ public class TestController {
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String testSearch(String searchWord, Model model) {
-		System.out.println("검색어: " + searchWord);
+		model.addAttribute("searchWord", searchWord);
 		if (searchWord != null) {
 			PhotoList<Photo> photoList = null;
 			try {

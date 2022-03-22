@@ -22,11 +22,17 @@ public class SearchExample {
 	private SearchParameters p;
 	private static final Set<String> e = new HashSet<>(); // extras
 	{
+		e.add("license");
 		e.add("date_upload");
-//		e.add("geo");
-		e.add("tags");
-		e.add("url_sq");
-		e.add("url_l");
+		e.add("date_taken");
+		e.add("owner_name");
+		e.add("icon_server");
+		e.add("original_format");
+		e.add("last_update");
+		e.add("geo");
+//		e.add("tags");
+//		e.add("url_sq");
+//		e.add("url_l");
 	}
 	private static final ArrayList<String> x = new ArrayList<>(); // exif
 	{
@@ -76,7 +82,7 @@ public class SearchExample {
 	public PhotoList<Photo> search(String text) throws FlickrException {
 		p.setText(text);
 		System.out.println("설정된 검색어: " + p.getText());
-		PhotoList<Photo> results = i.search(p, 50, 0);
+		PhotoList<Photo> results = i.search(p, 40, 0);
 
 		return results;
 	}

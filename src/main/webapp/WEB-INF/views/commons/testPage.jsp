@@ -15,46 +15,54 @@
 
 	<div class="canvas">
 		<div class="page-header">
-			<h1>Search page header <small>Subtext for header</small></h1>
+			<h1>Search Image <small>Subtext for header</small></h1>
 		</div>
-		<form class="navbar-form navbar-left" role="search" action="/test/search" method="get">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search" name="searchWord">
+		<div class="container-fluid">
+			<!-- Search form -->
+			<div class="row">
+				<div class="col-md-12">
+					<form class="navbar-form navbar-left" role="search" action="/test/search" method="get">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Input any keywords" name="searchWord" value="${searchWord }">
+						</div>
+						<button type="submit" class="btn btn-default">Search</button>
+					</form>
+				</div>
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
-		</form>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
 
-		<!-- Thumbnail list for showing search result -->
-		<c:choose>
-			<c:when test="${empty photoList }">
-				Search result not found
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="i" begin="0" end="${photoList.size() - 1 }" step="4">
+			<!-- Search results -->
+			<c:choose>
+				<c:when test="${empty searchWord }">
+				</c:when>
+				<c:when test="${empty photoList }">
 					<div class="row">
-						<c:forEach var="j" begin="${i }" end="${i + 3 }">
-							<div class="col-xs-3 col-md-3">
-								<c:if test="${j < photoList.size() }">
-									<a href="javascript:detail(${photoList[j].getId() })" class="thumbnail">
-										<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
-										<%-- <img src="${photoList[j].getThumbnailUrl() }" alt="img"> --%>
-									</a>
-								</c:if>
-							</div>
-						</c:forEach>
+						<div class="col-md-12">
+							Search result not found
+						</div>
 					</div>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="i" begin="0" end="${photoList.size() - 1 }" step="4">
+						<div class="row">
+							<c:forEach var="j" begin="${i }" end="${i + 3 }">
+								<div class="col-xs-6 col-md-3">
+									<c:if test="${j < photoList.size() }">
+										<a href="javascript:getPhoto(${photoList[j].getId() });" class="thumbnail">
+											<img src="${photoList[j].getSquareLargeUrl() }" alt="img">
+											<%-- <img src="${photoList[j].getThumbnailUrl() }" alt="img"> --%>
+										</a>
+									</c:if>
+								</div>
+							</c:forEach>
+						</div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
-		function detail(photoId) {
+		function getPhoto(photoId) {
 			console.log(photoId);
 		}
 	</script>
