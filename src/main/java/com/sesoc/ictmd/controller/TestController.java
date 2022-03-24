@@ -5,18 +5,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.flickr4java.flickr.FlickrException;
 import com.flickr4java.flickr.photos.Photo;
 import com.flickr4java.flickr.photos.PhotoList;
-import com.sesoc.ictmd.api.SearchExample;
+import com.sesoc.ictmd.api.SearchService;
 
 @Controller
 @RequestMapping("/test")
 public class TestController {
 
 	@Autowired
-	private SearchExample searchExample;
+	private SearchService service;
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String testSearch(String searchWord, Model model) {
@@ -24,7 +25,7 @@ public class TestController {
 		if (searchWord != null) {
 			PhotoList<Photo> photoList = null;
 			try {
-				photoList = searchExample.search(searchWord);
+				photoList = service.search(searchWord);
 			} catch (FlickrException e) {
 				e.printStackTrace();
 			}
@@ -32,6 +33,19 @@ public class TestController {
 		}
 
 		return "commons/testPage";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/getPhoto", method = RequestMethod.GET)
+	public Photo getPhoto(String photoId) {
+		Photo result = null;
+		try {
+			result = service.getPhoto(photoId);
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 
 }

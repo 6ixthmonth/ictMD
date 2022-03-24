@@ -15,7 +15,7 @@ import com.flickr4java.flickr.photos.PhotosInterface;
 import com.flickr4java.flickr.photos.SearchParameters;
 
 @Component
-public class SearchExample {
+public class SearchService {
 
 	private Flickr f;
 	private PhotosInterface i;
@@ -68,7 +68,7 @@ public class SearchExample {
 		x.add("Format");
 	}
 
-	public SearchExample(String apiKey, String secret) {
+	public SearchService(String apiKey, String secret) {
 		f = new Flickr(apiKey, secret, new REST());
 		i = f.getPhotosInterface();
 		p = new SearchParameters();
@@ -85,6 +85,10 @@ public class SearchExample {
 		PhotoList<Photo> results = i.search(p, 40, 0);
 
 		return results;
+	}
+
+	public Photo getPhoto(String photoId) throws FlickrException {
+		return i.getPhoto(photoId);
 	}
 
 }

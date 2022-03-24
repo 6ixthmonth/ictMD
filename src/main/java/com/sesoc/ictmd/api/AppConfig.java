@@ -14,10 +14,10 @@ public class AppConfig {
 	Environment env;
 
 	@Bean
-	public SearchExample searchExample() {
+	public SearchService searchExample() {
 		String apiKey = env.getProperty("FLICKR_API_KEY");
 		String secret = env.getProperty("FLICKR_SHARED_SECRET");
-		SearchExample searchExample = new SearchExample(apiKey, secret);
+		SearchService searchExample = new SearchService(apiKey, secret);
 
 		return searchExample;
 	}

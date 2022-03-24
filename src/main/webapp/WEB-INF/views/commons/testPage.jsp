@@ -83,7 +83,15 @@
 	<!-- <script type="text/javascript">navmenuInit();</script> -->
 	<script type="text/javascript">
 		function getPhoto(photoId) {
-			console.log(photoId);
+			$.ajax({
+				url: "getPhoto",
+				type: "post",
+				data: {
+					photoId: photoId
+				}
+			}).done(function(res) {
+				console.log(res)
+			});
 		}
 	</script>
 </body>
