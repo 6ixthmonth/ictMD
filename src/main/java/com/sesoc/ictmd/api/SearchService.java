@@ -14,7 +14,7 @@ import com.flickr4java.flickr.photos.PhotoList;
 import com.flickr4java.flickr.photos.PhotosInterface;
 import com.flickr4java.flickr.photos.SearchParameters;
 
-@Component
+//@Component
 public class SearchService {
 
 	private Flickr f;
@@ -79,8 +79,8 @@ public class SearchService {
 //		p.setTags(tags);
 	}
 
-	public PhotoList<Photo> search(String text) throws FlickrException {
-		p.setText(text);
+	public PhotoList<Photo> search(String query) throws FlickrException {
+		p.setText(query);
 		System.out.println("설정된 검색어: " + p.getText());
 		PhotoList<Photo> results = i.search(p, 40, 0);
 

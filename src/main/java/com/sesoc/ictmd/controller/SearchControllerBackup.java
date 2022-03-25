@@ -26,20 +26,20 @@ import com.sesoc.ictmd.vo.ModelDetail;
 /**
  * Handles requests for the application home page.
  */
-@Controller
-@PropertySource("classpath:key.properties")
-public class SearchController {
+//@Controller
+//@PropertySource("classpath:key.properties")
+public class SearchControllerBackup {
 	
-	@Value("${FLICKR_API_KEY}")
+//	@Value("${FLICKR_API_KEY}")
 	private String flickrAPIkey;
 	
-	@Value("${FLICKR_SHARED_SECRET}")
+//	@Value("${FLICKR_SHARED_SECRET}")
 	private String sharedSecret;
 	
-	@Value("${VISION_API_KEY}")
+//	@Value("${VISION_API_KEY}")
 	private String visionAPIkey;
 	
-	@Autowired
+//	@Autowired
 	SqlSession session;
 	
 	SearchAPI api;
@@ -68,7 +68,7 @@ public class SearchController {
 	}
 
 	// 메인 화면에서 최신 사진 하나를 찾아오는 메소드
-	@RequestMapping(value = "/brandnew", method = RequestMethod.POST)
+//	@RequestMapping(value = "/brandnew", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> brandnew(String tag) {
 		api = new SearchAPI(flickrAPIkey, sharedSecret);
 		Map<String, Object> result = new HashMap<String, Object>();
@@ -84,7 +84,7 @@ public class SearchController {
 	}
 	
 	// 검색어를 문자열 배열로 입력받아 검색 후 결과를 반환하는 메소드
-	@RequestMapping(value = "/list", method = RequestMethod.POST)
+//	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> list(String[] tags, HttpSession ss) {
 		// 검색 API와 리턴 객체를 초기화
 		api = new SearchAPI(flickrAPIkey, sharedSecret);
@@ -118,7 +118,7 @@ public class SearchController {
 	}
 
 	// 임의의 사진 하나를 클릭했을 때 해당 사진에 대한 모든 정보를 가져오는 메소드
-	@RequestMapping(value = "/detail", method = RequestMethod.POST)
+//	@RequestMapping(value = "/detail", method = RequestMethod.POST)
 	public @ResponseBody Map<String, Object> detail(String id, HttpServletRequest request, HttpSession ss) {
 		// 검색 API와 리턴 객체를 초기화
 		api = new SearchAPI(flickrAPIkey, sharedSecret);
