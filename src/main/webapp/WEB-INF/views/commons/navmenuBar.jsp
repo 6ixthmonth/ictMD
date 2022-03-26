@@ -11,7 +11,7 @@
 <div class="navmenu navmenu-default navmenu-fixed-left">
 	<ul class="nav navmenu-nav">
 		<li><a href="/main">Home</a></li>
-		<li><a href="/test/search">Image Search</a></li>
+		<li><a href="/search">Image Search</a></li>
 		<li><a href="/analysis">Trend Analysis</a></li>
 		<!-- <li><a href="">Weather &amp; Shopping</a></li> -->
 	</ul>

@@ -7,6 +7,9 @@
 	<%@ include file="/WEB-INF/views/commons/navmenuHeader.jsp" %>
 	<style type="text/css">
 		/* custom css for this page */
+		.thumbnail>img {
+			width: 100%;
+		}
 	</style>
 </head>
 <body>
@@ -84,12 +87,12 @@
 		function getPhoto(photoId) {
 			$.ajax({
 				url: "getPhoto",
-				type: "post",
+				type: "get",
 				data: {
 					photoId: photoId
 				}
 			}).done(function(res) {
-				console.log(res)
+				console.log(res);
 			});
 		}
 	</script>

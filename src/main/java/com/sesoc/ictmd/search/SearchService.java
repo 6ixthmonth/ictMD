@@ -1,6 +1,5 @@
 package com.sesoc.ictmd.search;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -89,6 +88,17 @@ public class SearchService {
 		}
 
 		return results;
+	}
+
+	public Photo getPhoto(String photoId) {
+		Photo result = null;
+		try {
+			result = i.getPhoto(photoId);
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
+
+		return result;
 	}
 
 }
