@@ -91,9 +91,22 @@
 				data: {
 					photoId: photoId
 				}
-			}).done(function(res) {
-				console.log(res);
-			});
+			}).done(showModal);
+		}
+
+		function showModal(photo) {
+			// console.log(res);
+			
+			// set title
+			var title = "photo title";
+			$("div.modal-title").html(title);
+			
+			// set content
+			var content = "photo content";
+			$("div.modal-body").html(content);
+			
+			// show modal
+			$("#photoModal").modal("show");
 		}
 	</script>
 </body>
