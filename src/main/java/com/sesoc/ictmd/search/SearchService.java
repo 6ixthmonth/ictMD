@@ -101,4 +101,10 @@ public class SearchService {
 		return result;
 	}
 
+	public String photoToString(Photo photo) {
+		System.out.println(photo);
+		String result = null;
+		return result;
+	}
+
 }

@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.flickr4java.flickr.photos.Photo;
-
 @Controller
 @RequestMapping("/search")
 public class SearchController {
@@ -34,9 +32,9 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "/getPhoto", method = RequestMethod.GET)
-	public @ResponseBody Photo getPhoto(String photoId) {
+	public @ResponseBody String getPhoto(String photoId) {
 		logger.info("photoId: {}", photoId);
-		return service.getPhoto(photoId);
+		return service.photoToString(service.getPhoto(photoId));
 	}
 
 }
