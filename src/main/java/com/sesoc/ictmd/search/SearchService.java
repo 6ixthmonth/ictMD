@@ -77,8 +77,20 @@ public class SearchService {
 //			e.add("count_views");
 		}
 	}
+	
+	public Photo getPhotoByQuery(String query) {
+		p.setText(query);
+		PhotoList<Photo> result = null;
+		try {
+			result = i.search(p, 1, 0);
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
 
-	public PhotoList<Photo> search(String query) {
+		return result.get(0);
+	}
+
+	public PhotoList<Photo> searchPhotos(String query) {
 		p.setText(query);
 		PhotoList<Photo> results = null;
 		try {
@@ -90,7 +102,7 @@ public class SearchService {
 		return results;
 	}
 
-	public Photo getPhoto(String photoId) {
+	public Photo getPhotoById(String photoId) {
 		Photo result = null;
 		try {
 			result = i.getPhoto(photoId);

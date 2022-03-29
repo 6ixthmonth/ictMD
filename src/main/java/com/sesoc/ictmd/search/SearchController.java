@@ -19,22 +19,28 @@ public class SearchController {
 
 	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
+	@RequestMapping(value = "/getPhotoByQuery", method = RequestMethod.GET)
+	public @ResponseBody String getPhotoByQuery(String query) {
+		logger.info("query: {}", query);
+		return service.photoToString(service.getPhotoByQuery(query));
+	}
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String search(@RequestParam(name = "q", defaultValue = "", required = false) String query, Model model) {
 		logger.info("query: {}", query);
 
 		model.addAttribute("q", query);
 		if (query != null && query.length() != 0) {
-			model.addAttribute("photoList", service.search(query));
+			model.addAttribute("photoList", service.searchPhotos(query));
 		}
 
 		return "search";
 	}
 
-	@RequestMapping(value = "/getPhoto", method = RequestMethod.GET)
-	public @ResponseBody String getPhoto(String photoId) {
+	@RequestMapping(value = "/getPhotoById", method = RequestMethod.GET)
+	public @ResponseBody String getPhotoById(String photoId) {
 		logger.info("photoId: {}", photoId);
-		return service.photoToString(service.getPhoto(photoId));
+		return service.photoToString(service.getPhotoById(photoId));
 	}
 
 }
