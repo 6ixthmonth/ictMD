@@ -98,16 +98,16 @@ function setEarth(index, latitude, longitude, landmark, countryName) {
 function popupImg(landmark, countryName) {
 	// get img url by ajax
 	$.ajax({
-		url: "/brandnew",
-		type: "post",
+		url: "/search/getSquareLargeUrl",
+		type: "get",
 		data: {
-			tag: landmark
+			query: landmark
 		}
-	}).done(function(res) {
+	}).done(function(url) {
 		let popupHtml = "";
 		// popupHtml += "<div onclick='searchImg(\"" + landmark + "\")'>";
 		popupHtml += "<div>";
-		popupHtml += "	<img src='" + res.url + "'>";
+		popupHtml += "	<img src='" + url + "'>";
 		popupHtml += "	<div class='result-caption'>";
 		popupHtml += "		<h4>" + landmark + "</h4>";
 		popupHtml += "		<h5>" + countryName + "</h5>";

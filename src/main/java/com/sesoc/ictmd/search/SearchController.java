@@ -19,6 +19,12 @@ public class SearchController {
 
 	private static final Logger logger = LoggerFactory.getLogger(SearchController.class);
 
+	@RequestMapping(value = "/getSquareLargeUrl", method = RequestMethod.GET)
+	public @ResponseBody String getSquareLargeUrl(String query) {
+		logger.info("query: {}", query);
+		return service.getPhotoByQuery(query).getSquareLargeUrl();
+	}
+
 	@RequestMapping(value = "/getPhotoByQuery", method = RequestMethod.GET)
 	public @ResponseBody String getPhotoByQuery(String query) {
 		logger.info("query: {}", query);
