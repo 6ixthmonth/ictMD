@@ -47,5 +47,5 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/template/dist/js/jasny-bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/template/js/bootstrap.min.js"></script>
 
-<!-- Custom script to init css -->
+<!-- Custom script for common function -->
 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/custom/js/navmenu.js"></script>
