@@ -115,7 +115,11 @@ public class SearchService {
 
 	public String photoToString(Photo photo) {
 		System.out.println(photo);
-		String result = null;
+		String result = "";
+		result += "{";
+		result += "	id: " + photo.getId();
+		result += "}";
+
 		return result;
 	}
 
