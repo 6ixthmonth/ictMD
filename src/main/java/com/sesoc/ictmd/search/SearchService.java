@@ -115,9 +115,13 @@ public class SearchService {
 
 	public String photoToString(Photo photo) {
 		System.out.println(photo);
-		String result = "";
-		result += "{";
-		result += "	id: " + photo.getId();
+		String result = "{";
+		try {
+			result += "	id: " + photo.getId() + ",";
+			result += "	originalUrl: " + photo.getOriginalUrl();
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
 		result += "}";
 
 		return result;
