@@ -22,13 +22,13 @@ public class SearchController {
 	@RequestMapping(value = "/getSquareLargeUrl", method = RequestMethod.GET)
 	public @ResponseBody String getSquareLargeUrl(String query) {
 		logger.info("query: {}", query);
-		return service.getPhotoByQuery(query).getSquareLargeUrl();
+		return service.getPhotos(query, 1).get(0).getSquareLargeUrl();
 	}
 
 	@RequestMapping(value = "/getPhotoByQuery", method = RequestMethod.GET)
 	public @ResponseBody String getPhotoByQuery(String query) {
 		logger.info("query: {}", query);
-		return service.photoToString(service.getPhotoByQuery(query));
+		return service.photoToString(service.getPhotos(query, 1).get(0));
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -37,7 +37,7 @@ public class SearchController {
 
 		model.addAttribute("q", query);
 		if (query != null && query.length() != 0) {
-			model.addAttribute("photoList", service.searchPhotos(query));
+			model.addAttribute("photoList", service.getPhotos(query, 40));
 		}
 
 		return "search";
@@ -46,7 +46,7 @@ public class SearchController {
 	@RequestMapping(value = "/getPhotoById", method = RequestMethod.GET)
 	public @ResponseBody String getPhotoById(String photoId) {
 		logger.info("photoId: {}", photoId);
-		return service.photoToString(service.getPhotoById(photoId));
+		return service.photoToString(service.getPhoto(photoId));
 	}
 
 }

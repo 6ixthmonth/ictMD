@@ -78,31 +78,19 @@ public class SearchService {
 		}
 	}
 	
-	public Photo getPhotoByQuery(String query) {
+	public PhotoList<Photo> getPhotos(String query, int count) {
 		p.setText(query);
 		PhotoList<Photo> result = null;
 		try {
-			result = i.search(p, 1, 0);
+			result = i.search(p, count, 0);
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
 
-		return result.get(0);
+		return result;
 	}
 
-	public PhotoList<Photo> searchPhotos(String query) {
-		p.setText(query);
-		PhotoList<Photo> results = null;
-		try {
-			results = i.search(p, 40, 0);
-		} catch (FlickrException e) {
-			e.printStackTrace();
-		}
-
-		return results;
-	}
-
-	public Photo getPhotoById(String photoId) {
+	public Photo getPhoto(String photoId) {
 		Photo result = null;
 		try {
 			result = i.getPhoto(photoId);
@@ -117,8 +105,8 @@ public class SearchService {
 		System.out.println(photo);
 		String result = "{";
 		try {
-			result += "	id: " + photo.getId() + ",";
-			result += "	originalUrl: " + photo.getOriginalUrl();
+			result += "	id: " + photo.getId();
+			result += "	, originalUrl: " + photo.getOriginalUrl();
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
