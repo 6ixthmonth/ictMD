@@ -39,10 +39,8 @@ public class CreateImg extends Thread {
 	// 서버 설정할 때 방화벽 인바운드 규칙에 해당 포트를 추가해야 함
 	private static final String OUR_DOMAIN = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
 	
-	private HttpServletRequest request;
 	private UUID uuid = UUID.randomUUID();
 	
-	private String imageFile; // 사용자로부터 이미지 경로를 얻는다.
 	private String imageTmp; // 얻은 이미지가 저장된 서버의 웹에서의 임시 경로
 	private String imageTmpFile; // 로컬에서의 이미지 경로
 	private String uid;
@@ -58,8 +56,6 @@ public class CreateImg extends Thread {
 	
 	public CreateImg(String imageFile, HttpServletRequest request, String[] tags, String make, String model, SqlSession session, String visionAPIkey) {
 		super();
-		this.request = request;
-		this.imageFile = imageFile;
 		this.uid = uuid.toString();
 		this.uid = uid.substring(uid.length() - 12, uid.length());
 		this.tags = tags;

@@ -74,7 +74,6 @@ public class ImageRecognition extends Thread {
 				}
 			} catch (ParseException e) {
 				System.out.println("ImageRecognition.java resultLabelDetection 오류(seoyul)");
-				// TODO Auto-generated catch block
 			}	
 		}
 

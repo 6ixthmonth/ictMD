@@ -8,20 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.context.annotation.PropertySource;
+//import org.springframework.stereotype.Controller;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sesoc.ictmd.api.SearchAPI;
 import com.sesoc.ictmd.function.CreateImg;
-import com.sesoc.ictmd.mapper.ModelDetailDAO;
 import com.sesoc.ictmd.vo.BrandNewVO;
 import com.sesoc.ictmd.vo.ComplexPhoto;
-import com.sesoc.ictmd.vo.ModelDetail;
 
 /**
  * Handles requests for the application home page.
@@ -96,19 +94,19 @@ public class SearchControllerBackup {
 		// 검색어가 카메라 모델명인지 검사 후 처리
 		HashMap<String, String[]> tagsMap = new HashMap<>();
 		tagsMap.put("tags", tags);
-		ModelDetailDAO mdDAO = session.getMapper(ModelDetailDAO.class);
-		ArrayList<ModelDetail> model = mdDAO.searchModelDetail(tagsMap);
-		if (model != null) {
-			result.put("model", model);
-			ArrayList<ModelDetail> modelList = mdDAO.getModel();
-			for (int i = 0; i < tags.length; i++) {
-				for (ModelDetail temp : modelList) {
-					if (tags[i].replace(" ", "").toUpperCase().contains(temp.getModel().replace(" ", "").toUpperCase())) {
-						tags[i] = temp.getMaker() + " " + temp.getModel();
-					}
-				}
-			}
-		}
+//		ModelDetailDAO mdDAO = session.getMapper(ModelDetailDAO.class);
+//		ArrayList<ModelDetail> model = mdDAO.searchModelDetail(tagsMap);
+//		if (model != null) {
+//			result.put("model", model);
+//			ArrayList<ModelDetail> modelList = mdDAO.getModel();
+//			for (int i = 0; i < tags.length; i++) {
+//				for (ModelDetail temp : modelList) {
+//					if (tags[i].replace(" ", "").toUpperCase().contains(temp.getModel().replace(" ", "").toUpperCase())) {
+//						tags[i] = temp.getMaker() + " " + temp.getModel();
+//					}
+//				}
+//			}
+//		}
 		
 		// 분석 데이터로 쓰기 위해 검색어를 세션에 저장
 		ss.removeAttribute("tags");
