@@ -69,11 +69,9 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title">Modal title</h4>
+					<h4 class="modal-title"></h4>
 				</div>
-				<div class="modal-body">
-					<p>One fine body&hellip;</p>
-				</div>
+				<div class="modal-body"></div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-primary">Save changes</button>
@@ -95,16 +93,17 @@
 		}
 
 		function showModal(photo) {
-			// console.log(res);
-			
+			console.log(photo);
+			photo = JSON.parse(photo);
+
 			// set title
 			var title = "photo title";
-			$("div.modal-title").html(title);
-			
+			$("h4.modal-title").html(title);
+
 			// set content
 			var content = "photo content";
 			$("div.modal-body").html(content);
-			
+
 			// show modal
 			$("#photoModal").modal("show");
 		}

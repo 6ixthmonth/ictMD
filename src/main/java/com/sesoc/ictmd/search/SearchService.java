@@ -103,6 +103,7 @@ public class SearchService {
 
 	public String photoToString(Photo photo) {
 		System.out.println(photo);
+
 		String result = "{";
 		try {
 			result += "	id: " + photo.getId();
