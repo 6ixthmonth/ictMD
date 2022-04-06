@@ -107,6 +107,7 @@ public class SearchService {
 		String result = "{";
 		try {
 			result += "	id: " + photo.getId();
+			result += "	, title: " + photo.getTitle();
 			result += "	, originalUrl: " + photo.getOriginalUrl();
 		} catch (FlickrException e) {
 			e.printStackTrace();

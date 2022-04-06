@@ -97,7 +97,7 @@
 			photo = JSON.parse(photo);
 
 			// set title
-			var title = "photo title";
+			var title = photo.title;
 			$("h4.modal-title").html(title);
 
 			// set content
