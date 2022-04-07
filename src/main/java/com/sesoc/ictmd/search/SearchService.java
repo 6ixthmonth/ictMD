@@ -102,13 +102,11 @@ public class SearchService {
 	}
 
 	public String photoToString(Photo photo) {
-		System.out.println(photo);
-
 		String result = "{";
 		try {
 			result += "	id: " + photo.getId();
-			result += "	, title: " + photo.getTitle();
-			result += "	, originalUrl: " + photo.getOriginalUrl();
+			result += "	, title: \"" + photo.getTitle() + "\"";
+			result += "	, originalUrl: \"" + photo.getOriginalUrl() + "\"";
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}

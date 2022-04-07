@@ -84,7 +84,7 @@
 	<script type="text/javascript">
 		function getPhoto(photoId) {
 			$.ajax({
-				url: "getPhoto",
+				url: "getPhotoById",
 				type: "get",
 				data: {
 					photoId: photoId

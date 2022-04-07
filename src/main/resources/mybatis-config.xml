@@ -5,16 +5,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.sesoc.ictmd.vo.LandmarkVO" alias="Landmark"/>
-		<typeAlias type="com.sesoc.ictmd.vo.ModelBase" alias="modelBase"/>
-		<typeAlias type="com.sesoc.ictmd.vo.ModelDetail" alias="modelDetail"/>
 		<typeAlias type="com.sesoc.ictmd.vo.BasicAnalysisData" alias="BAD"/>
 		<typeAlias type="com.sesoc.ictmd.vo.BasicTrendData" alias="BasicTrendData"/>
 		<typeAlias type="com.sesoc.ictmd.vo.HistoryVO" alias="History"/>
 		<typeAlias type="com.sesoc.ictmd.vo.ComplexAnalysisData" alias="CAD"/>
 	</typeAliases>
 	<mappers>
-		<mapper resource="mappers/ModelBaseMapper.xml"/>
-		<mapper resource="mappers/ModelDetailMapper.xml"/>
 		<mapper resource="mappers/analysisMapper.xml"/>
 		<mapper resource="mappers/TrendMapper.xml"/>
 		<mapper resource="mappers/MiscMapper.xml"/>
