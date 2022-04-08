@@ -1,5 +1,6 @@
 package com.sesoc.ictmd.search;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -101,16 +102,15 @@ public class SearchService {
 		return result;
 	}
 
-	public String photoToString(Photo photo) {
-		String result = "{";
+	public HashMap<String, Object> photoToMap(Photo photo) {
+		HashMap<String, Object> result = new HashMap<>();
 		try {
-			result += "	id: " + photo.getId();
-			result += "	, title: \"" + photo.getTitle() + "\"";
-			result += "	, originalUrl: \"" + photo.getOriginalUrl() + "\"";
+			result.put("id", photo.getId());
+			result.put("title", photo.getTitle());
+			result.put("originalUrl", photo.getOriginalUrl());
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
-		result += "}";
 
 		return result;
 	}

@@ -1,5 +1,7 @@
 package com.sesoc.ictmd.search;
 
+import java.util.HashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +28,9 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "/getPhotoByQuery", method = RequestMethod.GET)
-	public @ResponseBody String getPhotoByQuery(String query) {
+	public @ResponseBody HashMap<String, Object> getPhotoByQuery(String query) {
 		logger.info("query: {}", query);
-		return service.photoToString(service.getPhotos(query, 1).get(0));
+		return service.photoToMap(service.getPhotos(query, 1).get(0));
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
@@ -44,9 +46,9 @@ public class SearchController {
 	}
 
 	@RequestMapping(value = "/getPhotoById", method = RequestMethod.GET)
-	public @ResponseBody String getPhotoById(String photoId) {
+	public @ResponseBody HashMap<String, Object> getPhotoById(String photoId) {
 		logger.info("photoId: {}", photoId);
-		return service.photoToString(service.getPhoto(photoId));
+		return service.photoToMap(service.getPhoto(photoId));
 	}
 
 }
