@@ -1,5 +1,6 @@
 package com.sesoc.ictmd.search;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +18,7 @@ import com.flickr4java.flickr.photos.Photo;
 import com.flickr4java.flickr.photos.PhotoList;
 import com.flickr4java.flickr.photos.PhotosInterface;
 import com.flickr4java.flickr.photos.SearchParameters;
+import com.flickr4java.flickr.photos.Size;
 
 @Service
 @PropertySource("classpath:key.properties")
@@ -72,7 +74,7 @@ public class SearchService {
 //			e.add("url_s");
 //			e.add("url_m");
 //			e.add("url_l");
-//			e.add("url_o");
+			e.add("url_o");
 //			e.add("count_faves");
 //			e.add("count_comments");
 //			e.add("count_views");
@@ -94,7 +96,7 @@ public class SearchService {
 	public Photo getPhoto(String photoId) {
 		Photo result = null;
 		try {
-			result = i.getPhoto(photoId);
+			result = i.getInfo(photoId, sharedSecret);
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
@@ -104,13 +106,34 @@ public class SearchService {
 
 	public HashMap<String, Object> photoToMap(Photo photo) {
 		HashMap<String, Object> result = new HashMap<>();
+		result.put("id", photo.getId());
+		result.put("title", photo.getTitle());
+		result.put("description", photo.getDescription());
+		result.put("datePosted", photo.getDatePosted());
+//		result.put("url", photo.getUrl());
+//		result.put("urls", photo.getUrls());
+		result.put("largeUrl", photo.getLargeUrl());
+//		result.put("large1600Url", photo.getLarge1600Url());
+//		result.put("large2048Url", photo.getLarge2048Url());
+		result.put("url", photo.getPhotoUrl().getUrl());
 		try {
-			result.put("id", photo.getId());
-			result.put("title", photo.getTitle());
 			result.put("originalUrl", photo.getOriginalUrl());
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
+		ArrayList<HashMap<String, Object>> sizes = new ArrayList<>();
+		try {
+			for (Size s : i.getSizes(photo.getId())) {
+				HashMap<String, Object> temp = new HashMap<>();
+				temp.put("labelName", s.getLabelName());
+				temp.put("width", s.getWidth());
+				temp.put("height", s.getHeight());
+				sizes.add(temp);
+			}
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
+		result.put("sizes", sizes);
 
 		return result;
 	}

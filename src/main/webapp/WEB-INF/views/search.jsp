@@ -94,7 +94,6 @@
 
 		function showModal(photo) {
 			console.log(photo);
-			photo = JSON.parse(photo);
 
 			// set title
 			var title = photo.title;
