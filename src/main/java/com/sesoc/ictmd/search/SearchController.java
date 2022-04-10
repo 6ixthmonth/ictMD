@@ -27,11 +27,11 @@ public class SearchController {
 		return service.getPhotos(query, 1).get(0).getSquareLargeUrl();
 	}
 
-	@RequestMapping(value = "/getPhotoByQuery", method = RequestMethod.GET)
-	public @ResponseBody HashMap<String, Object> getPhotoByQuery(String query) {
-		logger.info("query: {}", query);
-		return service.photoToMap(service.getPhotos(query, 1).get(0));
-	}
+//	@RequestMapping(value = "/getPhotoByQuery", method = RequestMethod.GET)
+//	public @ResponseBody HashMap<String, Object> getPhotoByQuery(String query) {
+//		logger.info("query: {}", query);
+//		return service.photoToMap(service.getPhotos(query, 1).get(0));
+//	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String search(@RequestParam(name = "q", defaultValue = "", required = false) String query, Model model) {

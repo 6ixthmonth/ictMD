@@ -99,9 +99,12 @@
 			var title = photo.title;
 			$("h4.modal-title").html(title);
 
-			// set content
-			var content = "photo content";
-			$("div.modal-body").html(content);
+			// set body
+			var body = "";
+			body += "<img src='" + photo.url + "'><br>";
+			if (photo.description != null)
+				body += photo.description;
+			$("div.modal-body").html(body);
 
 			// show modal
 			$("#photoModal").modal("show");

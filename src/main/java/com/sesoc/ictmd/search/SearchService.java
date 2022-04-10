@@ -66,14 +66,14 @@ public class SearchService {
 			e.add("tags");
 			e.add("machine_tags");
 			e.add("o_dims");
-			e.add("views");
-			e.add("media");
+//			e.add("views");
+//			e.add("media");
 			e.add("path_alias");
-//			e.add("url_sq");
-//			e.add("url_t");
-//			e.add("url_s");
-//			e.add("url_m");
-//			e.add("url_l");
+			e.add("url_sq");
+			e.add("url_t");
+			e.add("url_s");
+			e.add("url_m");
+			e.add("url_l");
 			e.add("url_o");
 //			e.add("count_faves");
 //			e.add("count_comments");
@@ -96,7 +96,7 @@ public class SearchService {
 	public Photo getPhoto(String photoId) {
 		Photo result = null;
 		try {
-			result = i.getInfo(photoId, sharedSecret);
+			result = i.getPhoto(photoId);
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
@@ -110,25 +110,19 @@ public class SearchService {
 		result.put("title", photo.getTitle());
 		result.put("description", photo.getDescription());
 		result.put("datePosted", photo.getDatePosted());
-//		result.put("url", photo.getUrl());
-//		result.put("urls", photo.getUrls());
-		result.put("largeUrl", photo.getLargeUrl());
-//		result.put("large1600Url", photo.getLarge1600Url());
-//		result.put("large2048Url", photo.getLarge2048Url());
-		result.put("url", photo.getPhotoUrl().getUrl());
-		try {
-			result.put("originalUrl", photo.getOriginalUrl());
-		} catch (FlickrException e) {
-			e.printStackTrace();
-		}
+		result.put("url", photo.getMediumUrl());
+
 		ArrayList<HashMap<String, Object>> sizes = new ArrayList<>();
 		try {
 			for (Size s : i.getSizes(photo.getId())) {
-				HashMap<String, Object> temp = new HashMap<>();
-				temp.put("labelName", s.getLabelName());
-				temp.put("width", s.getWidth());
-				temp.put("height", s.getHeight());
-				sizes.add(temp);
+				System.out.println(s);
+				if (s != null) {
+					HashMap<String, Object> temp = new HashMap<>();
+					temp.put("labelName", s.getLabelName());
+					temp.put("width", s.getWidth());
+					temp.put("height", s.getHeight());
+					sizes.add(temp);
+				}
 			}
 		} catch (FlickrException e) {
 			e.printStackTrace();
