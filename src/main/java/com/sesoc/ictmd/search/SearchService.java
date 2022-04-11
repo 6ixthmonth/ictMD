@@ -110,24 +110,26 @@ public class SearchService {
 		result.put("title", photo.getTitle());
 		result.put("description", photo.getDescription());
 		result.put("datePosted", photo.getDatePosted());
-		result.put("url", photo.getMediumUrl());
+		result.put("url", photo.getLarge2048Url());
 
-		ArrayList<HashMap<String, Object>> sizes = new ArrayList<>();
-		try {
-			for (Size s : i.getSizes(photo.getId())) {
-				System.out.println(s);
-				if (s != null) {
-					HashMap<String, Object> temp = new HashMap<>();
-					temp.put("labelName", s.getLabelName());
-					temp.put("width", s.getWidth());
-					temp.put("height", s.getHeight());
-					sizes.add(temp);
-				}
-			}
-		} catch (FlickrException e) {
-			e.printStackTrace();
-		}
-		result.put("sizes", sizes);
+//		int maxWidth = 0;
+//		String labelName = null;
+//		try {
+//			for (Size s : i.getSizes(photo.getId())) {
+//				if (s != null) {
+//					if (s.getWidth() > maxWidth) {
+//						maxWidth = s.getWidth();
+//						labelName = s.getLabelName();
+//					}
+//					HashMap<String, Object> temp = new HashMap<>();
+//					temp.put("labelName", s.getLabelName());
+//					temp.put("width", s.getWidth());
+//					temp.put("height", s.getHeight());
+//				}
+//			}
+//		} catch (FlickrException e) {
+//			e.printStackTrace();
+//		}
 
 		return result;
 	}
