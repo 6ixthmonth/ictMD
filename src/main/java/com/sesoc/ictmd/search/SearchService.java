@@ -1,6 +1,5 @@
 package com.sesoc.ictmd.search;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -110,26 +109,22 @@ public class SearchService {
 		result.put("title", photo.getTitle());
 		result.put("description", photo.getDescription());
 		result.put("datePosted", photo.getDatePosted());
-		result.put("url", photo.getLarge2048Url());
 
-//		int maxWidth = 0;
-//		String labelName = null;
-//		try {
-//			for (Size s : i.getSizes(photo.getId())) {
-//				if (s != null) {
-//					if (s.getWidth() > maxWidth) {
-//						maxWidth = s.getWidth();
-//						labelName = s.getLabelName();
-//					}
-//					HashMap<String, Object> temp = new HashMap<>();
-//					temp.put("labelName", s.getLabelName());
-//					temp.put("width", s.getWidth());
-//					temp.put("height", s.getHeight());
-//				}
-//			}
-//		} catch (FlickrException e) {
-//			e.printStackTrace();
-//		}
+		int maxWidth = 0;
+		String source = null;
+		try {
+			for (Size s : i.getSizes(photo.getId())) {
+				if (s != null) {
+					if (s.getWidth() > maxWidth) {
+						maxWidth = s.getWidth();
+						source = s.getSource();
+					}
+				}
+			}
+		} catch (FlickrException e) {
+			e.printStackTrace();
+		}
+		result.put("url", source);
 
 		return result;
 	}
