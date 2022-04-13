@@ -111,12 +111,14 @@ public class SearchService {
 		result.put("datePosted", photo.getDatePosted());
 
 		int maxWidth = 0;
+		int maxHeight = 0;
 		String source = null;
 		try {
 			for (Size s : i.getSizes(photo.getId())) {
 				if (s != null) {
 					if (s.getWidth() > maxWidth) {
 						maxWidth = s.getWidth();
+						maxHeight = s.getHeight();
 						source = s.getSource();
 					}
 				}
@@ -124,6 +126,8 @@ public class SearchService {
 		} catch (FlickrException e) {
 			e.printStackTrace();
 		}
+		result.put("width", maxWidth);
+		result.put("height", maxHeight);
 		result.put("url", source);
 
 		return result;
