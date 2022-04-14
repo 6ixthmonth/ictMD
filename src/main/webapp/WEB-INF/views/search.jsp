@@ -101,9 +101,20 @@
 
 			// set body
 			var body = "";
-			body += "<img src='" + photo.url + "'><br>";
-			if (photo.description != null)
+			body += "<div class='container-fluid'>";
+			body += "	<div class='row'>";
+			body += "		<div class='col-md-12'>";
+			body += "			<img class='img-responsive' src='" + photo.url + "'><br>";
+			body += "		</div>";
+			body += "	</div>";
+			if (photo.description != null) {
+				body += "	<div class='row'>";
+				body += "		<div class='col-md-12'>";
 				body += photo.description;
+				body += "		</div>";
+				body += "	</div>";
+			}
+			body += "</div>";
 			$("div.modal-body").html(body);
 
 			// show modal
