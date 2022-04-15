@@ -74,7 +74,6 @@
 				<div class="modal-body"></div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
 				</div>
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
@@ -104,7 +103,9 @@
 			body += "<div class='container-fluid'>";
 			body += "	<div class='row'>";
 			body += "		<div class='col-md-12'>";
-			body += "			<img class='img-responsive' src='" + photo.url + "'><br>";
+			body += "			<a href='" + photo.url + "' target='_blank'>";
+			body += "				<img class='img-responsive' src='" + photo.url + "'><br>";
+			body += "			</a>";
 			body += "		</div>";
 			body += "	</div>";
 			if (photo.description != null) {
