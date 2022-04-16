@@ -12,12 +12,18 @@
 
 	<div class="canvas">
 		<!-- Search window -->
-		<!-- <div class="input-group text-center">
-			<input type="text" class="form-control" placeholder="Search Images">
-			<span class="input-group-btn">
-				<button class="btn btn-default" type="button">Search</button>
-			</span>
-		</div> -->
+		<form class="form-horizontal" action="/search/" method="get">
+			<div class="form-group">
+				<div class="col-md-10">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search Photos" name="q">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
 
 		<!-- WebGL Earth object -->
 		<div id="earth"></div>
