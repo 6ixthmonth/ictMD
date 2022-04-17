@@ -22,11 +22,13 @@
 			<!-- Search form -->
 			<form class="form-horizontal" action="/search/" method="get">
 				<div class="form-group">
-					<div class="input-group col-md-6">
-						<input type="text" class="form-control" placeholder="Input any keywords" name="q" value="${q }">
-						<span class="input-group-btn">
-							<button type="submit" class="btn btn-default">Search</button>
-						</span>
+					<div class="col-md-10">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Input any keywords" name="q" value="${q }">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default">Search</button>
+							</span>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -46,7 +48,7 @@
 					<c:forEach var="i" begin="0" end="${photoList.size() - 1 }" step="4">
 						<div class="row">
 							<c:forEach var="j" begin="${i }" end="${i + 3 }">
-								<div class="col-xs-6 col-md-3">
+								<div class="col-md-2">
 									<c:if test="${j < photoList.size() }">
 										<a href="javascript:getPhoto(${photoList[j].getId() });" class="thumbnail">
 											<img src="${photoList[j].getSquareLargeUrl() }">

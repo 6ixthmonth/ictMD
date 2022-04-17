@@ -14,11 +14,11 @@
 		<!-- Search window -->
 		<form class="form-horizontal" action="/search/" method="get">
 			<div class="form-group">
-				<div class="col-md-10">
+				<div class="col-md-11">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search Photos" name="q">
 						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">Search</button>
+							<button type="submit" class="btn btn-default">Search</button>
 						</div>
 					</div>
 				</div>
