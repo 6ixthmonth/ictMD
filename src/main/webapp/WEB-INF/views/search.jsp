@@ -20,7 +20,7 @@
 		</div>
 		<div class="container-fluid">
 			<!-- Search form -->
-			<form class="form-horizontal" action="/search/" method="get">
+			<form class="form-horizontal" action="/search" method="get">
 				<div class="form-group">
 					<div class="col-md-10">
 						<div class="input-group">
